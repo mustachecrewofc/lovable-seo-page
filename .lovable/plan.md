@@ -1,47 +1,53 @@
-## VA World Cup 2026 — Copy & Paleta
+## Plano — Atualização Copy + Pricing + Novas Seções
 
-Aplicar nova identidade visual e copy do PRD em toda a landing, mantendo 100% da estrutura, wireframe, componentes e animações.
+Mantemos 100% da paleta atual (dark + gold + ice-white). Ignoramos a seção "Design Tokens" do PRD.
 
-### 1. Paleta (src/styles.css)
-Substituir tokens base:
-- `--bg-primary`: `#0A0A0F` (era cream)
-- `--dark`: `#0A0A0F`
-- `--cream`: `#F0EDE6`
-- Novos: `--gold #F5C842`, `--gold-foreground #060612`, `--card #13131F`, `--border #2A2A3E`, `--muted-foreground #8A8A9A`, `--accent-red #E63B2E`, `--accent-blue #2563EB`
-- `html/body` background → `#0A0A0F`, texto → `#F0EDE6`
+### 1. Refinar copy nas seções existentes
+Sem mudar layout/animações:
 
-### 2. Copy por seção (1:1 com PRD)
-- **Navbar** — logo "Mustache Crew Records", 5 links, CTA "Submit Your Track"
-- **HeroSection** — badge "⚽ Submissions Open", H1 "VA / WORLD CUP / 2026", subtítulo + deadline, CTA dourado
-- **HeroBg** — texto/cores adaptadas ao dark + gold
-- **IntroVideoSection** — 4 marquees do PRD, gradiente gold/dark
-- **BuiltToBeFoundSection** — "Built for the world stage" + 4 sticky cards
-- **ChatSemrushSection** — 6 mensagens de chat do PRD
-- **SEOReviewSection** — 8 conquistas Beatport/SoundCloud
-- **LetLovableFixSection** — Promo Package + Community
-- **WhatsPossibleSection** — 6 cards (artwork, distribuição, etc.)
-- **FAQSection** — 8 Q&A
-- **CTASection** — "Ready to represent your sound" + 29+ artistas
-- **Footer** — 4 colunas
+- **Navbar** — Links: `The Strategy`, `360° Promo`, `Proof`, `FAQ` + CTA `Submit Your Track`.
+- **HeroSection** — Badge `⚽ VA World Cup 2026 • 15 Spots • Beatport Chart Mission`. H1 mantém. Subtítulo do PRD ("A coordinated, global chart push…"). Checklist inline (`✓ 15 curated spots • ✓ 360° promo coordination • ✓ World Cup 2026 release window`). Linha sob o CTA: `📅 Submissions open now • Lineup locks August 15, 2026`.
+- **HeroBg** — Camada dark: `The world is watching.` Camada ice-white: `Let your sound play.`
+- **BuiltToBeFoundSection** — Heading `Why this VA hits different.` Subtítulo + 4 cards reescritos (Velocity = Visibility / Stacking Plays Into Rankings / The World Cup Timing Window / Curated Lineup, No Random Slots). Tags atualizadas.
+- **ChatSemrushSection** (Squad Mindset) — Mantém o chat animado. Reescrevo as mensagens usando o tom do PRD ("The Mission" + "The Communication" virando 6 mensagens curtas).
+- **WhatsPossibleSection / LetLovableFixSection** (360° Campaign) — Atualizo copy: card destaque "Smart Distribution Strategy" + 3 cards de asset (Full Media Kit / Set with All Tracks / SoundCloud Reach) + grid 2×3 de plataformas (Spotify, Beatport, YouTube, SoundCloud, Instagram, Press). Mantenho a estrutura de cards atual, só re-mapeio o conteúdo.
+- **FAQSection** — Substituo pelos 8 Q&A do PRD.
+- **CTASection** — Heading `Ready to represent your sound on the world stage?`, subtítulo + nota + social proof do PRD.
+- **Footer** — Tagline + 4 colunas conforme PRD.
 
-### 3. SEO (src/routes/index.tsx)
-Atualizar `head()`: title, description, og:*, JSON-LD Organization (Mustache Crew Records / VA World Cup 2026).
+### 2. Novas seções (no padrão visual atual)
 
-### 4. Substituição de cores hardcoded
-Os componentes usam cores inline (`#1B1B1B`, `#F8F4EC`, `#FCFBF8`, `#D1D5DB` etc.). Vou substituir por search-replace nas cores correspondentes da nova paleta — não introduzir novos tokens semânticos no Tailwind v4 nesta passada (manter velocidade e zero risco de regressão visual).
+**A) Proof From Our Missions** — após `BuiltToBeFoundSection`, antes do `ChatSemrushSection`.
+- Heading `Proof From Our Missions` (gold accent na 2ª linha).
+- Subtítulo `Mustache Gang Xmas 2025 — the blueprint that started it all.`
+- Botão outline `📷 Watch the highlights on Instagram ↗` (placeholder href `#`).
+- Galeria com 3 cards (1 grande centro + 2 menores): #38 Overall Top 100 / #2 Dubstep / #4 [Genre]. **Uso placeholders visuais** (cards estilizados estilo Beatport, sem prints reais) — pedir ao usuário os prints depois.
+- Linha final: `Brazilian Carnival VA — Charted #1 Electronica/Downtempo Releases`.
 
-### Mapeamento de cores
-- `#FCFBF8` / `#F8F4EC` (cream bg) → `#0A0A0F` (dark) ou `#13131F` (card) conforme contexto
-- `#1B1B1B` (dark bg) → `#0A0A0F` ou `#13131F`
-- texto cream `#F8F4EC` → `#F0EDE6`
-- texto escuro sobre cream → texto cream sobre dark
-- CTA cream `#F9F4EB` → gold `#F5C842` com texto `#060612`
-- Bordas/grid sutis → `#2A2A3E`
+**B) How It Works** — antes do FAQ.
+- Heading `How It Works`.
+- 4 steps numerados em grid (cards minimalistas dark com número gold grande).
+- Conteúdo dos steps direto do PRD.
+
+**C) Pricing / Investment** — antes do CTA final, depois do FAQ.
+- Card grande centralizado, fundo `#13131F`, borda gold sutil.
+- Eyebrow `INVESTMENT`.
+- Preço grande: **€299** + `per accepted track`.
+- Lista de bullets do que está incluído (resumo do 360°): distribuição 50+ plataformas, media kit completo, vídeos individuais, DJ set no YouTube/SoundCloud, repost em rede de ~2M, suporte em playlist, chart mission Beatport, coordenação diária pela Mustache Crew.
+- Linha de garantia: `Submission is always free. €299 only if your track is selected and you choose to join.`
+- Botão `Submit Your Track →` (gold).
+
+### 3. SEO (`src/routes/index.tsx`)
+- Title: `VA World Cup 2026 — Mustache Crew Records | Submit Your Electronic Music Track`
+- Meta description do PRD.
+- Atualizar OG tags consistentes.
 
 ### Fora de escopo
-- Estrutura de rotas, novos componentes, hooks, animações
-- Form de submission real (CTA aponta para `#submit` placeholder)
-- Imagens reais de Beatport/artwork (mantém placeholders atuais)
+- Form real de submissão (CTA aponta para `#submit`).
+- Prints reais do Beatport/Songstats (placeholders visuais até você enviar).
+- Mudança de paleta.
+- Substituir o chat animado por cards estáticos.
 
-### Entregável
-Página completa com copy do VA World Cup 2026 em paleta dark + gold, mesmo layout, mesmas animações.
+### Arquivos a editar/criar
+- Editar: `Navbar.tsx`, `HeroSection.tsx`, `HeroBg.tsx`, `BuiltToBeFoundSection.tsx`, `ChatSemrushSection.tsx`, `WhatsPossibleSection.tsx`, `LetLovableFixSection.tsx`, `SEOReviewSection.tsx` (vira a Proof Gallery), `FAQSection.tsx`, `CTASection.tsx`, `Footer.tsx`, `routes/index.tsx`, `pages/SEOPage.tsx` (ordem das seções).
+- Criar: `HowItWorksSection.tsx`, `PricingSection.tsx`, `ProofGallerySection.tsx` (se a `SEOReviewSection` não couber bem como reskin).
