@@ -42,19 +42,44 @@ export function PortfolioGallery({
 
   return (
     <div className={`w-full ${className}`}>
+      {/* Desktop straight marquee */}
+      {variant === "straight" && (
+        <div className="hidden md:block py-8 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+          <div
+            className="flex gap-6 w-max animate-[marquee_60s_linear_infinite] hover:[animation-play-state:paused]"
+          >
+            {Array(marqueeRepeat).fill(0).map((_, i) => (
+              <div key={i} className="flex gap-6 shrink-0">
+                {images.map((image, index) => (
+                  <div
+                    key={`${i}-${index}`}
+                    style={{ width: cardSize, height: cardSize }}
+                    onClick={() => onImageClick?.(index)}
+                    className="shrink-0 rounded-2xl overflow-hidden border-2 border-[#2A2A3E] bg-[#13131F] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)] transition-transform duration-300 hover:scale-105 cursor-pointer"
+                  >
+                    <img src={image.src} alt={image.alt} className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Desktop overlapping layout */}
+      {variant !== "straight" && (
       <div className="hidden md:flex justify-center items-end pt-32 pb-8 px-8 overflow-x-clip">
         <div className={`flex items-end ${spacing}`}>
           {images.map((image, index) => {
             const totalImages = images.length;
             const middle = Math.floor(totalImages / 2);
             const distanceFromMiddle = Math.abs(index - middle);
-            const staggerOffset = variant === "straight" ? 0 : maxHeight - distanceFromMiddle * 20;
+            const staggerOffset = maxHeight - distanceFromMiddle * 20;
             const zIndex = totalImages - distanceFromMiddle;
             const isHovered = hoveredIndex === index;
             const isOtherHovered = hoveredIndex !== null && hoveredIndex !== index;
-            const yOffset = isHovered ? (variant === "straight" ? -40 : -120) : isOtherHovered ? 0 : -staggerOffset;
-            const rotation = variant === "straight" ? 0 : (index - middle) * 3;
+            const yOffset = isHovered ? -120 : isOtherHovered ? 0 : -staggerOffset;
+            const rotation = (index - middle) * 3;
 
             return (
               <motion.div
@@ -79,6 +104,7 @@ export function PortfolioGallery({
           })}
         </div>
       </div>
+      )}
 
       {/* Mobile marquee */}
       <div className="md:hidden overflow-hidden py-6 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
