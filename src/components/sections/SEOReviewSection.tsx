@@ -7,8 +7,18 @@ import proofHouse from '@/assets/proof-house.jpg';
 import proofTechhouse from '@/assets/proof-techhouse.jpg';
 import proofDubstep from '@/assets/proof-dubstep.jpg';
 import proofElectronica from '@/assets/proof-electronica.jpg';
+import carnivalOverall from '@/assets/carnival-overall.jpg';
+import carnivalElectronica from '@/assets/carnival-electronica.jpg';
+import carnivalProgressive from '@/assets/carnival-progressive.jpg';
+import carnivalHouse from '@/assets/carnival-house.jpg';
+import carnivalTechhouse from '@/assets/carnival-techhouse.jpg';
+import carnivalDance from '@/assets/carnival-dance.jpg';
+import carnivalPeaktime from '@/assets/carnival-peaktime.jpg';
+import carnivalElectro from '@/assets/carnival-electro.jpg';
+import carnivalBassHouse from '@/assets/carnival-bass-house.jpg';
+import carnivalDeepDubstep from '@/assets/carnival-deepdubstep.jpg';
 
-const proofImages = [
+const xmasImages = [
   { src: proofOverall, alt: 'Mustache Gang Xmas — #38 Beatport Overall Top 100' },
   { src: proofProgressive, alt: 'Mustache Gang Xmas — #4 Progressive House Releases' },
   { src: proofPeaktime, alt: 'Mustache Gang Xmas — #4 Techno (Peak Time / Driving) Releases' },
@@ -16,6 +26,19 @@ const proofImages = [
   { src: proofTechhouse, alt: 'Mustache Gang Xmas — #9 Tech House Releases' },
   { src: proofDubstep, alt: 'Mustache Gang Xmas — #2 Dubstep Releases' },
   { src: proofElectronica, alt: 'Mustache Gang Xmas — #2 Electronica / Downtempo Releases' },
+];
+
+const carnivalImages = [
+  { src: carnivalOverall, alt: 'Brazilian Carnival — #58 Beatport Overall Top 100' },
+  { src: carnivalElectronica, alt: 'Brazilian Carnival — #1 Electronica / Downtempo Releases' },
+  { src: carnivalDeepDubstep, alt: 'Brazilian Carnival — #1 140 / Deep Dubstep / Grime Releases' },
+  { src: carnivalDance, alt: 'Brazilian Carnival — #2 Dance Releases' },
+  { src: carnivalElectro, alt: 'Brazilian Carnival — #2 Electro (Classic / Detroit / Modern) Releases' },
+  { src: carnivalBassHouse, alt: 'Brazilian Carnival — #2 Bass House Releases' },
+  { src: carnivalPeaktime, alt: 'Brazilian Carnival — #4 Techno (Peak Time / Driving) Releases' },
+  { src: carnivalProgressive, alt: 'Brazilian Carnival — #5 Progressive House Releases' },
+  { src: carnivalHouse, alt: 'Brazilian Carnival — #10 House Releases' },
+  { src: carnivalTechhouse, alt: 'Brazilian Carnival — #14 Tech House Releases' },
 ];
 
 const issues = [
@@ -106,7 +129,23 @@ export default function SEOReviewSection() {
       </div>
 
       <div className={`mt-16 md:mt-24 transition-all duration-700 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-        <PortfolioGallery images={proofImages} spacing="-space-x-24 md:-space-x-28" />
+        <div className="flex items-center gap-3 mb-2 md:mb-4">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E63B2E]/15 border border-[#E63B2E]/40 text-[#FF8A7A] text-xs font-bold uppercase tracking-wider">
+            🎅 Mustache Gang Xmas 2025
+          </span>
+          <span className="text-[#8A8A9A] text-xs hidden sm:inline">7 Beatport chart placements</span>
+        </div>
+        <PortfolioGallery images={xmasImages} spacing="-space-x-24 md:-space-x-28" />
+      </div>
+
+      <div className={`mt-12 md:mt-20 transition-all duration-700 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+        <div className="flex items-center gap-3 mb-2 md:mb-4">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5C842]/15 border border-[#F5C842]/40 text-[#F5C842] text-xs font-bold uppercase tracking-wider">
+            🇧🇷 Brazilian Carnival VA
+          </span>
+          <span className="text-[#8A8A9A] text-xs hidden sm:inline">10 Beatport chart placements · #1 Electronica</span>
+        </div>
+        <PortfolioGallery images={carnivalImages} spacing="-space-x-24 md:-space-x-28" />
       </div>
     </section>
   );
