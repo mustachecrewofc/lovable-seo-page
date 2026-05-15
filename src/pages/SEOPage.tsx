@@ -28,9 +28,9 @@ export default function SEOPage() {
         <LetLovableFixSection />
         <WhatsPossibleSection />
         <HowItWorksSection />
-        <FAQSection />
         <PricingSection />
         <CTASection />
+        <FAQSection />
       </main>
 
       <Footer />
