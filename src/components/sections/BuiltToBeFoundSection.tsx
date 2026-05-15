@@ -36,21 +36,21 @@ function FeatureCard({ title, description, index, isLast }: {
       >
         <div
           style={{
-            background: '#13131F',
-            border: '1px solid #2A2A3E',
+            background: '#FFFFFF',
+            border: '1px solid #DDE2EA',
             borderRadius: '28px',
             padding: '56px 56px',
             minHeight: '420px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            boxShadow: '0 -2px 30px rgba(245,200,66,0.04)',
+            boxShadow: '0 20px 50px -20px rgba(10,10,15,0.18), 0 -2px 30px rgba(245,200,66,0.06)',
           }}
         >
-          <h3 style={{ fontSize: 'clamp(24px, 3vw, 34px)', fontWeight: 700, color: '#F0EDE6', lineHeight: 1.15, letterSpacing: '-0.5px', marginBottom: '20px' }}>
+          <h3 style={{ fontSize: 'clamp(24px, 3vw, 34px)', fontWeight: 700, color: '#0A0A0F', lineHeight: 1.15, letterSpacing: '-0.5px', marginBottom: '20px' }}>
             {title}
           </h3>
-          <p style={{ fontSize: '17px', color: '#8A8A9A', lineHeight: 1.65 }}>
+          <p style={{ fontSize: '17px', color: '#4A4A55', lineHeight: 1.65 }}>
             {description}
           </p>
         </div>
@@ -64,11 +64,11 @@ export default function BuiltToBeFoundSection() {
   const { ref, inView } = useInView();
 
   return (
-    <section className="relative" style={{ overflow: 'clip' }}>
+    <section className="relative bg-[#EEF1F5]" style={{ overflow: 'clip' }}>
       <div
         className="absolute bottom-0 left-0 w-full h-[500px] pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse 70% 50% at 15% 100%, rgba(245,200,66,0.18) 0%, rgba(230,59,46,0.10) 30%, transparent 70%)',
+          background: 'radial-gradient(ellipse 70% 50% at 15% 100%, rgba(245,200,66,0.30) 0%, rgba(230,59,46,0.14) 30%, transparent 70%)',
           filter: 'blur(40px)',
         }}
         aria-hidden="true"
@@ -82,15 +82,15 @@ export default function BuiltToBeFoundSection() {
               className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
             >
               <h2
-                className="font-black text-[#F0EDE6] leading-[1.0] -tracking-[2.5px]"
+                className="font-black text-[#0A0A0F] leading-[1.0] -tracking-[2.5px]"
                 style={{ fontSize: 'clamp(48px, 6.5vw, 88px)' }}
               >
-                Built for the <span className="text-[#F5C842]">world stage</span>
+                Built for the <span className="text-[#A8821C]">world stage</span>
               </h2>
-              <p className="mt-5 text-[#F0EDE6] text-lg -tracking-[0.36px] leading-relaxed font-medium">
+              <p className="mt-5 text-[#0A0A0F] text-lg -tracking-[0.36px] leading-relaxed font-medium">
                 A global compilation engineered for real impact
               </p>
-              <p className="mt-3 text-[#8A8A9A] text-sm md:text-base leading-relaxed">
+              <p className="mt-3 text-[#4A4A55] text-sm md:text-base leading-relaxed">
                 Mustache Crew Records connects underground producers across 5 continents.
                 Each VA World Cup edition is a snapshot of where electronic music is heading —
                 released globally with full distribution, promo, and editorial support.

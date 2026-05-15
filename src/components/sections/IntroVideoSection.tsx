@@ -42,15 +42,16 @@ export default function IntroVideoSection() {
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      className="container py-12 md:py-20 flex flex-col items-center"
+      className="bg-[#EEF1F5]"
     >
+     <div className="container py-12 md:py-20 flex flex-col items-center">
       <p
-        className={`max-w-[560px] text-center text-[#8A8A9A] text-base md:text-lg leading-relaxed -tracking-[0.36px] mb-10 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+        className={`max-w-[560px] text-center text-[#4A4A55] text-base md:text-lg leading-relaxed -tracking-[0.36px] mb-10 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
       >
         The VA World Cup is more than a compilation —
         it's a global movement uniting underground talent under one banner.
-        From <span className="text-[#F5C842] font-medium">São Paulo</span> to{' '}
-        <span className="text-[#F5C842] font-medium">Berlin</span>, every track is a flag.
+        From <span className="text-[#A8821C] font-semibold">São Paulo</span> to{' '}
+        <span className="text-[#A8821C] font-semibold">Berlin</span>, every track is a flag.
       </p>
 
       <div
@@ -100,6 +101,7 @@ export default function IntroVideoSection() {
           </div>
         </div>
       </div>
+     </div>
 
       <style>{`
         @keyframes marquee-forward {

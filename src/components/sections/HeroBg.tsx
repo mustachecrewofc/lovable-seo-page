@@ -7,7 +7,7 @@ export default function HeroBg() {
           position: 'sticky',
           top: 0,
           height: '100vh',
-          background: '#0A0A0F',
+          background: '#EEF1F5',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -19,7 +19,7 @@ export default function HeroBg() {
           style={{
             fontSize: 'clamp(80px, 16vw, 220px)',
             fontWeight: 900,
-            color: '#F5C842',
+            color: '#C9A227',
             lineHeight: 1,
             letterSpacing: '-0.04em',
             margin: 0,
@@ -40,16 +40,16 @@ export default function HeroBg() {
           height: '100vh',
           zIndex: 10,
           overflow: 'hidden',
-          background: '#0A0A0F',
+          background: '#EEF1F5',
         }}
       >
         <div
           style={{
             position: 'absolute',
             inset: 0,
-            opacity: 0.04,
+            opacity: 0.08,
             backgroundImage:
-              'linear-gradient(#F5C842 1px, transparent 1px), linear-gradient(90deg, #F5C842 1px, transparent 1px)',
+              'linear-gradient(#0A0A0F 1px, transparent 1px), linear-gradient(90deg, #0A0A0F 1px, transparent 1px)',
             backgroundSize: '60px 60px',
           }}
         />
@@ -63,7 +63,7 @@ export default function HeroBg() {
         >
           <p
             style={{
-              color: '#F0EDE6',
+              color: '#0A0A0F',
               fontWeight: 800,
               fontSize: 'clamp(40px, 8vw, 110px)',
               lineHeight: 1.05,
