@@ -42,7 +42,32 @@ export function PortfolioGallery({
 
   return (
     <div className={`w-full ${className}`}>
+      {/* Desktop straight marquee */}
+      {variant === "straight" && (
+        <div className="hidden md:block py-8 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+          <div
+            className="flex gap-6 w-max animate-[marquee_60s_linear_infinite] hover:[animation-play-state:paused]"
+          >
+            {Array(marqueeRepeat).fill(0).map((_, i) => (
+              <div key={i} className="flex gap-6 shrink-0">
+                {images.map((image, index) => (
+                  <div
+                    key={`${i}-${index}`}
+                    style={{ width: cardSize, height: cardSize }}
+                    onClick={() => onImageClick?.(index)}
+                    className="shrink-0 rounded-2xl overflow-hidden border-2 border-[#2A2A3E] bg-[#13131F] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)] transition-transform duration-300 hover:scale-105 cursor-pointer"
+                  >
+                    <img src={image.src} alt={image.alt} className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Desktop overlapping layout */}
+      {variant !== "straight" && (
       <div className="hidden md:flex justify-center items-end pt-32 pb-8 px-8 overflow-x-clip">
         <div className={`flex items-end ${spacing}`}>
           {images.map((image, index) => {
@@ -79,6 +104,7 @@ export function PortfolioGallery({
           })}
         </div>
       </div>
+      )}
 
       {/* Mobile marquee */}
       <div className="md:hidden overflow-hidden py-6 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
