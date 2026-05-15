@@ -1,8 +1,11 @@
 import logoWhite from '@/assets/mustache-crew-white.png';
 
 export default function SquadMindsetReveal() {
+  const frontLayerHeight = '72vh';
+  const sectionHeight = '172vh';
+
   return (
-    <div style={{ position: 'relative', height: '130vh' }}>
+    <div style={{ position: 'relative', height: sectionHeight }}>
       <div
         style={{
           position: 'sticky',
@@ -25,7 +28,7 @@ export default function SquadMindsetReveal() {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 container flex min-h-screen items-center justify-center px-6 py-24 text-center">
+        <div className="relative z-10 container flex min-h-screen items-start justify-center px-6 pb-24 pt-[16vh] text-center">
           <div className="max-w-5xl">
             <h2
               className="font-black text-[#F0EDE6] leading-[0.95]"
@@ -49,7 +52,7 @@ export default function SquadMindsetReveal() {
           top: 0,
           left: 0,
           right: 0,
-          height: '100vh',
+          height: frontLayerHeight,
           zIndex: 10,
           overflow: 'hidden',
           background: '#0A0A0F',
