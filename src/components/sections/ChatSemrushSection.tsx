@@ -4,12 +4,12 @@ import { useInView } from '../../hooks/useInView';
 type Step = { type: 'user' | 'ai' | 'loading' | 'thinking' | 'file'; content?: string; delay: number };
 
 const steps: Step[] = [
-  { type: 'user', content: 'Hey, I want to send a track to the VA World Cup 2026. How does it work?', delay: 600 },
+  { type: 'user', content: "I'm in. How does the squad actually work day to day?", delay: 600 },
   { type: 'loading', delay: 1200 },
-  { type: 'ai', content: 'Welcome aboard 🌍 Submit unreleased material via the official form. Genres open: Techno, House, Tech House, Melodic, Progressive, Afro House.', delay: 2400 },
-  { type: 'file', content: 'submission-guidelines.pdf', delay: 3400 },
-  { type: 'user', content: 'What do selected artists get?', delay: 4400 },
-  { type: 'ai', content: 'Worldwide release on Beatport, Spotify, Apple Music & SoundCloud + promo package, animated artwork, and editorial playlist placement. Mastered by our team.', delay: 5400 },
+  { type: 'ai', content: "Once the lineup locks, you join our private Telegram with all 15 confirmed artists. One mission, one schedule, one push.", delay: 2400 },
+  { type: 'file', content: 'squad-content-calendar.pdf', delay: 3400 },
+  { type: 'user', content: "And the coordination during release week?", delay: 4400 },
+  { type: 'ai', content: "Daily updates, shared assets, coordinated posting, pre-save sync — Mustache Crew runs the direction so the squad moves together from prep through the full promo window.", delay: 5400 },
 ];
 
 function Dots() {
@@ -54,10 +54,11 @@ export default function ChatSemrushSection() {
             className={`font-black text-[#F0EDE6] leading-tight -tracking-[2px] transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
             style={{ fontSize: 'clamp(36px, 5.5vw, 72px)' }}
           >
-            Talk directly with the label
+            Squad Mindset = <span className="text-[#F5C842]">Chart Potential</span>
           </h2>
           <p className={`mt-4 text-[#F0EDE6]/85 text-lg max-w-[560px] mx-auto leading-relaxed transition-all duration-700 delay-100 ${inView ? 'opacity-100' : 'opacity-0'}`}>
-            Real conversations, real A&R. No gatekeepers between you and Mustache Crew Records.
+            15 artists working as one coordinated squad, aiming for Beatport chart positions.
+            This is how independent music competes at the highest level.
           </p>
           <div className={`mt-6 flex items-center justify-center gap-2 transition-all duration-700 delay-200 ${inView ? 'opacity-100' : 'opacity-0'}`}>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
