@@ -51,7 +51,7 @@ export default function ChatSemrushSection() {
       />
       <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(251,146,60,0.15) 0%, rgba(252,251,248,0) 60%)' }} aria-hidden="true" />
 
-      <div ref={ref as React.RefObject<HTMLElement>} className="relative z-10">
+      <div ref={ref as unknown as React.RefObject<HTMLDivElement>} className="relative z-10">
         {/* Section header — centered on gradient */}
         <div className="container pt-20 md:pt-28 pb-16 text-center">
           <h2
