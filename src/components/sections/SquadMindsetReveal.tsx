@@ -28,7 +28,7 @@ export default function SquadMindsetReveal() {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 container flex min-h-screen items-start justify-center px-6 pb-24 pt-[12vh] text-center">
+        <div className="relative z-10 container flex min-h-screen items-start justify-center px-6 pb-24 pt-[22vh] text-center">
           <div className="max-w-5xl">
             <h2
               className="font-black text-[#F0EDE6] leading-[0.95]"
