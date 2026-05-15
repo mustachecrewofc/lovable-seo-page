@@ -133,7 +133,7 @@ export default function SEOReviewSection() {
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E63B2E]/15 border border-[#E63B2E]/40 text-[#FF8A7A] text-xs font-bold uppercase tracking-wider">
             🎅 Mustache Gang Xmas 2025
           </span>
-          <span className="text-[#8A8A9A] text-xs hidden sm:inline">7 Beatport chart placements</span>
+          <span className="text-[#8A8A9A] text-xs hidden sm:inline">8 Beatport chart placements</span>
         </div>
         <PortfolioGallery images={xmasImages} spacing="-space-x-24 md:-space-x-28" />
       </div>
@@ -143,9 +143,9 @@ export default function SEOReviewSection() {
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5C842]/15 border border-[#F5C842]/40 text-[#F5C842] text-xs font-bold uppercase tracking-wider">
             🇧🇷 Brazilian Carnival VA
           </span>
-          <span className="text-[#8A8A9A] text-xs hidden sm:inline">10 Beatport chart placements · #1 Electronica</span>
+          <span className="text-[#8A8A9A] text-xs hidden sm:inline">12 Beatport chart placements</span>
         </div>
-        <PortfolioGallery images={carnivalImages} spacing="-space-x-24 md:-space-x-28" />
+        <PortfolioGallery images={carnivalImages} spacing="-space-x-40 md:-space-x-48" />
       </div>
     </section>
   );
