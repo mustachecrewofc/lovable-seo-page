@@ -39,7 +39,7 @@ export function PortfolioGallery({
   return (
     <div className={`w-full ${className}`}>
       {/* Desktop overlapping layout */}
-      <div className="hidden md:flex justify-center items-end pt-32 pb-8 overflow-hidden">
+      <div className="hidden md:flex justify-center items-end pt-32 pb-8 px-8 overflow-x-clip">
         <div className={`flex items-end ${spacing}`}>
           {images.map((image, index) => {
             const totalImages = images.length;
