@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useInView } from '../../hooks/useInView';
-import { Users } from 'lucide-react';
 
 type ChatMessage = {
   author: string;
