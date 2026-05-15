@@ -26,7 +26,7 @@ export default function HeroBg() {
             userSelect: 'none',
           }}
         >
-          worldwide
+          Let your<br/>sound play.
         </h2>
       </div>
 
@@ -72,7 +72,7 @@ export default function HeroBg() {
               margin: 0,
             }}
           >
-            One stage.<br/>One sound.
+            The world<br/>is watching.
           </p>
         </div>
       </div>
