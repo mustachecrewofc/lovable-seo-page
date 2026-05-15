@@ -86,7 +86,7 @@ function Avatar({ msg }: { msg: Msg }) {
   );
 }
 
-export default function ChatSemrushSection() {
+export default function ChatSemrushSection({ hideHero = false }: { hideHero?: boolean }) {
   const { ref, inView } = useInView({ threshold: 0.15 });
   const [visible, setVisible] = useState<number[]>([]);
   const [started, setStarted] = useState(false);
@@ -104,16 +104,21 @@ export default function ChatSemrushSection() {
 
   return (
     <section className="relative overflow-hidden">
-      <div
-        className="absolute inset-0"
-        style={{
-          background: 'radial-gradient(ellipse 80% 60% at 50% 0%, #F5C842 0%, #E63B2E 40%, #7c1d1d 80%, #0A0A0F 100%)',
-        }}
-        aria-hidden="true"
-      />
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(245,200,66,0.12) 0%, rgba(10,10,15,0) 60%)' }} aria-hidden="true" />
+      {!hideHero && (
+        <>
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'radial-gradient(ellipse 80% 60% at 50% 0%, #F5C842 0%, #E63B2E 40%, #7c1d1d 80%, #0A0A0F 100%)',
+            }}
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(245,200,66,0.12) 0%, rgba(10,10,15,0) 60%)' }} aria-hidden="true" />
+        </>
+      )}
 
       <div ref={ref as unknown as React.RefObject<HTMLDivElement>} className="relative z-10">
+        {!hideHero && (
         <div className="container pt-20 md:pt-28 pb-16 text-center">
           <h2
             className={`font-black text-[#F0EDE6] leading-tight -tracking-[2px] transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
@@ -132,12 +137,13 @@ export default function ChatSemrushSection() {
             Independent label born from a global crew of producers and DJs. We push underground sounds with worldwide distribution and a tight-knit community.
           </p>
         </div>
+        )}
 
         <div
           className="relative"
-          style={{ background: 'linear-gradient(to bottom, transparent 0%, #0A0A0F 12%)' }}
+          style={{ background: hideHero ? '#0A0A0F' : 'linear-gradient(to bottom, transparent 0%, #0A0A0F 12%)' }}
         >
-          <div className="container max-w-[700px] pb-20">
+          <div className="container max-w-[700px] pt-12 pb-20">
             {/* Telegram-like header */}
             <div className="flex items-center gap-3 bg-[#13131F] border border-[#2A2A3E] rounded-t-2xl px-5 py-3 shadow-sm">
               <div className="w-10 h-10 rounded-full bg-[#F5C842] flex items-center justify-center flex-shrink-0">
