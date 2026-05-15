@@ -38,21 +38,25 @@ function FeatureCard({ title, description, index, isLast }: {
         <div
           style={{
             background: '#F0EDE6',
-            borderRadius: '24px',
-            padding: '28px 32px',
+            borderRadius: '28px',
+            padding: '56px 56px',
+            minHeight: '420px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
             boxShadow: '0 -2px 20px rgba(0,0,0,0.06)',
           }}
         >
-          <h3 style={{ fontSize: 'clamp(20px, 2.5vw, 28px)', fontWeight: 700, color: '#1B1B1B', lineHeight: 1.2, letterSpacing: '-0.5px', marginBottom: '16px' }}>
+          <h3 style={{ fontSize: 'clamp(24px, 3vw, 34px)', fontWeight: 700, color: '#1B1B1B', lineHeight: 1.15, letterSpacing: '-0.5px', marginBottom: '20px' }}>
             {title}
           </h3>
-          <p style={{ fontSize: '16px', color: '#73726F', lineHeight: 1.65 }}>
+          <p style={{ fontSize: '17px', color: '#73726F', lineHeight: 1.65 }}>
             {description}
           </p>
         </div>
       </div>
       {/* Espaçador: cria o espaço de scroll entre um card e o próximo */}
-      {!isLast && <div style={{ height: '200px' }} />}
+      {!isLast && <div style={{ height: '480px' }} />}
     </div>
   );
 }
