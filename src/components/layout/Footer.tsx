@@ -1,3 +1,5 @@
+import logoWhite from '@/assets/mustache-crew-white.png';
+
 const footerColumns = [
   {
     title: 'Company',
@@ -47,12 +49,8 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
             {/* Logo column */}
             <div className="col-span-2 md:col-span-3 lg:col-span-1">
-              <a href="/" className="flex items-center gap-2 mb-6">
-                <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
-                  <circle cx="20" cy="20" r="17" stroke="#F5C842" strokeWidth="2.5"/>
-                  <path d="M10 23c3-4 7-4 10 0s7 4 10 0" stroke="#F5C842" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-                </svg>
-                <span className="font-black text-[#F0EDE6] text-base">Mustache Crew</span>
+              <a href="/" className="flex items-center gap-3 mb-6">
+                <img src={logoWhite} alt="Mustache Crew" className="h-14 w-auto invert" />
               </a>
               <p className="text-xs text-[#8A8A9A] leading-relaxed mb-4">
                 Strategic VA campaigns for electronic music artists.
