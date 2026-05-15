@@ -2,7 +2,7 @@ import logoWhite from '@/assets/mustache-crew-white.png';
 
 export default function SquadMindsetReveal() {
   return (
-    <div style={{ position: 'relative', height: '140vh' }}>
+    <div style={{ position: 'relative', height: '110vh' }}>
       <div
         style={{
           position: 'sticky',
@@ -24,8 +24,6 @@ export default function SquadMindsetReveal() {
           }}
           aria-hidden="true"
         />
-
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(245,200,66,0.18) 0%, rgba(245,200,66,0) 24%, rgba(10,10,15,0.12) 100%)' }} aria-hidden="true" />
 
         <div className="relative z-10 container flex min-h-screen items-center justify-center px-6 py-24 text-center">
           <div className="max-w-5xl">
@@ -51,7 +49,7 @@ export default function SquadMindsetReveal() {
           top: 0,
           left: 0,
           right: 0,
-          height: '70vh',
+          height: '45vh',
           zIndex: 10,
           overflow: 'hidden',
           background: '#0A0A0F',
@@ -74,9 +72,8 @@ export default function SquadMindsetReveal() {
             left: 0,
             right: 0,
             bottom: 0,
-            height: '22vh',
-            background: 'linear-gradient(180deg, rgba(10,10,15,0) 0%, rgba(245,200,66,0.22) 45%, rgba(230,59,46,0.4) 100%)',
-            boxShadow: '0 0 30px rgba(245,200,66,0.22)',
+            height: '2px',
+            background: 'linear-gradient(90deg, transparent, rgba(245,200,66,0.6), transparent)',
           }}
         />
       </div>
