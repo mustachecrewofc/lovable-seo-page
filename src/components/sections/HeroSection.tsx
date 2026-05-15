@@ -32,7 +32,7 @@ export default function HeroSection() {
           {/* Badge */}
           <div className="mt-12 lg:mt-0 mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#F5C842]/40 bg-[#F5C842]/10 text-[#F5C842] text-sm font-medium">
             <span>⚽</span>
-            <span>VA World Cup 2026 · 15 Spots · Beatport Chart Mission</span>
+            <span>VA World Cup 2026 · 30 Spots Max · Beatport Chart Mission</span>
           </div>
 
           <h1 className="self-center text-center font-black text-[#F0EDE6] text-5xl leading-[54px] tracking-tight md:text-[96px] md:leading-[100px] md:-tracking-[2.5px] lg:pb-12 lg:text-[140px] lg:leading-[130px] lg:-tracking-[5px] [text-wrap:balance]">
@@ -53,7 +53,7 @@ export default function HeroSection() {
             Top 10 is the baseline. The top is what we're building toward.
           </p>
           <p className="mt-4 max-w-[520px] text-sm text-[#8A8A9A]">
-            ✓ 15 curated spots&nbsp;&nbsp;•&nbsp;&nbsp;✓ 360° promo coordination&nbsp;&nbsp;•&nbsp;&nbsp;✓ World Cup 2026 release window
+            ✓ 30 curated spots (max)&nbsp;&nbsp;•&nbsp;&nbsp;✓ 360° promo coordination&nbsp;&nbsp;•&nbsp;&nbsp;✓ World Cup 2026 release window
           </p>
           <a
             href="#submit"

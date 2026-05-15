@@ -23,7 +23,7 @@ const useCases = [
   },
   {
     title: 'Instagram + Press Coverage',
-    desc: 'Coordinated Instagram content campaign across all 15 artists, plus blog and press coverage to extend the reach beyond the algorithm.',
+    desc: 'Coordinated Instagram content campaign across all 30 artists, plus blog and press coverage to extend the reach beyond the algorithm.',
   },
 ];
 

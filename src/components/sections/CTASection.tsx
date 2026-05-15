@@ -32,7 +32,7 @@ export default function CTASection() {
 
         <p className={`mt-6 max-w-[600px] text-[#8A8A9A] text-base md:text-lg leading-relaxed transition-all duration-700 delay-100 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
           The World Cup happens once every four years. This campaign happens once — period.
-          15 spots. Submissions close August 15, 2026.
+          30 spots max. Submissions close August 15, 2026.
         </p>
 
         <div

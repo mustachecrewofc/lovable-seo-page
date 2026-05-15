@@ -9,7 +9,7 @@ const steps: Step[] = [
   { type: 'ai', content: "Posts scheduled. Email list primed. Let's go 🔥 — Artist_Carlos · Stories + reel locked, cracking that Top 10 🚀 — DJ_Sofia · Pre-save in bio updated, squad assets loaded ✅ — TechnoMike", delay: 2600 },
   { type: 'file', content: 'world-cup-release-week-playbook.pdf', delay: 3600 },
   { type: 'user', content: "Same here. First 72h = everything. Let's make history 💪", delay: 4600 },
-  { type: 'ai', content: "That's the squad mindset. 15 artists, one push, coordinated drop. Mustache Crew runs the direction — you bring the track, we run the war room from prep through the full World Cup window.", delay: 5600 },
+  { type: 'ai', content: "That's the squad mindset. 30 artists, one push, coordinated drop. Mustache Crew runs the direction — you bring the track, we run the war room from prep through the full World Cup window.", delay: 5600 },
 ];
 
 function Dots() {
@@ -57,7 +57,7 @@ export default function ChatSemrushSection() {
             Squad Mindset = <span className="text-[#F5C842]">Chart Potential</span>
           </h2>
           <p className={`mt-4 text-[#F0EDE6]/85 text-lg max-w-[560px] mx-auto leading-relaxed transition-all duration-700 delay-100 ${inView ? 'opacity-100' : 'opacity-0'}`}>
-            15 artists working as one coordinated squad, aiming for Beatport chart positions.
+            30 artists working as one coordinated squad, aiming for Beatport chart positions.
             This is how independent music competes at the highest level.
           </p>
           <div className={`mt-6 flex items-center justify-center gap-2 transition-all duration-700 delay-200 ${inView ? 'opacity-100' : 'opacity-0'}`}>

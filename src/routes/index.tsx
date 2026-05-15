@@ -9,13 +9,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Join the VA World Cup 2026 by Mustache Crew Records. A coordinated electronic music chart campaign launching during the 2026 World Cup. 15 curated spots. Submit your demo now.",
+          "Join the VA World Cup 2026 by Mustache Crew Records. A coordinated electronic music chart campaign launching during the 2026 World Cup. 30 curated spots (max). Submit your demo now.",
       },
       { property: "og:title", content: "VA World Cup 2026 — Mustache Crew Records" },
       {
         property: "og:description",
         content:
-          "A coordinated Beatport chart campaign during the 2026 World Cup. 15 curated spots, full 360° promo, daily crew direction. Submissions close August 15, 2026.",
+          "A coordinated Beatport chart campaign during the 2026 World Cup. 30 curated spots (max), full 360° promo, daily crew direction. Submissions close August 15, 2026.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
