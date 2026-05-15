@@ -6,7 +6,6 @@ import IntroVideoSection from '../components/sections/IntroVideoSection';
 import BuiltToBeFoundSection from '../components/sections/BuiltToBeFoundSection';
 import ChatSemrushSection from '../components/sections/ChatSemrushSection';
 import SEOReviewSection from '../components/sections/SEOReviewSection';
-import ScrollRevealBridge from '../components/sections/ScrollRevealBridge';
 import LetLovableFixSection from '../components/sections/LetLovableFixSection';
 import WhatsPossibleSection from '../components/sections/WhatsPossibleSection';
 import FAQSection from '../components/sections/FAQSection';
@@ -25,9 +24,15 @@ export default function SEOPage() {
         <HeroBg />
         <IntroVideoSection />
         <BuiltToBeFoundSection />
-        <SEOReviewSection />
-        <ScrollRevealBridge />
-        <ChatSemrushSection />
+        <div className="relative">
+          <SEOReviewSection />
+          <div
+            className="relative z-10 -mt-[20vh] rounded-t-[48px] overflow-hidden"
+            style={{ boxShadow: '0 -30px 80px -10px rgba(0,0,0,0.6)' }}
+          >
+            <ChatSemrushSection />
+          </div>
+        </div>
         <LetLovableFixSection />
         <HowItWorksSection />
         <WhatsPossibleSection />
