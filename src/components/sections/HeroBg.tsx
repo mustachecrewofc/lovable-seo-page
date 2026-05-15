@@ -40,16 +40,16 @@ export default function HeroBg() {
           height: '100vh',
           zIndex: 10,
           overflow: 'hidden',
-          background: '#EEF1F5',
+          background: '#0A0A0F',
         }}
       >
         <div
           style={{
             position: 'absolute',
             inset: 0,
-            opacity: 0.08,
+            opacity: 0.04,
             backgroundImage:
-              'linear-gradient(#0A0A0F 1px, transparent 1px), linear-gradient(90deg, #0A0A0F 1px, transparent 1px)',
+              'linear-gradient(#F5C842 1px, transparent 1px), linear-gradient(90deg, #F5C842 1px, transparent 1px)',
             backgroundSize: '60px 60px',
           }}
         />
@@ -63,7 +63,7 @@ export default function HeroBg() {
         >
           <p
             style={{
-              color: '#0A0A0F',
+              color: '#F0EDE6',
               fontWeight: 800,
               fontSize: 'clamp(40px, 8vw, 110px)',
               lineHeight: 1.05,
