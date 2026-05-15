@@ -1,53 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useInView } from '../../hooks/useInView';
 
-type ChatMessage = {
-  author: string;
-  role?: string;
-  time: string;
-  content: string;
-  color: string;
-  delay: number;
-};
+type Step = { type: 'user' | 'ai' | 'loading' | 'thinking' | 'file'; content?: string; delay: number };
 
-const messages: ChatMessage[] = [
-  {
-    author: 'Mustache Crew',
-    role: 'A&R',
-    time: '9:14 AM',
-    content: "Pre-order links go live in 2 hours. Everyone ready to blast socials at 11 AM sharp? 🚀",
-    color: '#F5C842',
-    delay: 600,
-  },
-  {
-    author: 'Artist_Carlos',
-    time: '9:16 AM',
-    content: "Posts scheduled. Email list primed. Let's go 🔥",
-    color: '#3B82F6',
-    delay: 1600,
-  },
-  {
-    author: 'DJ_Sofia',
-    time: '9:18 AM',
-    content: "Same! Stories + reel ready. Let's crack that Beatport Top 10 🚀",
-    color: '#F59E0B',
-    delay: 2600,
-  },
-  {
-    author: 'TechnoMike',
-    time: '9:20 AM',
-    content: "Pre-save link in bio updated. Squad assets all loaded ✅",
-    color: '#10B981',
-    delay: 3600,
-  },
-  {
-    author: 'Mustache Crew',
-    role: 'A&R',
-    time: '9:21 AM',
-    content: "This is what winning looks like. First 72h = everything. Let's make history 💪",
-    color: '#F5C842',
-    delay: 4600,
-  },
+const steps: Step[] = [
+  { type: 'user', content: "Pre-order links go live in 2 hours. Everyone ready to blast socials at 11 AM sharp? 🚀", delay: 600 },
+  { type: 'loading', delay: 1400 },
+  { type: 'ai', content: "Posts scheduled. Email list primed. Let's go 🔥 — Artist_Carlos · Stories + reel locked, cracking that Top 10 🚀 — DJ_Sofia · Pre-save in bio updated, squad assets loaded ✅ — TechnoMike", delay: 2600 },
+  { type: 'file', content: 'world-cup-release-week-playbook.pdf', delay: 3600 },
+  { type: 'user', content: "Same here. First 72h = everything. Let's make history 💪", delay: 4600 },
+  { type: 'ai', content: "That's the squad mindset. 15 artists, one push, coordinated drop. Mustache Crew runs the direction — you bring the track, we run the war room from prep through the full World Cup window.", delay: 5600 },
 ];
 
 function Dots() {
@@ -68,7 +30,7 @@ export default function ChatSemrushSection() {
   useEffect(() => {
     if (!inView || started) return;
     setStarted(true);
-    messages.forEach((s, i) => {
+    steps.forEach((s, i) => {
       setTimeout(() => setVisible(p => [...p, i]), s.delay);
     });
   }, [inView, started]);
@@ -116,66 +78,61 @@ export default function ChatSemrushSection() {
           style={{ background: 'linear-gradient(to bottom, transparent 0%, #0A0A0F 12%)' }}
         >
           <div className="container max-w-[700px] pb-20">
-            <div className="bg-[#13131F] border border-[#2A2A3E] rounded-2xl shadow-xl overflow-hidden">
-              {/* Telegram group header */}
-              <div className="flex items-center gap-3 px-5 py-4 border-b border-[#2A2A3E] bg-[#0F0F1A]">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#F5C842] to-[#E63B2E] flex items-center justify-center flex-shrink-0">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#060612" strokeWidth="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="font-semibold text-[#F0EDE6] text-sm">Carnival Worldwide Squad</p>
-                  <p className="text-xs text-[#8A8A9A] flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] inline-block" />
-                    15 artists · coordinating release week
-                  </p>
-                </div>
-                <span className="text-[10px] uppercase tracking-wider text-[#F5C842] font-bold border border-[#F5C842]/40 rounded px-2 py-0.5">Telegram</span>
-              </div>
+            <div className="flex flex-col gap-5 pt-4">
 
-              {/* Messages */}
-              <div className="flex flex-col gap-4 px-5 py-5 min-h-[340px]">
-                {messages.map((m, i) => (
-                  show(i) && (
-                    <div key={i} className="flex gap-3 animate-[chat-message_0.35s_ease-out_forwards]">
-                      <div
-                        className="w-9 h-9 rounded-full flex-shrink-0"
-                        style={{ background: `linear-gradient(135deg, ${m.color}, ${m.color}99)` }}
-                      />
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-baseline gap-2 flex-wrap">
-                          <span className="font-semibold text-[#F0EDE6] text-sm" style={{ color: m.color }}>
-                            {m.author}
-                          </span>
-                          {m.role && (
-                            <span className="text-[10px] uppercase tracking-wider text-[#F5C842] font-bold border border-[#F5C842]/40 rounded px-1.5 py-0.5">
-                              {m.role}
-                            </span>
-                          )}
-                          <span className="text-xs text-[#8A8A9A]">{m.time}</span>
-                        </div>
-                        <p className="text-[#F0EDE6] text-sm leading-relaxed mt-0.5">{m.content}</p>
-                      </div>
-                    </div>
-                  )
-                ))}
+              {show(0) && (
+                <div className="flex justify-end animate-[chat-message_0.35s_ease-out_forwards]">
+                  <div className="bg-[#F5C842] text-[#060612] text-base px-5 py-3.5 rounded-[20px] rounded-br-sm shadow-sm max-w-[75%] font-medium">
+                    {steps[0].content}
+                  </div>
+                </div>
+              )}
 
-                {show(messages.length - 1) === false && started && (
-                  <div className="flex items-center gap-2 text-[#8A8A9A] text-xs">
-                    <span>squad is typing</span>
+              {show(1) && !show(2) && (
+                <div className="flex justify-start animate-[chat-message_0.35s_ease-out_forwards]">
+                  <div className="text-[#8A8A9A] text-sm">
+                    <span>Squad is typing...</span>
                     <Dots />
                   </div>
-                )}
-              </div>
-
-              {/* Input bar (decorative) */}
-              <div className="flex items-center gap-2 px-4 py-3 border-t border-[#2A2A3E] bg-[#0F0F1A]">
-                <div className="flex-1 bg-[#1A1A28] border border-[#2A2A3E] rounded-full px-4 py-2 text-sm text-[#8A8A9A]">
-                  Message Carnival Worldwide Squad…
                 </div>
-                <button className="w-9 h-9 rounded-full bg-[#F5C842] flex items-center justify-center flex-shrink-0" aria-label="Send">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#060612" strokeWidth="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                </button>
-              </div>
+              )}
+
+              {show(2) && (
+                <div className="flex justify-start animate-[chat-message_0.35s_ease-out_forwards]">
+                  <div className="max-w-[80%]">
+                    <p className="text-[#F0EDE6] text-base leading-relaxed">{steps[2].content}</p>
+                    <p className="text-xs text-[#8A8A9A] mt-1.5">World Cup Squad · Telegram</p>
+                  </div>
+                </div>
+              )}
+
+              {show(3) && (
+                <div className="animate-[chat-message_0.35s_ease-out_forwards]">
+                  <div className="inline-flex items-center gap-2 bg-[#13131F] border border-[#2A2A3E] px-3 py-2 rounded-xl text-sm text-[#8A8A9A] shadow-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <span className="text-[#F5C842] underline">Open</span>
+                    <span className="font-medium text-[#F0EDE6]">{steps[3].content}</span>
+                  </div>
+                  <p className="text-xs text-[#8A8A9A] mt-1.5 ml-1">Shared in the squad group · pinned by Mustache Crew.</p>
+                </div>
+              )}
+
+              {show(4) && (
+                <div className="flex justify-end animate-[chat-message_0.35s_ease-out_forwards]">
+                  <div className="bg-[#F5C842] text-[#060612] text-base px-5 py-3.5 rounded-[20px] rounded-br-sm shadow-sm max-w-[75%] font-medium">
+                    {steps[4].content}
+                  </div>
+                </div>
+              )}
+
+              {show(5) && (
+                <div className="flex justify-start animate-[chat-message_0.35s_ease-out_forwards]">
+                  <div className="max-w-[80%]">
+                    <p className="text-[#F0EDE6] text-base leading-relaxed">{steps[5].content}</p>
+                    <p className="text-xs text-[#8A8A9A] mt-1.5">Mustache Crew · A&R</p>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="mt-10 bg-[#13131F] border border-[#2A2A3E] rounded-2xl px-5 py-4 shadow-sm">
