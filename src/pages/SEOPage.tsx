@@ -10,6 +10,8 @@ import LetLovableFixSection from '../components/sections/LetLovableFixSection';
 import WhatsPossibleSection from '../components/sections/WhatsPossibleSection';
 import FAQSection from '../components/sections/FAQSection';
 import CTASection from '../components/sections/CTASection';
+import HowItWorksSection from '../components/sections/HowItWorksSection';
+import PricingSection from '../components/sections/PricingSection';
 
 export default function SEOPage() {
   return (
@@ -21,11 +23,13 @@ export default function SEOPage() {
         <HeroBg />
         <IntroVideoSection />
         <BuiltToBeFoundSection />
-        <ChatSemrushSection />
         <SEOReviewSection />
+        <ChatSemrushSection />
         <LetLovableFixSection />
         <WhatsPossibleSection />
+        <HowItWorksSection />
         <FAQSection />
+        <PricingSection />
         <CTASection />
       </main>
 
