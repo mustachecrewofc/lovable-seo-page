@@ -1,15 +1,60 @@
 import { useEffect, useState } from 'react';
 import { useInView } from '../../hooks/useInView';
+import logoWhite from '@/assets/mustache-crew-white.png';
+import mustacheIcon from '@/assets/mustache-icon.png';
 
-type Step = { type: 'user' | 'ai' | 'loading' | 'thinking' | 'file'; content?: string; delay: number };
+type Msg = {
+  author: string;
+  role?: string;
+  isCrew?: boolean;
+  content: string;
+  color?: string;
+  delay: number;
+};
 
-const steps: Step[] = [
-  { type: 'user', content: "Pre-order links go live in 2 hours. Everyone ready to blast socials at 11 AM sharp? 🚀", delay: 600 },
-  { type: 'loading', delay: 1400 },
-  { type: 'ai', content: "Posts scheduled. Email list primed. Let's go 🔥 — Artist_Carlos · Stories + reel locked, cracking that Top 10 🚀 — DJ_Sofia · Pre-save in bio updated, squad assets loaded ✅ — TechnoMike", delay: 2600 },
-  { type: 'file', content: 'world-cup-release-week-playbook.pdf', delay: 3600 },
-  { type: 'user', content: "Same here. First 72h = everything. Let's make history 💪", delay: 4600 },
-  { type: 'ai', content: "That's the squad mindset. 30 artists, one push, coordinated drop. Mustache Crew runs the direction — you bring the track, we run the war room from prep through the full World Cup window.", delay: 5600 },
+const messages: Msg[] = [
+  {
+    author: 'Mustache Crew',
+    role: 'A&R · admin',
+    isCrew: true,
+    content: "Squad, it's official 🚨 VA World Cup 2026 drops June 12. 30 artists, one coordinated push. Pre-save links go live tomorrow at 11AM CET. Are we ready? 🔥",
+    delay: 600,
+  },
+  {
+    author: 'Carlos Mendez',
+    role: 'Tech House · MX',
+    color: '#3B82F6',
+    content: "LET'S GOOO 🚀🚀 Stories already drafted, posting the second the link drops. This is THE one.",
+    delay: 1800,
+  },
+  {
+    author: 'Sofia Lindqvist',
+    role: 'Melodic Techno · SE',
+    color: '#F59E0B',
+    content: "My track is mastered and loaded ✅ Pre-save banner in bio, reel cut for launch day. Squad energy 💪",
+    delay: 3000,
+  },
+  {
+    author: 'TechnoMike',
+    role: 'Peak Time · DE',
+    color: '#10B981',
+    content: "Just hit my mailing list — 12k subs primed for the drop. Let's chart this thing 📈",
+    delay: 4200,
+  },
+  {
+    author: 'Lua Ferreira',
+    role: 'Afro House · BR',
+    color: '#EC4899',
+    content: "Linha de comunicação aberta com a galera daqui do Brasil 🇧🇷 vamos empurrar forte na semana de lançamento!",
+    delay: 5400,
+  },
+  {
+    author: 'Mustache Crew',
+    role: 'A&R · admin',
+    isCrew: true,
+    content: "That's the squad mindset 🔥 30 artists, one drop, one push. We run the war room — you bring the heat. World Cup window is ours.",
+    delay: 6800,
+  },
 ];
 
 function Dots() {
@@ -22,6 +67,25 @@ function Dots() {
   );
 }
 
+function Avatar({ msg }: { msg: Msg }) {
+  if (msg.isCrew) {
+    return (
+      <div className="w-9 h-9 rounded-full bg-[#F5C842] flex items-center justify-center flex-shrink-0 shadow-sm">
+        <img src={mustacheIcon} alt="" className="w-6 h-6 object-contain" />
+      </div>
+    );
+  }
+  const initials = msg.author.split(' ').map(s => s[0]).slice(0, 2).join('');
+  return (
+    <div
+      className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-[#0A0A0F] text-xs font-bold shadow-sm"
+      style={{ background: `linear-gradient(135deg, ${msg.color}, ${msg.color}cc)` }}
+    >
+      {initials}
+    </div>
+  );
+}
+
 export default function ChatSemrushSection() {
   const { ref, inView } = useInView({ threshold: 0.15 });
   const [visible, setVisible] = useState<number[]>([]);
@@ -30,12 +94,13 @@ export default function ChatSemrushSection() {
   useEffect(() => {
     if (!inView || started) return;
     setStarted(true);
-    steps.forEach((s, i) => {
-      setTimeout(() => setVisible(p => [...p, i]), s.delay);
+    messages.forEach((m, i) => {
+      setTimeout(() => setVisible(p => [...p, i]), m.delay);
     });
   }, [inView, started]);
 
   const show = (i: number) => visible.includes(i);
+  const showTyping = (i: number) => visible.length === i && i < messages.length;
 
   return (
     <section className="relative overflow-hidden">
@@ -60,13 +125,8 @@ export default function ChatSemrushSection() {
             30 artists working as one coordinated squad, aiming for Beatport chart positions.
             This is how independent music competes at the highest level.
           </p>
-          <div className={`mt-6 flex items-center justify-center gap-2 transition-all duration-700 delay-200 ${inView ? 'opacity-100' : 'opacity-0'}`}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" fill="#F5C842"/>
-              <path d="M7 14c1.5-2 3-2 5 0s3.5 2 5 0" stroke="#060612" strokeWidth="2" strokeLinecap="round" fill="none"/>
-            </svg>
-            <span className="font-black text-[#F0EDE6] text-lg tracking-wide">MUSTACHE CREW</span>
-            <span className="text-[#F0EDE6]/70 text-sm font-medium">Records · est. 2018</span>
+          <div className={`mt-8 flex items-center justify-center gap-3 transition-all duration-700 delay-200 ${inView ? 'opacity-100' : 'opacity-0'}`}>
+            <img src={logoWhite} alt="Mustache Crew" className="h-14 w-auto invert" />
           </div>
           <p className={`mt-3 text-[#F0EDE6]/70 text-sm max-w-[480px] mx-auto transition-all duration-700 delay-300 ${inView ? 'opacity-100' : 'opacity-0'}`}>
             Independent label born from a global crew of producers and DJs. We push underground sounds with worldwide distribution and a tight-knit community.
@@ -78,60 +138,50 @@ export default function ChatSemrushSection() {
           style={{ background: 'linear-gradient(to bottom, transparent 0%, #0A0A0F 12%)' }}
         >
           <div className="container max-w-[700px] pb-20">
-            <div className="flex flex-col gap-5 pt-4">
+            {/* Telegram-like header */}
+            <div className="flex items-center gap-3 bg-[#13131F] border border-[#2A2A3E] rounded-t-2xl px-5 py-3 shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-[#F5C842] flex items-center justify-center flex-shrink-0">
+                <img src={mustacheIcon} alt="" className="w-7 h-7 object-contain" />
+              </div>
+              <div className="flex-1 text-left">
+                <p className="font-bold text-[#F0EDE6] text-sm">VA World Cup 2026 — Squad</p>
+                <p className="text-xs text-[#8A8A9A]">30 artists · 1 drop · coordinated push</p>
+              </div>
+              <span className="text-xs text-[#8A8A9A] bg-[#0A0A0F] border border-[#2A2A3E] px-2 py-1 rounded-full">Telegram</span>
+            </div>
 
-              {show(0) && (
-                <div className="flex justify-end animate-[chat-message_0.35s_ease-out_forwards]">
-                  <div className="bg-[#F5C842] text-[#060612] text-base px-5 py-3.5 rounded-[20px] rounded-br-sm shadow-sm max-w-[75%] font-medium">
-                    {steps[0].content}
+            <div className="bg-[#0F0F1A] border-x border-b border-[#2A2A3E] rounded-b-2xl px-4 py-5 flex flex-col gap-4 min-h-[400px]">
+              {messages.map((msg, i) =>
+                show(i) ? (
+                  <div key={i} className="flex gap-2.5 items-start animate-[chat-message_0.35s_ease-out_forwards]">
+                    <Avatar msg={msg} />
+                    <div className="max-w-[80%]">
+                      <div className="flex items-baseline gap-2 mb-0.5">
+                        <span
+                          className="text-sm font-semibold"
+                          style={{ color: msg.isCrew ? '#F5C842' : msg.color }}
+                        >
+                          {msg.author}
+                        </span>
+                        {msg.role && <span className="text-[10px] text-[#8A8A9A] uppercase tracking-wide">{msg.role}</span>}
+                      </div>
+                      <div
+                        className={`text-[15px] leading-relaxed px-4 py-2.5 rounded-2xl rounded-tl-sm ${
+                          msg.isCrew
+                            ? 'bg-[#F5C842]/10 border border-[#F5C842]/30 text-[#F0EDE6]'
+                            : 'bg-[#1A1A2E] text-[#F0EDE6]'
+                        }`}
+                      >
+                        {msg.content}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              )}
-
-              {show(1) && !show(2) && (
-                <div className="flex justify-start animate-[chat-message_0.35s_ease-out_forwards]">
-                  <div className="text-[#8A8A9A] text-sm">
-                    <span>Squad is typing...</span>
+                ) : showTyping(i) ? (
+                  <div key={`typing-${i}`} className="flex gap-2.5 items-center text-[#8A8A9A] text-sm pl-12">
+                    <span>{msg.author} is typing</span>
                     <Dots />
                   </div>
-                </div>
-              )}
-
-              {show(2) && (
-                <div className="flex justify-start animate-[chat-message_0.35s_ease-out_forwards]">
-                  <div className="max-w-[80%]">
-                    <p className="text-[#F0EDE6] text-base leading-relaxed">{steps[2].content}</p>
-                    <p className="text-xs text-[#8A8A9A] mt-1.5">World Cup Squad · Telegram</p>
-                  </div>
-                </div>
-              )}
-
-              {show(3) && (
-                <div className="animate-[chat-message_0.35s_ease-out_forwards]">
-                  <div className="inline-flex items-center gap-2 bg-[#13131F] border border-[#2A2A3E] px-3 py-2 rounded-xl text-sm text-[#8A8A9A] shadow-sm">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                    <span className="text-[#F5C842] underline">Open</span>
-                    <span className="font-medium text-[#F0EDE6]">{steps[3].content}</span>
-                  </div>
-                  <p className="text-xs text-[#8A8A9A] mt-1.5 ml-1">Shared in the squad group · pinned by Mustache Crew.</p>
-                </div>
-              )}
-
-              {show(4) && (
-                <div className="flex justify-end animate-[chat-message_0.35s_ease-out_forwards]">
-                  <div className="bg-[#F5C842] text-[#060612] text-base px-5 py-3.5 rounded-[20px] rounded-br-sm shadow-sm max-w-[75%] font-medium">
-                    {steps[4].content}
-                  </div>
-                </div>
-              )}
-
-              {show(5) && (
-                <div className="flex justify-start animate-[chat-message_0.35s_ease-out_forwards]">
-                  <div className="max-w-[80%]">
-                    <p className="text-[#F0EDE6] text-base leading-relaxed">{steps[5].content}</p>
-                    <p className="text-xs text-[#8A8A9A] mt-1.5">Mustache Crew · A&R</p>
-                  </div>
-                </div>
+                ) : null
               )}
             </div>
 
