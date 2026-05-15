@@ -8,13 +8,13 @@ import logoWhite from '@/assets/mustache-crew-white.png';
  */
 export default function SquadMindsetReveal() {
   return (
-    <div style={{ position: 'relative', height: '200vh' }}>
+    <div style={{ position: 'relative', height: '130vh' }}>
       {/* BACK LAYER — sticky, stays pinned while front scrolls up */}
       <div
         style={{
           position: 'sticky',
           top: 0,
-          height: '100vh',
+          height: '70vh',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -55,7 +55,7 @@ export default function SquadMindsetReveal() {
           top: 0,
           left: 0,
           right: 0,
-          height: '100vh',
+          height: '60vh',
           zIndex: 10,
           background: '#0A0A0F',
           overflow: 'hidden',
