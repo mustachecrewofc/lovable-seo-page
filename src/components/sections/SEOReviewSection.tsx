@@ -145,7 +145,12 @@ export default function SEOReviewSection() {
           </span>
           <span className="text-[#8A8A9A] text-xs hidden sm:inline">12 Beatport chart placements</span>
         </div>
-        <PortfolioGallery images={carnivalImages} spacing="-space-x-40 md:-space-x-48" />
+        <PortfolioGallery
+          images={carnivalImages}
+          variant="straight"
+          cardSize={200}
+          spacing="-space-x-10 md:-space-x-12"
+        />
       </div>
     </section>
   );
