@@ -1,9 +1,22 @@
 export default function HeroSection() {
   return (
     <div className="relative bg-[#0A0A0F] overflow-hidden">
+      {/* YouTube background video */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+        <iframe
+          title="VA World Cup background"
+          src="https://www.youtube.com/embed/tO_JQgsaZno?autoplay=1&mute=1&loop=1&playlist=tO_JQgsaZno&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3"
+          allow="autoplay; encrypted-media"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full"
+          style={{ border: 0, opacity: 0.25 }}
+        />
+        {/* Dark overlay for legibility */}
+        <div className="absolute inset-0 bg-[#0A0A0F]/55" />
+      </div>
+
       {/* Subtle grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 opacity-[0.04] z-[1] pointer-events-none"
         style={{
           backgroundImage:
             'linear-gradient(#F5C842 1px, transparent 1px), linear-gradient(90deg, #F5C842 1px, transparent 1px)',
