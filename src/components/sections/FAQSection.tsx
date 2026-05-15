@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { useInView } from '../../hooks/useInView';
 
 const faqs = [
-  { q: 'Who can submit?', a: 'Producers from anywhere in the world. Independent, signed, established or new — what matters is the music. We accept Techno, House, Tech House, Melodic Techno, Progressive, Minimal and Afro House.' },
-  { q: 'Is there a submission fee?', a: 'No. Submitting to the VA World Cup is 100% free. We never charge artists to consider their work.' },
-  { q: 'Do tracks need to be unreleased?', a: 'Yes. All submitted material must be unreleased and exclusive to the VA World Cup compilation. Tracks already published on any platform won\'t be considered.' },
-  { q: 'When is the deadline?', a: 'The submission deadline is March 31, 2026. Selected artists will be contacted directly via email by April 30, 2026.' },
-  { q: 'How are tracks selected?', a: 'Mustache Crew\'s A&R team listens to every submission. Selection is based on production quality, originality, and how the track fits the global narrative of the compilation.' },
-  { q: 'What about royalties?', a: 'Selected artists sign a fair distribution agreement with transparent royalty splits. You keep your publishing rights — we only handle the master release for the VA edition.' },
-  { q: 'Do I need to live in a specific country?', a: 'No. The VA World Cup is fully international and remote. Past editions have featured artists from Brazil, Germany, Mexico, UK, Argentina, Italy, Spain, Japan and more.' },
-  { q: 'What happens after I\'m selected?', a: 'You\'ll get a contract, then we coordinate mastering, artwork and metadata. Release happens simultaneously worldwide on all major DSPs with a full promo campaign rolled out by the label.' },
+  { q: 'Do you guarantee a Beatport chart position?', a: "We don't guarantee positions — no label can honestly do that. What we guarantee is the full execution of our proven promotional strategy. Our past VAs hit #38 Overall Top 100, #2 Dubstep, and #1 Electronica/Downtempo on Beatport. We engineer for maximum chart potential, not guaranteed outcomes." },
+  { q: 'How many artists will be selected?', a: 'Maximum 15 tracks. The lineup is curated — not everyone who submits gets in. Selection is based on track quality, energy, genre fit, and overall compilation balance. Smaller lineup = more focused push = better chart potential per track.' },
+  { q: 'When do submissions close?', a: 'Submissions close on August 15, 2026. The lineup will be locked and confirmed by August 22. Early submissions have a higher chance of selection as spots fill on a rolling basis — don\'t wait until the deadline.' },
+  { q: 'When is the release?', a: 'The VA World Cup 2026 is scheduled for the World Cup 2026 window. The exact release date will be confirmed to accepted artists at lineup lock. Pre-save campaign begins 4 weeks before release.' },
+  { q: 'What genres are accepted?', a: "We're open to all electronic music genres that carry World Cup energy: Tech House, House, Afro House, Techno, Breaks, Melodic Techno, Bass House, and similar styles. The main criteria is energy, originality, and a strong hook. If it makes a crowd move, submit it." },
+  { q: 'What is the investment?', a: 'The investment is €299 per track upon acceptance. This covers production of all campaign assets, distribution costs, the full 360° promotional budget (playlists, email, SoundCloud, social, press), and full campaign coordination. Submission is always free — the investment only applies if your track is selected and you choose to join.' },
+  { q: 'Do I need to promote my own track?', a: "Yes — and that's exactly what makes this model powerful. We coordinate a collective promotion calendar. Every artist posts on the same days with the same campaign assets. The combined reach of 15 artists promoting simultaneously is what drives the chart push. We provide all assets and the full schedule." },
+  { q: 'What happens after I submit?', a: "We review within 7 business days. You'll receive feedback regardless of outcome. If accepted: artist agreement, artwork brief, campaign timeline, and access to the squad Telegram group. If not selected: we'll tell you why and may keep you in consideration for future VA campaigns." },
 ];
 
 function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
@@ -43,7 +43,7 @@ export default function FAQSection() {
   return (
     <section ref={ref as React.RefObject<HTMLElement>} id="faq" className="container py-16 md:py-24">
       <h2 className={`text-[40px] md:text-[56px] lg:text-[72px] font-black -tracking-[1.5px] text-[#F0EDE6] mb-10 md:mb-14 transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-        Frequently asked
+        Questions? We've got answers.
       </h2>
       <div className={`max-w-[780px] transition-all duration-700 delay-150 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
         {faqs.map((item, i) => <FAQItem key={item.q} q={item.q} a={item.a} index={i} />)}
