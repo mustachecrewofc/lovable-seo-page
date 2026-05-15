@@ -12,6 +12,7 @@ import FAQSection from '../components/sections/FAQSection';
 import CTASection from '../components/sections/CTASection';
 import HowItWorksSection from '../components/sections/HowItWorksSection';
 import PricingSection from '../components/sections/PricingSection';
+import WhatsIncludedSection from '../components/sections/WhatsIncludedSection';
 
 export default function SEOPage() {
   return (
@@ -26,8 +27,9 @@ export default function SEOPage() {
         <SEOReviewSection />
         <ChatSemrushSection />
         <LetLovableFixSection />
-        <WhatsPossibleSection />
         <HowItWorksSection />
+        <WhatsPossibleSection />
+        <WhatsIncludedSection />
         <PricingSection />
         <CTASection />
         <FAQSection />
