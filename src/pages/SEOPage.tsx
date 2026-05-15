@@ -6,6 +6,7 @@ import IntroVideoSection from '../components/sections/IntroVideoSection';
 import BuiltToBeFoundSection from '../components/sections/BuiltToBeFoundSection';
 import ChatSemrushSection from '../components/sections/ChatSemrushSection';
 import SEOReviewSection from '../components/sections/SEOReviewSection';
+import ScrollRevealBridge from '../components/sections/ScrollRevealBridge';
 import LetLovableFixSection from '../components/sections/LetLovableFixSection';
 import WhatsPossibleSection from '../components/sections/WhatsPossibleSection';
 import FAQSection from '../components/sections/FAQSection';
@@ -25,6 +26,7 @@ export default function SEOPage() {
         <IntroVideoSection />
         <BuiltToBeFoundSection />
         <SEOReviewSection />
+        <ScrollRevealBridge />
         <ChatSemrushSection />
         <LetLovableFixSection />
         <HowItWorksSection />
