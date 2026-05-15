@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import logoWhite from '@/assets/mustache-crew-white.png';
 
 const navLinks = [
   { label: 'The Strategy', href: '#strategy' },
@@ -13,12 +14,9 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-8 lg:px-12 h-[60px] bg-[#0A0A0F]/85 backdrop-blur-md border-b border-[#2A2A3E]">
       {/* Logo */}
-      <a href="/" className="flex items-center gap-2">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="14" cy="14" r="12" stroke="#F5C842" strokeWidth="2"/>
-          <path d="M7 16c2-3 5-3 7 0s5 3 7 0" stroke="#F5C842" strokeWidth="2" strokeLinecap="round" fill="none"/>
-        </svg>
-        <span className="font-bold text-[#F0EDE6] text-lg tracking-tight">Mustache Crew Records</span>
+      <a href="/" className="flex items-center gap-3">
+        <img src={logoWhite} alt="Mustache Crew Records" className="h-10 w-auto invert" />
+        <span className="font-bold text-[#F0EDE6] text-lg tracking-tight hidden sm:inline">Mustache Crew Records</span>
       </a>
 
       {/* Desktop nav */}
