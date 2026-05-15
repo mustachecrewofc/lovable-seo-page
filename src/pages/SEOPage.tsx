@@ -13,6 +13,7 @@ import CTASection from '../components/sections/CTASection';
 import HowItWorksSection from '../components/sections/HowItWorksSection';
 import PricingSection from '../components/sections/PricingSection';
 import WhatsIncludedSection from '../components/sections/WhatsIncludedSection';
+import SquadMindsetReveal from '../components/sections/SquadMindsetReveal';
 
 export default function SEOPage() {
   return (
@@ -24,15 +25,9 @@ export default function SEOPage() {
         <HeroBg />
         <IntroVideoSection />
         <BuiltToBeFoundSection />
-        <div className="relative">
-          <SEOReviewSection />
-          <div
-            className="relative z-10 -mt-[20vh] rounded-t-[48px] overflow-hidden"
-            style={{ boxShadow: '0 -30px 80px -10px rgba(0,0,0,0.6)' }}
-          >
-            <ChatSemrushSection />
-          </div>
-        </div>
+        <SEOReviewSection />
+        <SquadMindsetReveal />
+        <ChatSemrushSection hideHero />
         <LetLovableFixSection />
         <HowItWorksSection />
         <WhatsPossibleSection />
