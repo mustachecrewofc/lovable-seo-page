@@ -5,6 +5,8 @@ import proofProgressive from '@/assets/proof-progressive.jpg';
 import proofPeaktime from '@/assets/proof-peaktime.jpg';
 import proofHouse from '@/assets/proof-house.jpg';
 import proofTechhouse from '@/assets/proof-techhouse.jpg';
+import proofDubstep from '@/assets/proof-dubstep.jpg';
+import proofElectronica from '@/assets/proof-electronica.jpg';
 
 const proofImages = [
   { src: proofOverall, alt: 'Mustache Gang Xmas — #38 Beatport Overall Top 100' },
@@ -12,6 +14,8 @@ const proofImages = [
   { src: proofPeaktime, alt: 'Mustache Gang Xmas — #4 Techno (Peak Time / Driving) Releases' },
   { src: proofHouse, alt: 'Mustache Gang Xmas — #7 House Releases' },
   { src: proofTechhouse, alt: 'Mustache Gang Xmas — #9 Tech House Releases' },
+  { src: proofDubstep, alt: 'Mustache Gang Xmas — #2 Dubstep Releases' },
+  { src: proofElectronica, alt: 'Mustache Gang Xmas — #2 Electronica / Downtempo Releases' },
 ];
 
 const issues = [
