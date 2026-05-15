@@ -10,6 +10,8 @@ interface PortfolioGalleryProps {
   spacing?: string;
   onImageClick?: (index: number) => void;
   marqueeRepeat?: number;
+  variant?: "stacked" | "straight";
+  cardSize?: number;
 }
 
 const defaultImages = [
@@ -32,6 +34,8 @@ export function PortfolioGallery({
   spacing = "-space-x-32 md:-space-x-40",
   onImageClick,
   marqueeRepeat = 4,
+  variant = "stacked",
+  cardSize = 260,
 }: PortfolioGalleryProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const images = customImages || defaultImages;
@@ -45,12 +49,12 @@ export function PortfolioGallery({
             const totalImages = images.length;
             const middle = Math.floor(totalImages / 2);
             const distanceFromMiddle = Math.abs(index - middle);
-            const staggerOffset = maxHeight - distanceFromMiddle * 20;
+            const staggerOffset = variant === "straight" ? 0 : maxHeight - distanceFromMiddle * 20;
             const zIndex = totalImages - distanceFromMiddle;
             const isHovered = hoveredIndex === index;
             const isOtherHovered = hoveredIndex !== null && hoveredIndex !== index;
-            const yOffset = isHovered ? -120 : isOtherHovered ? 0 : -staggerOffset;
-            const rotation = (index - middle) * 3;
+            const yOffset = isHovered ? (variant === "straight" ? -40 : -120) : isOtherHovered ? 0 : -staggerOffset;
+            const rotation = variant === "straight" ? 0 : (index - middle) * 3;
 
             return (
               <motion.div
@@ -64,7 +68,10 @@ export function PortfolioGallery({
                 onClick={() => onImageClick?.(index)}
                 className="cursor-pointer"
               >
-                <div className="w-[260px] h-[260px] rounded-2xl overflow-hidden border-2 border-[#2A2A3E] bg-[#13131F] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)]">
+                <div
+                  style={{ width: cardSize, height: cardSize }}
+                  className="rounded-2xl overflow-hidden border-2 border-[#2A2A3E] bg-[#13131F] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)]"
+                >
                   <img src={image.src} alt={image.alt} className="w-full h-full object-cover" loading="lazy" />
                 </div>
               </motion.div>
