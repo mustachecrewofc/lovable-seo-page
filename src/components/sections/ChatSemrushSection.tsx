@@ -143,7 +143,7 @@ export default function ChatSemrushSection({ hideHero = false }: { hideHero?: bo
           className="relative"
           style={{ background: hideHero ? '#0A0A0F' : 'linear-gradient(to bottom, transparent 0%, #0A0A0F 12%)' }}
         >
-          <div className="container max-w-[700px] pt-12 pb-20">
+          <div className={`container max-w-[700px] pb-20 ${hideHero ? 'pt-24 md:pt-32' : 'pt-12'}`}>
             {/* Telegram-like header */}
             <div className="flex items-center gap-3 bg-[#13131F] border border-[#2A2A3E] rounded-t-2xl px-5 py-3 shadow-sm">
               <div className="w-10 h-10 rounded-full bg-[#F5C842] flex items-center justify-center flex-shrink-0">
