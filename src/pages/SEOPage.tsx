@@ -10,30 +10,31 @@ import LetLovableFixSection from '../components/sections/LetLovableFixSection';
 import WhatsPossibleSection from '../components/sections/WhatsPossibleSection';
 import FAQSection from '../components/sections/FAQSection';
 import CTASection from '../components/sections/CTASection';
+import HowItWorksSection from '../components/sections/HowItWorksSection';
+import PricingSection from '../components/sections/PricingSection';
+import WhatsIncludedSection from '../components/sections/WhatsIncludedSection';
+import SquadMindsetReveal from '../components/sections/SquadMindsetReveal';
 
 export default function SEOPage() {
   return (
-    <div className="min-h-screen bg-[#FCFBF8]">
+    <div className="min-h-screen bg-[#0A0A0F]">
       <Navbar />
 
       <main id="main-content">
-        {/* Dark hero section */}
         <HeroSection />
-
-        {/* Blue glow + dark-to-light transition */}
         <HeroBg />
-
-        {/* Light sections */}
         <IntroVideoSection />
         <BuiltToBeFoundSection />
-        <ChatSemrushSection />
         <SEOReviewSection />
+        <SquadMindsetReveal />
+        <ChatSemrushSection hideHero />
         <LetLovableFixSection />
+        <HowItWorksSection />
         <WhatsPossibleSection />
-        <FAQSection />
-
-        {/* Dark CTA */}
+        <WhatsIncludedSection />
+        <PricingSection />
         <CTASection />
+        <FAQSection />
       </main>
 
       <Footer />
