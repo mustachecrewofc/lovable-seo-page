@@ -1,7 +1,12 @@
 import "./lib/error-capture";
-import handler, { createServerEntry } from "@tanstack/react-start/server-entry";
+import {
+  createStartHandler,
+  defaultStreamHandler,
+} from "@tanstack/react-start/server";
 import { renderErrorPage } from "./lib/error-page";
 import { consumeLastCapturedError } from "./lib/error-capture";
+
+const startHandler = createStartHandler(defaultStreamHandler);
 
 async function normalizeCatastrophicSsrResponse(response: Response): Promise<Response> {
   if (response.status < 500) return response;
@@ -23,10 +28,10 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
   });
 }
 
-export default createServerEntry({
-  async fetch(...args: Parameters<typeof handler.fetch>) {
+export default {
+  async fetch(...args: Parameters<typeof startHandler>) {
     try {
-      const response = await handler.fetch(...args);
+      const response = await startHandler(...args);
       return await normalizeCatastrophicSsrResponse(response);
     } catch (error) {
       console.error(error);
@@ -36,4 +41,4 @@ export default createServerEntry({
       });
     }
   },
-});
+};
