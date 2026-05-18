@@ -1,4 +1,4 @@
-import logoWhite from '@/assets/mustache-crew-white.png';
+﻿import logoWhite from '@/assets/mustache-crew-white.png';
 
 export default function SquadMindsetReveal() {
   const frontLayerHeight = '72vh';
@@ -23,7 +23,7 @@ export default function SquadMindsetReveal() {
             position: 'absolute',
             inset: 0,
             background:
-              'radial-gradient(ellipse 90% 75% at 50% 30%, #F5C842 0%, #F08A32 28%, #E63B2E 58%, #7c1d1d 100%)',
+              'radial-gradient(ellipse 90% 75% at 50% 30%, #F5C842 0%, #4ADE80 28%, #22C55E 58%, #14532d 100%)',
           }}
           aria-hidden="true"
         />
@@ -54,7 +54,7 @@ export default function SquadMindsetReveal() {
               </p>
 
               <div className="mt-4 grid gap-3 md:grid-cols-3">
-                <div className="rounded-xl border border-[#F0EDE6]/10 bg-[#0A0A0F]/40 p-3">
+                <div className="rounded-xl border border-[#F0EDE6]/10 bg-[#060A06]/40 p-3">
                   <p className="text-[11px] font-semibold uppercase tracking-wider text-[#F0EDE6]/55">
                     Baseline
                   </p>
@@ -63,7 +63,7 @@ export default function SquadMindsetReveal() {
                   </p>
                   <p className="mt-1.5 text-xl font-black text-[#F5C842]">= 30 purchases</p>
                 </div>
-                <div className="rounded-xl border border-[#F0EDE6]/10 bg-[#0A0A0F]/40 p-3">
+                <div className="rounded-xl border border-[#F0EDE6]/10 bg-[#060A06]/40 p-3">
                   <p className="text-[11px] font-semibold uppercase tracking-wider text-[#F0EDE6]/55">
                     Squad support
                   </p>
@@ -72,7 +72,7 @@ export default function SquadMindsetReveal() {
                   </p>
                   <p className="mt-1.5 text-xl font-black text-[#F5C842]">= 900 purchases</p>
                 </div>
-                <div className="rounded-xl border border-[#F0EDE6]/10 bg-[#0A0A0F]/40 p-3">
+                <div className="rounded-xl border border-[#F0EDE6]/10 bg-[#060A06]/40 p-3">
                   <p className="text-[11px] font-semibold uppercase tracking-wider text-[#F0EDE6]/55">
                     Inner circle boost
                   </p>
@@ -104,7 +104,7 @@ export default function SquadMindsetReveal() {
           height: frontLayerHeight,
           zIndex: 10,
           overflow: 'hidden',
-          background: '#0A0A0F',
+          background: '#060A06',
         }}
       >
         <div

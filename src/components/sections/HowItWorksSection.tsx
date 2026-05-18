@@ -1,4 +1,4 @@
-import { useInView } from '../../hooks/useInView';
+﻿import { useInView } from '../../hooks/useInView';
 
 const steps = [
   {
@@ -36,7 +36,7 @@ export default function HowItWorksSection() {
       >
         How it <span className="text-[#F5C842]">works</span>
       </h2>
-      <p className="mt-5 max-w-[560px] text-[#8A8A9A] text-base md:text-lg">
+      <p className="mt-5 max-w-[560px] text-[#728A72] text-base md:text-lg">
         Four steps from demo to release. Submission is always free.
       </p>
 
@@ -44,7 +44,7 @@ export default function HowItWorksSection() {
         {steps.map((step, i) => (
           <div
             key={step.title}
-            className={`relative bg-[#13131F] border border-[#2A2A3E] rounded-2xl p-7 md:p-8 transition-all duration-700 ${
+            className={`relative bg-[#0C140C] border border-[#182B18] rounded-2xl p-7 md:p-8 transition-all duration-700 ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
             style={{ transitionDelay: inView ? `${i * 100 + 100}ms` : '0ms' }}
@@ -58,7 +58,7 @@ export default function HowItWorksSection() {
             <h3 className="text-xl md:text-2xl font-bold text-[#F0EDE6] mb-3 -tracking-[0.4px]">
               {step.title}
             </h3>
-            <p className="text-sm md:text-base text-[#8A8A9A] leading-relaxed">{step.desc}</p>
+            <p className="text-sm md:text-base text-[#728A72] leading-relaxed">{step.desc}</p>
           </div>
         ))}
       </div>

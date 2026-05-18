@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -55,7 +55,7 @@ export function PortfolioGallery({
                     key={`${i}-${index}`}
                     style={{ width: cardSize, height: cardSize }}
                     onClick={() => onImageClick?.(index)}
-                    className="shrink-0 rounded-2xl overflow-hidden border-2 border-[#2A2A3E] bg-[#13131F] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)] transition-transform duration-300 hover:scale-105 cursor-pointer"
+                    className="shrink-0 rounded-2xl overflow-hidden border-2 border-[#182B18] bg-[#0C140C] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)] transition-transform duration-300 hover:scale-105 cursor-pointer"
                   >
                     <img src={image.src} alt={image.alt} className="w-full h-full object-cover" loading="lazy" />
                   </div>
@@ -95,7 +95,7 @@ export function PortfolioGallery({
               >
                 <div
                   style={{ width: cardSize, height: cardSize }}
-                  className="rounded-2xl overflow-hidden border-2 border-[#2A2A3E] bg-[#13131F] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)]"
+                  className="rounded-2xl overflow-hidden border-2 border-[#182B18] bg-[#0C140C] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)]"
                 >
                   <img src={image.src} alt={image.alt} className="w-full h-full object-cover" loading="lazy" />
                 </div>
@@ -114,7 +114,7 @@ export function PortfolioGallery({
               {images.map((image, index) => (
                 <div
                   key={`${i}-${index}`}
-                  className="w-[200px] h-[200px] rounded-xl overflow-hidden border border-[#2A2A3E] bg-[#13131F] shrink-0"
+                  className="w-[200px] h-[200px] rounded-xl overflow-hidden border border-[#182B18] bg-[#0C140C] shrink-0"
                   onClick={() => onImageClick?.(index)}
                 >
                   <img src={image.src} alt={image.alt} className="w-full h-full object-cover" loading="lazy" />

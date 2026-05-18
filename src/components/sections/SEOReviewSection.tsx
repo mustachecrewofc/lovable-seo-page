@@ -1,4 +1,4 @@
-import { useInView } from '../../hooks/useInView';
+﻿import { useInView } from '../../hooks/useInView';
 import { PortfolioGallery } from '../ui/portfolio-gallery';
 import proofOverall from '@/assets/proof-overall.jpg';
 import proofProgressive from '@/assets/proof-progressive.jpg';
@@ -74,7 +74,7 @@ export default function SEOReviewSection() {
               <defs>
                 <linearGradient id="ptr-grad" x1="30" y1="20" x2="100" y2="90" gradientUnits="userSpaceOnUse">
                   <stop offset="0%" stopColor="#F5C842"/>
-                  <stop offset="100%" stopColor="#E63B2E"/>
+                  <stop offset="100%" stopColor="#22C55E"/>
                 </linearGradient>
               </defs>
             </svg>
@@ -86,7 +86,7 @@ export default function SEOReviewSection() {
           >
             Proof from <span className="text-[#F5C842]">our missions</span>
           </h2>
-          <p className="mt-6 pl-14 md:pl-16 text-[#8A8A9A] text-base md:text-lg leading-relaxed max-w-[460px]">
+          <p className="mt-6 pl-14 md:pl-16 text-[#728A72] text-base md:text-lg leading-relaxed max-w-[460px]">
             Mustache Gang Xmas 2025 — the blueprint that started it all.
             Real chart positions from coordinated squad pushes.
           </p>
@@ -94,25 +94,25 @@ export default function SEOReviewSection() {
             href="https://www.instagram.com/mustachecrew/"
             target="_blank"
             rel="noreferrer"
-            className="mt-6 ml-14 md:ml-16 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#2A2A3E] text-sm text-[#F0EDE6] hover:bg-[#13131F] transition-colors"
+            className="mt-6 ml-14 md:ml-16 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#182B18] text-sm text-[#F0EDE6] hover:bg-[#0C140C] transition-colors"
           >
             📷 Watch the highlights on Instagram ↗
           </a>
         </div>
 
         <div className={`transition-all duration-700 delay-200 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <div className="bg-[#13131F] rounded-2xl border border-[#2A2A3E] shadow-sm overflow-hidden">
-            <div className="px-5 py-4 border-b border-[#2A2A3E] flex items-center justify-between">
+          <div className="bg-[#0C140C] rounded-2xl border border-[#182B18] shadow-sm overflow-hidden">
+            <div className="px-5 py-4 border-b border-[#182B18] flex items-center justify-between">
               <div>
                 <p className="font-semibold text-[#F0EDE6] text-sm">Label achievements</p>
-                <p className="text-[#8A8A9A] text-xs mt-0.5">Highlights from previous VA editions.</p>
+                <p className="text-[#728A72] text-xs mt-0.5">Highlights from previous VA editions.</p>
               </div>
               <span className="h-8 px-3 rounded-lg bg-[#F5C842] text-[#060612] text-xs font-bold flex items-center">
                 Since 2018
               </span>
             </div>
 
-            <div className="divide-y divide-[#2A2A3E]">
+            <div className="divide-y divide-[#182B18]">
               {issues.map((item) => (
                 <div key={item.label} className="flex items-center gap-3 px-5 py-3">
                   <StatusIcon />
@@ -130,10 +130,10 @@ export default function SEOReviewSection() {
 
       <div className={`mt-16 md:mt-24 transition-all duration-700 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
         <div className="flex items-center gap-3 mb-2 md:mb-4">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E63B2E]/15 border border-[#E63B2E]/40 text-[#FF8A7A] text-xs font-bold uppercase tracking-wider">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#22C55E]/15 border border-[#22C55E]/40 text-[#FF8A7A] text-xs font-bold uppercase tracking-wider">
             🎅 Mustache Gang Xmas 2025
           </span>
-          <span className="text-[#8A8A9A] text-xs hidden sm:inline">8 Beatport chart placements</span>
+          <span className="text-[#728A72] text-xs hidden sm:inline">8 Beatport chart placements</span>
         </div>
         <PortfolioGallery images={xmasImages} spacing="-space-x-24 md:-space-x-28" />
       </div>
@@ -143,7 +143,7 @@ export default function SEOReviewSection() {
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5C842]/15 border border-[#F5C842]/40 text-[#F5C842] text-xs font-bold uppercase tracking-wider">
             🇧🇷 Brazilian Carnival VA
           </span>
-          <span className="text-[#8A8A9A] text-xs hidden sm:inline">12 Beatport chart placements</span>
+          <span className="text-[#728A72] text-xs hidden sm:inline">12 Beatport chart placements</span>
         </div>
         <PortfolioGallery
           images={carnivalImages}

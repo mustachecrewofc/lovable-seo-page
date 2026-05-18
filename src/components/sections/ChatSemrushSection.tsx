@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { useInView } from '../../hooks/useInView';
 import logoWhite from '@/assets/mustache-crew-white.png';
 import mustacheIcon from '@/assets/mustache-icon.png';
@@ -78,7 +78,7 @@ function Avatar({ msg }: { msg: Msg }) {
   const initials = msg.author.split(' ').map(s => s[0]).slice(0, 2).join('');
   return (
     <div
-      className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-[#0A0A0F] text-xs font-bold shadow-sm"
+      className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-[#060A06] text-xs font-bold shadow-sm"
       style={{ background: `linear-gradient(135deg, ${msg.color}, ${msg.color}cc)` }}
     >
       {initials}
@@ -109,7 +109,7 @@ export default function ChatSemrushSection({ hideHero = false }: { hideHero?: bo
           <div
             className="absolute inset-0"
             style={{
-              background: 'radial-gradient(ellipse 80% 60% at 50% 0%, #F5C842 0%, #E63B2E 40%, #7c1d1d 80%, #0A0A0F 100%)',
+              background: 'radial-gradient(ellipse 80% 60% at 50% 0%, #F5C842 0%, #22C55E 40%, #14532d 80%, #060A06 100%)',
             }}
             aria-hidden="true"
           />
@@ -141,22 +141,22 @@ export default function ChatSemrushSection({ hideHero = false }: { hideHero?: bo
 
         <div
           className="relative"
-          style={{ background: hideHero ? '#0A0A0F' : 'linear-gradient(to bottom, transparent 0%, #0A0A0F 12%)' }}
+          style={{ background: hideHero ? '#060A06' : 'linear-gradient(to bottom, transparent 0%, #060A06 12%)' }}
         >
           <div className={`container max-w-[700px] pb-20 ${hideHero ? 'pt-24 md:pt-32' : 'pt-12'}`}>
             {/* Telegram-like header */}
-            <div className="flex items-center gap-3 bg-[#13131F] border border-[#2A2A3E] rounded-t-2xl px-5 py-3 shadow-sm">
+            <div className="flex items-center gap-3 bg-[#0C140C] border border-[#182B18] rounded-t-2xl px-5 py-3 shadow-sm">
               <div className="w-10 h-10 rounded-full bg-[#F5C842] flex items-center justify-center flex-shrink-0">
                 <img src={mustacheIcon} alt="" className="w-7 h-7 object-contain" />
               </div>
               <div className="flex-1 text-left">
                 <p className="font-bold text-[#F0EDE6] text-sm">VA World Cup 2026 — Squad</p>
-                <p className="text-xs text-[#8A8A9A]">30 artists · 1 drop · coordinated push</p>
+                <p className="text-xs text-[#728A72]">30 artists · 1 drop · coordinated push</p>
               </div>
-              <span className="text-xs text-[#8A8A9A] bg-[#0A0A0F] border border-[#2A2A3E] px-2 py-1 rounded-full">Telegram</span>
+              <span className="text-xs text-[#728A72] bg-[#060A06] border border-[#182B18] px-2 py-1 rounded-full">Telegram</span>
             </div>
 
-            <div className="bg-[#0F0F1A] border-x border-b border-[#2A2A3E] rounded-b-2xl px-4 py-5 flex flex-col gap-4 min-h-[400px]">
+            <div className="bg-[#0A140A] border-x border-b border-[#182B18] rounded-b-2xl px-4 py-5 flex flex-col gap-4 min-h-[400px]">
               {messages.map((msg, i) =>
                 show(i) ? (
                   <div key={i} className="flex gap-2.5 items-start animate-[chat-message_0.35s_ease-out_forwards]">
@@ -169,13 +169,13 @@ export default function ChatSemrushSection({ hideHero = false }: { hideHero?: bo
                         >
                           {msg.author}
                         </span>
-                        {msg.role && <span className="text-[10px] text-[#8A8A9A] uppercase tracking-wide">{msg.role}</span>}
+                        {msg.role && <span className="text-[10px] text-[#728A72] uppercase tracking-wide">{msg.role}</span>}
                       </div>
                       <div
                         className={`text-[15px] leading-relaxed px-4 py-2.5 rounded-2xl rounded-tl-sm ${
                           msg.isCrew
                             ? 'bg-[#F5C842]/10 border border-[#F5C842]/30 text-[#F0EDE6]'
-                            : 'bg-[#1A1A2E] text-[#F0EDE6]'
+                            : 'bg-[#0F1F0F] text-[#F0EDE6]'
                         }`}
                       >
                         {msg.content}
@@ -183,7 +183,7 @@ export default function ChatSemrushSection({ hideHero = false }: { hideHero?: bo
                     </div>
                   </div>
                 ) : showTyping(i) ? (
-                  <div key={`typing-${i}`} className="flex gap-2.5 items-center text-[#8A8A9A] text-sm pl-12">
+                  <div key={`typing-${i}`} className="flex gap-2.5 items-center text-[#728A72] text-sm pl-12">
                     <span>{msg.author} is typing</span>
                     <Dots />
                   </div>
@@ -191,12 +191,12 @@ export default function ChatSemrushSection({ hideHero = false }: { hideHero?: bo
               )}
             </div>
 
-            <div className="mt-10 bg-[#13131F] border border-[#2A2A3E] rounded-2xl px-5 py-4 shadow-sm">
+            <div className="mt-10 bg-[#0C140C] border border-[#182B18] rounded-2xl px-5 py-4 shadow-sm">
               <div className="flex items-start gap-3">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5C842" strokeWidth="2" className="mt-0.5 flex-shrink-0"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                 <div>
                   <p className="font-semibold text-[#F0EDE6] text-sm">Free to submit. Worldwide.</p>
-                  <p className="text-[#8A8A9A] text-sm mt-1 leading-relaxed">
+                  <p className="text-[#728A72] text-sm mt-1 leading-relaxed">
                     No submission fee, no membership. Selected artists sign a fair distribution deal with{' '}
                     <span className="font-medium text-[#F5C842]">transparent royalty splits</span>. Deadline: March 31, 2026.
                   </p>

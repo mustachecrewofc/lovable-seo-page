@@ -1,4 +1,4 @@
-import { useInView } from '../../hooks/useInView';
+﻿import { useInView } from '../../hooks/useInView';
 
 const tagRows = [
   ['Techno', 'House', 'Tech House', 'Melodic Techno', 'Progressive', 'Minimal', 'Afro House'],
@@ -58,10 +58,10 @@ export default function IntroVideoSection() {
         className={`w-full max-w-[960px] transition-all duration-700 delay-100 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
       >
         <div
-          className="relative w-full rounded-3xl overflow-hidden border border-[#2A2A3E]"
+          className="relative w-full rounded-3xl overflow-hidden border border-[#182B18]"
           style={{
             aspectRatio: '16 / 9',
-            background: 'linear-gradient(135deg, #0A0A0F 0%, #13131F 50%, #1a1408 100%)',
+            background: 'linear-gradient(135deg, #060A06 0%, #0C140C 50%, #1a1408 100%)',
           }}
         >
           <div
@@ -77,10 +77,10 @@ export default function IntroVideoSection() {
             ))}
           </div>
 
-          <div className="absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-[#0A0A0F] to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-28 bg-gradient-to-l from-[#0A0A0F] to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#0A0A0F] to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0A0A0F] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-[#060A06] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-28 bg-gradient-to-l from-[#060A06] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#060A06] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#060A06] to-transparent z-10 pointer-events-none" />
 
           <div className="absolute inset-0 flex items-center justify-center z-20">
             <button
@@ -96,7 +96,7 @@ export default function IntroVideoSection() {
                   <path d="M8 5.14v14l11-7-11-7z"/>
                 </svg>
               </div>
-              <span className="text-[#8A8A9A] text-sm">Watch teaser</span>
+              <span className="text-[#728A72] text-sm">Watch teaser</span>
             </button>
           </div>
         </div>

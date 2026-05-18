@@ -1,4 +1,4 @@
-import { useInView } from '../../hooks/useInView';
+﻿import { useInView } from '../../hooks/useInView';
 
 const includes = [
   'Distribution to 50+ platforms (Beatport, Spotify, Apple Music, SoundCloud, etc.)',
@@ -36,7 +36,7 @@ export default function PricingSection() {
 
       <div className="container relative z-10">
         <div
-          className={`max-w-[860px] mx-auto bg-[#13131F] border border-[#F5C842]/30 rounded-3xl p-8 md:p-14 shadow-[0_30px_80px_-30px_rgba(245,200,66,0.25)] transition-all duration-700 ${
+          className={`max-w-[860px] mx-auto bg-[#0C140C] border border-[#F5C842]/30 rounded-3xl p-8 md:p-14 shadow-[0_30px_80px_-30px_rgba(245,200,66,0.25)] transition-all duration-700 ${
             inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
@@ -44,7 +44,7 @@ export default function PricingSection() {
             Investment
           </p>
 
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 pb-8 border-b border-[#2A2A3E]">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 pb-8 border-b border-[#182B18]">
             <div>
               <h2
                 className="font-black text-[#F0EDE6] leading-[0.95] -tracking-[2px]"
@@ -55,7 +55,7 @@ export default function PricingSection() {
               <p className="mt-2 text-[#F0EDE6] text-lg md:text-xl font-medium -tracking-[0.4px]">
                 per accepted track
               </p>
-              <p className="mt-2 text-[#8A8A9A] text-sm">
+              <p className="mt-2 text-[#728A72] text-sm">
                 One-time investment. No hidden fees. No subscriptions.
               </p>
             </div>
@@ -83,8 +83,8 @@ export default function PricingSection() {
             ))}
           </ul>
 
-          <div className="mt-8 pt-6 border-t border-[#2A2A3E] flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
-            <div className="flex items-start gap-2 text-sm text-[#8A8A9A] leading-relaxed">
+          <div className="mt-8 pt-6 border-t border-[#182B18] flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
+            <div className="flex items-start gap-2 text-sm text-[#728A72] leading-relaxed">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5C842" strokeWidth="2" className="mt-0.5 flex-shrink-0">
                 <circle cx="12" cy="12" r="10"/>
                 <line x1="12" y1="8" x2="12" y2="12"/>

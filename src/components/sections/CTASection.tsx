@@ -1,4 +1,4 @@
-import { useInView } from '../../hooks/useInView';
+﻿import { useInView } from '../../hooks/useInView';
 
 export default function CTASection() {
   const { ref, inView } = useInView();
@@ -13,7 +13,7 @@ export default function CTASection() {
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 120% 80% at 10% 80%, rgba(245,200,66,0.18) 0%, transparent 50%), radial-gradient(ellipse 80% 60% at 90% 20%, rgba(230,59,46,0.15) 0%, transparent 50%), #0A0A0F',
+            'radial-gradient(ellipse 120% 80% at 10% 80%, rgba(245,200,66,0.18) 0%, transparent 50%), radial-gradient(ellipse 80% 60% at 90% 20%, rgba(230,59,46,0.15) 0%, transparent 50%), #060A06',
         }}
         aria-hidden="true"
       />
@@ -30,7 +30,7 @@ export default function CTASection() {
           Ready to represent your sound on the <span className="text-[#F5C842]">world stage?</span>
         </h2>
 
-        <p className={`mt-6 max-w-[600px] text-[#8A8A9A] text-base md:text-lg leading-relaxed transition-all duration-700 delay-100 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+        <p className={`mt-6 max-w-[600px] text-[#728A72] text-base md:text-lg leading-relaxed transition-all duration-700 delay-100 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
           The World Cup happens once every four years. This campaign happens once — period.
           30 spots max. Submissions close August 15, 2026.
         </p>
@@ -46,7 +46,7 @@ export default function CTASection() {
           </a>
         </div>
 
-        <p className={`mt-8 text-xs text-[#8A8A9A] transition-all duration-700 delay-300 ${inView ? 'opacity-100' : 'opacity-0'}`}>
+        <p className={`mt-8 text-xs text-[#728A72] transition-all duration-700 delay-300 ${inView ? 'opacity-100' : 'opacity-0'}`}>
           Submission is free  ·  Review within 7 days  ·  All genres welcome
         </p>
       </div>

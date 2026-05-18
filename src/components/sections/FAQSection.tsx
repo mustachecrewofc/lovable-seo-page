@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useInView } from '../../hooks/useInView';
 
 const faqs = [
@@ -15,7 +15,7 @@ const faqs = [
 function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className={`border-t border-[#2A2A3E] ${index === faqs.length - 1 ? 'border-b' : ''}`}>
+    <div className={`border-t border-[#182B18] ${index === faqs.length - 1 ? 'border-b' : ''}`}>
       <button
         type="button"
         onClick={() => setOpen(!open)}
@@ -32,7 +32,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
         </span>
       </button>
       <div className={`overflow-hidden transition-all duration-300 ${open ? 'max-h-[400px] pb-5' : 'max-h-0'}`}>
-        <p className="text-sm md:text-base leading-relaxed text-[#8A8A9A] max-w-[680px]">{a}</p>
+        <p className="text-sm md:text-base leading-relaxed text-[#728A72] max-w-[680px]">{a}</p>
       </div>
     </div>
   );

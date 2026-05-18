@@ -1,4 +1,4 @@
-import Navbar from '../components/layout/Navbar';
+﻿import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import HeroSection from '../components/sections/HeroSection';
 import HeroBg from '../components/sections/HeroBg';
@@ -17,7 +17,7 @@ import SquadMindsetReveal from '../components/sections/SquadMindsetReveal';
 
 export default function SEOPage() {
   return (
-    <div className="min-h-screen bg-[#0A0A0F]">
+    <div className="min-h-screen bg-[#060A06]">
       <Navbar />
 
       <main id="main-content">

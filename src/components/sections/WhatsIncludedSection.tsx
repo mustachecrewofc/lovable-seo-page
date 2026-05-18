@@ -1,4 +1,4 @@
-import { useInView } from '../../hooks/useInView';
+﻿import { useInView } from '../../hooks/useInView';
 
 const items = [
   'Professional release on Beatport, Spotify, Apple Music, and all major platforms',
@@ -27,12 +27,12 @@ export default function WhatsIncludedSection() {
         {items.map((text, i) => (
           <div
             key={i}
-            className={`flex gap-4 items-start p-6 md:p-7 rounded-2xl border border-[#2A2A3E] bg-[#13131F] transition-all duration-700 ${
+            className={`flex gap-4 items-start p-6 md:p-7 rounded-2xl border border-[#182B18] bg-[#0C140C] transition-all duration-700 ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
             style={{ transitionDelay: inView ? `${i * 80 + 100}ms` : '0ms' }}
           >
-            <div className="shrink-0 w-8 h-8 rounded-full bg-[#F5C842] text-[#0A0A0F] flex items-center justify-center font-black text-sm">
+            <div className="shrink-0 w-8 h-8 rounded-full bg-[#F5C842] text-[#060A06] flex items-center justify-center font-black text-sm">
               {i + 1}
             </div>
             <p className="text-base md:text-lg text-[#F0EDE6] leading-relaxed">{text}</p>

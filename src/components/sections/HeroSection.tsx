@@ -1,6 +1,6 @@
-export default function HeroSection() {
+﻿export default function HeroSection() {
   return (
-    <div className="relative bg-[#0A0A0F] overflow-hidden">
+    <div className="relative bg-[#060A06] overflow-hidden">
       {/* YouTube background video */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
         <iframe
@@ -11,7 +11,7 @@ export default function HeroSection() {
           style={{ border: 0, opacity: 0.25 }}
         />
         {/* Dark overlay for legibility */}
-        <div className="absolute inset-0 bg-[#0A0A0F]/55" />
+        <div className="absolute inset-0 bg-[#060A06]/55" />
       </div>
 
       {/* Subtle grid pattern */}
@@ -52,7 +52,7 @@ export default function HeroSection() {
           <p className="mt-3 max-w-[520px] text-[#F0EDE6] text-base font-medium">
             Top 10 is the baseline. The top is what we're building toward.
           </p>
-          <p className="mt-4 max-w-[520px] text-sm text-[#8A8A9A]">
+          <p className="mt-4 max-w-[520px] text-sm text-[#728A72]">
             ✓ 30 curated spots (max)&nbsp;&nbsp;•&nbsp;&nbsp;✓ 360° promo coordination&nbsp;&nbsp;•&nbsp;&nbsp;✓ World Cup 2026 release window
           </p>
           <a
@@ -61,7 +61,7 @@ export default function HeroSection() {
           >
             Submit Your Track →
           </a>
-          <p className="mt-4 max-w-[520px] text-sm text-[#8A8A9A]">
+          <p className="mt-4 max-w-[520px] text-sm text-[#728A72]">
             📅 Submissions open now&nbsp;&nbsp;•&nbsp;&nbsp;Lineup locks <span className="text-[#F5C842] font-semibold">August 15, 2026</span>
           </p>
         </div>

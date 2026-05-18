@@ -1,4 +1,4 @@
-export default function HeroBg() {
+﻿export default function HeroBg() {
   return (
     <div style={{ position: 'relative', height: '200vh' }}>
       {/* BACK LAYER */}
@@ -40,7 +40,7 @@ export default function HeroBg() {
           height: '100vh',
           zIndex: 10,
           overflow: 'hidden',
-          background: '#0A0A0F',
+          background: '#060A06',
         }}
       >
         <div

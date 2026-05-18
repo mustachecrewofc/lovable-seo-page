@@ -1,4 +1,4 @@
-import { useInView } from '../../hooks/useInView';
+﻿import { useInView } from '../../hooks/useInView';
 
 export default function LetLovableFixSection() {
   const { ref, inView } = useInView();
@@ -22,7 +22,7 @@ export default function LetLovableFixSection() {
           inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
         }`}
       >
-        <div className="max-w-[360px] text-lg leading-[23px] font-[500] -tracking-[0.36px] text-[#8A8A9A] md:max-w-[440px] md:text-2xl md:leading-[109%] md:-tracking-[0.48px]">
+        <div className="max-w-[360px] text-lg leading-[23px] font-[500] -tracking-[0.36px] text-[#728A72] md:max-w-[440px] md:text-2xl md:leading-[109%] md:-tracking-[0.48px]">
           The VA goes to 50+ platforms as a classic VA. On Spotify, each track is
           <span className="text-[#F0EDE6]"> also released as a single under your artist profile</span> —
           so you don't lose visibility on your own page.
@@ -43,11 +43,11 @@ export default function LetLovableFixSection() {
               desc: 'Every distribution decision serves one goal — coordinated chart velocity during the World Cup window. No random platforms, no wasted reach.',
             },
           ].map((item, i) => (
-            <div key={item.title} className={`py-5 md:py-6 ${i > 0 ? 'border-t border-[#2A2A3E]' : ''}`}>
+            <div key={item.title} className={`py-5 md:py-6 ${i > 0 ? 'border-t border-[#182B18]' : ''}`}>
               <h3 className="text-xl leading-[24px] font-semibold -tracking-[0.4px] text-[#F0EDE6] md:text-2xl md:leading-[109%] md:-tracking-[0.48px]">
                 {item.title}
               </h3>
-              <p className="mt-2 max-w-[360px] text-base leading-[21px] font-[500] -tracking-[0.32px] text-[#8A8A9A] md:mt-2.5 md:max-w-[379px] md:text-lg md:leading-[109%]">
+              <p className="mt-2 max-w-[360px] text-base leading-[21px] font-[500] -tracking-[0.32px] text-[#728A72] md:mt-2.5 md:max-w-[379px] md:text-lg md:leading-[109%]">
                 {item.desc}
               </p>
             </div>

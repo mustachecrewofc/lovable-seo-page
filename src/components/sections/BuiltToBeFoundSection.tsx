@@ -1,4 +1,4 @@
-import { useInView } from '../../hooks/useInView';
+﻿import { useInView } from '../../hooks/useInView';
 
 const features = [
   {
@@ -47,7 +47,7 @@ function FeatureCard({ title, description, index, isLast }: {
             boxShadow: '0 20px 50px -20px rgba(10,10,15,0.18), 0 -2px 30px rgba(245,200,66,0.06)',
           }}
         >
-          <h3 style={{ fontSize: 'clamp(24px, 3vw, 34px)', fontWeight: 700, color: '#0A0A0F', lineHeight: 1.15, letterSpacing: '-0.5px', marginBottom: '20px' }}>
+          <h3 style={{ fontSize: 'clamp(24px, 3vw, 34px)', fontWeight: 700, color: '#060A06', lineHeight: 1.15, letterSpacing: '-0.5px', marginBottom: '20px' }}>
             {title}
           </h3>
           <p style={{ fontSize: '17px', color: '#4A4A55', lineHeight: 1.65 }}>
@@ -82,12 +82,12 @@ export default function BuiltToBeFoundSection() {
               className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
             >
               <h2
-                className="font-black text-[#0A0A0F] leading-[1.0] -tracking-[2.5px]"
+                className="font-black text-[#060A06] leading-[1.0] -tracking-[2.5px]"
                 style={{ fontSize: 'clamp(48px, 6.5vw, 88px)' }}
               >
                 Why this VA <span className="text-[#A8821C]">hits different.</span>
               </h2>
-              <p className="mt-5 text-[#0A0A0F] text-lg -tracking-[0.36px] leading-relaxed font-medium">
+              <p className="mt-5 text-[#060A06] text-lg -tracking-[0.36px] leading-relaxed font-medium">
                 Chart positions aren't luck.
               </p>
               <p className="mt-3 text-[#4A4A55] text-sm md:text-base leading-relaxed">

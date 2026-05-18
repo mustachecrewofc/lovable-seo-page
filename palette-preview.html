@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Paletas de Cor — VA World Cup 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #111;
+    color: #fff;
+    padding: 48px 24px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .page-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .page-sub {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 56px;
+  }
+
+  /* PALETTE BLOCK */
+  .palette-wrapper {
+    max-width: 1100px;
+    margin: 0 auto 72px;
+  }
+  .palette-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .palette-label .number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .palette-label .info h2 {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .palette-label .info p {
+    font-size: 13px;
+    color: #888;
+    margin-top: 3px;
+  }
+  .palette-card {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  /* SWATCHES ROW */
+  .swatches {
+    display: flex;
+    height: 52px;
+  }
+  .swatch { flex: 1; }
+
+  /* MINI HERO */
+  .mini-hero {
+    padding: 48px 40px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .mini-hero .glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+  .mini-hero .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .mini-hero .badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .mini-hero h2 {
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .mini-hero p {
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 480px;
+    margin-bottom: 28px;
+    position: relative;
+    opacity: 0.75;
+  }
+  .mini-hero .cta-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    position: relative;
+  }
+  .btn-primary {
+    padding: 13px 28px;
+    border-radius: 99px;
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+  }
+  .btn-ghost {
+    padding: 12px 24px;
+    border-radius: 99px;
+    font-size: 14px;
+    font-weight: 600;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  /* BOTTOM INFO ROW */
+  .info-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+  }
+  .info-cell {
+    padding: 22px 28px;
+  }
+  .info-cell .label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.45;
+    margin-bottom: 10px;
+  }
+  .swatch-mini {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .swatch-mini span {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .info-cell .fonts {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .info-cell .font-item {
+    font-size: 12px;
+    opacity: 0.7;
+  }
+  .info-cell .font-item strong {
+    opacity: 1;
+  }
+  .mood-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .mood-tag {
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin: 0 0 72px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* COMPARISON NOTE */
+  .comparison {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+  }
+  .comparison h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ccc;
+  }
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .comp-item {
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.03);
+  }
+  .comp-item h4 {
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+  .comp-item ul {
+    list-style: none;
+    font-size: 12px;
+    color: #999;
+    line-height: 1.8;
+  }
+  .comp-item ul li::before {
+    content: "→ ";
+    opacity: 0.4;
+  }
+</style>
+</head>
+<body>
+
+<h1>VA World Cup 2026 · Mustache Crew Records</h1>
+<div class="page-title">3 Propostas de Paleta</div>
+<div class="page-sub">Todas dark &amp; premium · Inspiradas no Brasil · Análise comparativa ao final</div>
+
+<!-- ══════════════════════════════════════════
+     PALETA 1 — FLORESTA NEGRA
+     Dark Black + Forest Green + Amber Gold
+════════════════════════════════════════════ -->
+<div class="palette-wrapper">
+  <div class="palette-label">
+    <div class="number" style="background:#16A34A20; color:#16A34A; border: 1px solid #16A34A40;">1</div>
+    <div class="info">
+      <h2 style="color:#fff;">Floresta Negra</h2>
+      <p>Dark Florestal · Verde Profundo · Ouro Âmbar — Sofisticado, premium, amazônico</p>
+    </div>
+  </div>
+  <div class="palette-card">
+    <!-- SWATCHES -->
+    <div class="swatches">
+      <div class="swatch" style="background:#050C06;" title="#050C06 — BG"></div>
+      <div class="swatch" style="background:#0B1A0C;" title="#0B1A0C — Card"></div>
+      <div class="swatch" style="background:#173319;" title="#173319 — Border/Surface"></div>
+      <div class="swatch" style="background:#16A34A;" title="#16A34A — Green Accent"></div>
+      <div class="swatch" style="background:#1E8A3C;" title="#1E8A3C — Green Hover"></div>
+      <div class="swatch" style="background:#D97706;" title="#D97706 — Amber Gold (CTA)"></div>
+      <div class="swatch" style="background:#F59E0B;" title="#F59E0B — Gold Light"></div>
+      <div class="swatch" style="background:#F0EDE6;" title="#F0EDE6 — Text"></div>
+      <div class="swatch" style="background:#6B826C;" title="#6B826C — Muted"></div>
+    </div>
+    <!-- MINI HERO -->
+    <div class="mini-hero" style="background:linear-gradient(135deg, #050C06 0%, #071208 50%, #050C06 100%);">
+      <!-- glows -->
+      <div class="glow" style="width:400px;height:300px;background:#16A34A;opacity:0.12;top:-100px;left:-80px;"></div>
+      <div class="glow" style="width:300px;height:200px;background:#D97706;opacity:0.10;top:20px;right:40px;"></div>
+
+      <div class="badge" style="background:#16A34A15; border:1px solid #16A34A40; color:#4ADE80;">
+        <span class="dot" style="background:#16A34A;"></span>
+        Submissões abertas · 30 vagas
+      </div>
+      <h2 style="color:#F0EDE6;">VA / WORLD<br><span style="color:#D97706;">CUP</span> / 2026</h2>
+      <p style="color:#F0EDE6;">Uma campanha coordenada de chart no Beatport durante a Copa do Mundo 2026. 30 artistas. Um push. Uma conquista.</p>
+      <div class="cta-row">
+        <button class="btn-primary" style="background:linear-gradient(135deg,#D97706,#F59E0B); color:#050C06;">Submeter Demo</button>
+        <button class="btn-ghost" style="border:1px solid #16A34A40; color:#4ADE80;">Saber mais</button>
+        <span style="font-size:12px; color:#6B826C; margin-left:4px;">Prazo: 15 Ago 2026</span>
+      </div>
+    </div>
+    <!-- INFO ROW -->
+    <div class="info-row" style="background:#0B1A0C; border-top:1px solid #173319;">
+      <div class="info-cell" style="border-right:1px solid #173319;">
+        <div class="label" style="color:#4ADE80;">Paleta de Cores</div>
+        <div class="swatch-mini">
+          <span style="background:#050C06;" title="BG"></span>
+          <span style="background:#0B1A0C;" title="Card"></span>
+          <span style="background:#173319;" title="Border"></span>
+          <span style="background:#16A34A;" title="Green"></span>
+          <span style="background:#D97706;" title="Gold CTA"></span>
+          <span style="background:#F59E0B;" title="Gold Light"></span>
+          <span style="background:#F0EDE6;" title="Text"></span>
+          <span style="background:#6B826C;" title="Muted"></span>
+        </div>
+      </div>
+      <div class="info-cell" style="border-right:1px solid #173319;">
+        <div class="label" style="color:#4ADE80;">Tipografia sugerida</div>
+        <div class="fonts">
+          <div class="font-item" style="color:#F0EDE6;"><strong>Heading:</strong> Syne (bold, geométrico)</div>
+          <div class="font-item" style="color:#F0EDE6;"><strong>Body:</strong> Inter (atual, manter)</div>
+          <div class="font-item" style="color:#6B826C; font-size:11px;">Google Fonts · gratuito</div>
+        </div>
+      </div>
+      <div class="info-cell">
+        <div class="label" style="color:#4ADE80;">Feel &amp; Mood</div>
+        <div class="mood-tags">
+          <span class="mood-tag" style="background:#16A34A20;color:#4ADE80;">Premium</span>
+          <span class="mood-tag" style="background:#D9770620;color:#FCD34D;">Âmbar</span>
+          <span class="mood-tag" style="background:#ffffff08;color:#aaa;">Amazônia</span>
+          <span class="mood-tag" style="background:#ffffff08;color:#aaa;">Florestal</span>
+          <span class="mood-tag" style="background:#ffffff08;color:#aaa;">Sofisticado</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PALETA 2 — VERDE BRASIL
+     Near-Black + Stadium Green + Electric Gold
+════════════════════════════════════════════ -->
+<div class="palette-wrapper">
+  <div class="palette-label">
+    <div class="number" style="background:#22C55E20; color:#22C55E; border: 1px solid #22C55E40;">2</div>
+    <div class="info">
+      <h2 style="color:#fff;">Verde Brasil</h2>
+      <p>Stadium Green · Electric Gold · Alta energia — Futebol, adrenalina, noite de jogo</p>
+    </div>
+  </div>
+  <div class="palette-card">
+    <!-- SWATCHES -->
+    <div class="swatches">
+      <div class="swatch" style="background:#060A06;"></div>
+      <div class="swatch" style="background:#0C140C;"></div>
+      <div class="swatch" style="background:#182B18;"></div>
+      <div class="swatch" style="background:#22C55E;"></div>
+      <div class="swatch" style="background:#16A34A;"></div>
+      <div class="swatch" style="background:#F5C842;"></div>
+      <div class="swatch" style="background:#FBBF24;"></div>
+      <div class="swatch" style="background:#F0EDE6;"></div>
+      <div class="swatch" style="background:#728A72;"></div>
+    </div>
+    <!-- MINI HERO -->
+    <div class="mini-hero" style="background:linear-gradient(135deg, #060A06 0%, #091209 50%, #060A06 100%);">
+      <div class="glow" style="width:500px;height:350px;background:#22C55E;opacity:0.15;top:-120px;left:-100px;"></div>
+      <div class="glow" style="width:250px;height:200px;background:#F5C842;opacity:0.12;bottom:-40px;right:60px;"></div>
+
+      <div class="badge" style="background:#22C55E18; border:1px solid #22C55E50; color:#86EFAC;">
+        <span class="dot" style="background:#22C55E; box-shadow:0 0 8px #22C55E;"></span>
+        Submissões abertas · 30 vagas
+      </div>
+      <h2 style="color:#F0EDE6;">VA / WORLD<br><span style="color:#F5C842; text-shadow:0 0 40px #F5C84250;">CUP</span> / 2026</h2>
+      <p style="color:#F0EDE6;">Uma campanha coordenada de chart no Beatport durante a Copa do Mundo 2026. 30 artistas. Um push. Uma conquista.</p>
+      <div class="cta-row">
+        <button class="btn-primary" style="background:linear-gradient(135deg,#22C55E,#16A34A); color:#060A06; font-weight:800;">Submeter Demo</button>
+        <button class="btn-ghost" style="border:1px solid #F5C84240; color:#F5C842;">Saber mais</button>
+        <span style="font-size:12px; color:#728A72; margin-left:4px;">Prazo: 15 Ago 2026</span>
+      </div>
+    </div>
+    <!-- INFO ROW -->
+    <div class="info-row" style="background:#0C140C; border-top:1px solid #182B18;">
+      <div class="info-cell" style="border-right:1px solid #182B18;">
+        <div class="label" style="color:#22C55E;">Paleta de Cores</div>
+        <div class="swatch-mini">
+          <span style="background:#060A06;"></span>
+          <span style="background:#0C140C;"></span>
+          <span style="background:#182B18;"></span>
+          <span style="background:#22C55E;"></span>
+          <span style="background:#16A34A;"></span>
+          <span style="background:#F5C842;"></span>
+          <span style="background:#FBBF24;"></span>
+          <span style="background:#F0EDE6;"></span>
+          <span style="background:#728A72;"></span>
+        </div>
+      </div>
+      <div class="info-cell" style="border-right:1px solid #182B18;">
+        <div class="label" style="color:#22C55E;">Tipografia sugerida</div>
+        <div class="fonts">
+          <div class="font-item" style="color:#F0EDE6;"><strong>Heading:</strong> Space Grotesk (bold)</div>
+          <div class="font-item" style="color:#F0EDE6;"><strong>Body:</strong> Inter (atual, manter)</div>
+          <div class="font-item" style="color:#728A72; font-size:11px;">Google Fonts · gratuito</div>
+        </div>
+      </div>
+      <div class="info-cell">
+        <div class="label" style="color:#22C55E;">Feel &amp; Mood</div>
+        <div class="mood-tags">
+          <span class="mood-tag" style="background:#22C55E20;color:#86EFAC;">Futebol</span>
+          <span class="mood-tag" style="background:#F5C84220;color:#FDE68A;">Brasil</span>
+          <span class="mood-tag" style="background:#ffffff08;color:#aaa;">Energia</span>
+          <span class="mood-tag" style="background:#ffffff08;color:#aaa;">Estádio</span>
+          <span class="mood-tag" style="background:#ffffff08;color:#aaa;">Adrenalina</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PALETA 3 — ESMERALDA
+     Obsidian + Emerald + Champagne Gold
+════════════════════════════════════════════ -->
+<div class="palette-wrapper">
+  <div class="palette-label">
+    <div class="number" style="background:#10B98120; color:#10B981; border: 1px solid #10B98140;">3</div>
+    <div class="info">
+      <h2 style="color:#fff;">Esmeralda</h2>
+      <p>Obsidian · Emerald · Champagne Gold — Ultra premium, luxo esportivo, laço olímpico</p>
+    </div>
+  </div>
+  <div class="palette-card">
+    <!-- SWATCHES -->
+    <div class="swatches">
+      <div class="swatch" style="background:#04090A;"></div>
+      <div class="swatch" style="background:#0A1612;"></div>
+      <div class="swatch" style="background:#163025;"></div>
+      <div class="swatch" style="background:#10B981;"></div>
+      <div class="swatch" style="background:#059669;"></div>
+      <div class="swatch" style="background:#C8960C;"></div>
+      <div class="swatch" style="background:#E5B83A;"></div>
+      <div class="swatch" style="background:#F0EDE6;"></div>
+      <div class="swatch" style="background:#617A72;"></div>
+    </div>
+    <!-- MINI HERO -->
+    <div class="mini-hero" style="background:radial-gradient(ellipse 80% 60% at 30% 0%, #10B98118 0%, #04090A 60%);">
+      <div class="glow" style="width:450px;height:300px;background:#10B981;opacity:0.10;top:-80px;left:-60px;"></div>
+      <div class="glow" style="width:280px;height:200px;background:#C8960C;opacity:0.10;top:30px;right:20px;"></div>
+
+      <div class="badge" style="background:#10B98112; border:1px solid #10B98130; color:#6EE7B7;">
+        <span class="dot" style="background:#10B981;"></span>
+        Submissões abertas · 30 vagas
+      </div>
+      <h2 style="color:#F0EDE6;">VA / WORLD<br><span style="background:linear-gradient(90deg,#C8960C,#E5B83A); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">CUP</span> / 2026</h2>
+      <p style="color:#F0EDE6;">Uma campanha coordenada de chart no Beatport durante a Copa do Mundo 2026. 30 artistas. Um push. Uma conquista.</p>
+      <div class="cta-row">
+        <button class="btn-primary" style="background:linear-gradient(135deg,#C8960C,#E5B83A); color:#04090A; font-weight:800;">Submeter Demo</button>
+        <button class="btn-ghost" style="border:1px solid #10B98135; color:#6EE7B7;">Saber mais</button>
+        <span style="font-size:12px; color:#617A72; margin-left:4px;">Prazo: 15 Ago 2026</span>
+      </div>
+    </div>
+    <!-- INFO ROW -->
+    <div class="info-row" style="background:#0A1612; border-top:1px solid #163025;">
+      <div class="info-cell" style="border-right:1px solid #163025;">
+        <div class="label" style="color:#10B981;">Paleta de Cores</div>
+        <div class="swatch-mini">
+          <span style="background:#04090A;"></span>
+          <span style="background:#0A1612;"></span>
+          <span style="background:#163025;"></span>
+          <span style="background:#10B981;"></span>
+          <span style="background:#059669;"></span>
+          <span style="background:#C8960C;"></span>
+          <span style="background:#E5B83A;"></span>
+          <span style="background:#F0EDE6;"></span>
+          <span style="background:#617A72;"></span>
+        </div>
+      </div>
+      <div class="info-cell" style="border-right:1px solid #163025;">
+        <div class="label" style="color:#10B981;">Tipografia sugerida</div>
+        <div class="fonts">
+          <div class="font-item" style="color:#F0EDE6;"><strong>Heading:</strong> DM Serif Display</div>
+          <div class="font-item" style="color:#F0EDE6;"><strong>Body:</strong> Inter (atual, manter)</div>
+          <div class="font-item" style="color:#617A72; font-size:11px;">Google Fonts · gratuito</div>
+        </div>
+      </div>
+      <div class="info-cell">
+        <div class="label" style="color:#10B981;">Feel &amp; Mood</div>
+        <div class="mood-tags">
+          <span class="mood-tag" style="background:#10B98120;color:#6EE7B7;">Esmeralda</span>
+          <span class="mood-tag" style="background:#C8960C20;color:#FDE68A;">Champagne</span>
+          <span class="mood-tag" style="background:#ffffff08;color:#aaa;">Luxo</span>
+          <span class="mood-tag" style="background:#ffffff08;color:#aaa;">Olímpico</span>
+          <span class="mood-tag" style="background:#ffffff08;color:#aaa;">Refinado</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ANÁLISE COMPARATIVA -->
+<div class="comparison">
+  <h3>Análise Comparativa</h3>
+  <div class="comparison-grid">
+    <div class="comp-item" style="border:1px solid #16A34A30;">
+      <h4 style="color:#4ADE80;">1 · Floresta Negra</h4>
+      <ul>
+        <li>Verde escuro/florestal, mais sóbrio</li>
+        <li>Ouro âmbar profundo (não brilhante)</li>
+        <li>Feel: Amazônia + troféu + luxo</li>
+        <li>Melhor para público europeu</li>
+        <li>Mais atemporal, menos "evento"</li>
+      </ul>
+    </div>
+    <div class="comp-item" style="border:1px solid #22C55E30;">
+      <h4 style="color:#86EFAC;">2 · Verde Brasil ⭐ RECOMENDADA</h4>
+      <ul>
+        <li>Verde vibrante (grama de estádio)</li>
+        <li>Mantém o ouro atual da marca</li>
+        <li>Maior identidade com Copa do Mundo</li>
+        <li>Alta energia, mais reconhecível</li>
+        <li>Muda menos o DNA atual do site</li>
+      </ul>
+    </div>
+    <div class="comp-item" style="border:1px solid #10B98130;">
+      <h4 style="color:#6EE7B7;">3 · Esmeralda</h4>
+      <ul>
+        <li>Emerald mais frio e sofisticado</li>
+        <li>Ouro champagne (mais premium)</li>
+        <li>Feel: Rolex, luxo esportivo</li>
+        <li>Funciona bem com tipografia serif</li>
+        <li>Público high-end/internacional</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

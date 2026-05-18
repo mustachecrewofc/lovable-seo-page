@@ -1,4 +1,4 @@
-import { Link, createRouter, useRouter } from "@tanstack/react-router";
+﻿import { Link, createRouter, useRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 
 function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
@@ -6,7 +6,7 @@ function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => vo
   const router = useRouter();
 
   return (
-    <div style={{ minHeight: "100vh", background: "#0A0A0F", color: "#F0EDE6", display: "flex", alignItems: "center", justifyContent: "center", padding: 24, fontFamily: "system-ui,-apple-system,Segoe UI,Roboto,sans-serif" }}>
+    <div style={{ minHeight: "100vh", background: "#060A06", color: "#F0EDE6", display: "flex", alignItems: "center", justifyContent: "center", padding: 24, fontFamily: "system-ui,-apple-system,Segoe UI,Roboto,sans-serif" }}>
       <div style={{ maxWidth: 520, width: "100%", textAlign: "center" }}>
         <h1 style={{ fontSize: "clamp(28px,4vw,44px)", margin: "0 0 12px", color: "#F5C842", fontWeight: 900 }}>Algo deu errado</h1>
         <p style={{ fontSize: 16, lineHeight: 1.55, opacity: 0.8, margin: "0 0 28px" }}>
@@ -18,7 +18,7 @@ function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => vo
               router.invalidate();
               reset();
             }}
-            style={{ background: "#F5C842", color: "#0A0A0F", border: 0, padding: "12px 22px", borderRadius: 999, fontWeight: 700, cursor: "pointer" }}
+            style={{ background: "#F5C842", color: "#060A06", border: 0, padding: "12px 22px", borderRadius: 999, fontWeight: 700, cursor: "pointer" }}
           >
             Tentar novamente
           </button>
