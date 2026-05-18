@@ -63,7 +63,7 @@
         >
           <p
             style={{
-              color: '#F0EDE6',
+              color: '#22C55E',
               fontWeight: 800,
               fontSize: 'clamp(40px, 8vw, 110px)',
               lineHeight: 1.05,
