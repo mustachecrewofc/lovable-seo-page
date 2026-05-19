@@ -7,6 +7,7 @@ import SEOReviewSection from '../components/sections/SEOReviewSection';
 import WhatsPossibleSection from '../components/sections/WhatsPossibleSection';
 import SquadMindsetReveal from '../components/sections/SquadMindsetReveal';
 import ChatSemrushSection from '../components/sections/ChatSemrushSection';
+import MarqueeSection from '../components/sections/MarqueeSection';
 import WorldCupWindowSection from '../components/sections/WorldCupWindowSection';
 import HowItWorksSection from '../components/sections/HowItWorksSection';
 import PricingSection from '../components/sections/PricingSection';
@@ -43,16 +44,19 @@ export default function SEOPage() {
         {/* Beat 8 — A Comunidade: Squad in action (Telegram chat) */}
         <ChatSemrushSection hideHero />
 
-        {/* Beat 9 — A Janela: July 17, 2026. 5 billion people watching. */}
+        {/* Scrolling global reach ticker */}
+        <MarqueeSection />
+
+        {/* Beat 9 — A Janela: July 17. Countdown. */}
         <WorldCupWindowSection />
 
-        {/* Beat 10 — O Processo: 4 steps */}
+        {/* Beat 10 — O Processo: Horizontal timeline */}
         <HowItWorksSection />
 
         {/* Beat 11 — O Investimento: €299. Everything included. */}
         <PricingSection />
 
-        {/* Beat 12 — O Chamado Final: Ready to write your chapter? */}
+        {/* Beat 12 — O Chamado Final: Spots bar + CTA */}
         <CTASection />
 
         <FAQSection />
