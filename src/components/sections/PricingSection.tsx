@@ -80,7 +80,7 @@ export default function PricingSection() {
           </p>
 
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 pb-10 border-b border-[#182B18]">
-            <div>
+            <div className="flex-1">
               <h2
                 className="font-black text-[#F0EDE6] leading-[0.95] -tracking-[2px]"
                 style={{ fontSize: 'clamp(48px, 6.5vw, 88px)' }}
@@ -94,13 +94,27 @@ export default function PricingSection() {
                 One Facebook ads campaign won't chart you. One press release won't either.
                 This does — because it's coordinated, collective, and backed by a label that's done it before.
               </p>
+              <a
+                href="/submit"
+                className="mt-5 h-[52px] inline-flex items-center justify-center px-7 rounded-full bg-[#F5C842] text-[#060612] text-base font-bold hover:bg-[#FFD75A] transition-colors whitespace-nowrap"
+              >
+                Submit Free →
+              </a>
             </div>
-            <a
-              href="/submit"
-              className="h-[52px] flex items-center justify-center px-7 rounded-full bg-[#F5C842] text-[#060612] text-base font-bold hover:bg-[#FFD75A] transition-colors whitespace-nowrap self-start md:self-end"
-            >
-              Submit Free →
-            </a>
+            {/* Crew photo */}
+            <div className="flex-shrink-0 self-start md:self-end">
+              <div className="relative w-[200px] md:w-[240px] rounded-2xl overflow-hidden border border-[#F5C842]/20 shadow-[0_8px_32px_-8px_rgba(245,200,66,0.20)]">
+                <img
+                  src="https://mustachecrew.com.br/assets/about-crew-DfaZ6Llw.jpg"
+                  alt="Mustache Crew Records team"
+                  className="w-full h-[150px] md:h-[175px] object-cover object-top"
+                />
+                <div className="px-3 py-2 bg-[#0C140C]/90 border-t border-[#182B18]">
+                  <p className="text-[10px] font-bold text-[#F5C842] uppercase tracking-[1.5px]">Mustache Crew Records</p>
+                  <p className="text-[10px] text-[#728A72] mt-0.5">The team behind 3 chart campaigns</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <p className="text-xs font-bold text-[#728A72] uppercase tracking-[0.2em] mb-6">

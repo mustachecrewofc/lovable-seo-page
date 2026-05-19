@@ -57,18 +57,29 @@ export default function WorldCupWindowSection() {
 
   return (
     <section className="relative overflow-hidden bg-[#060A06]">
+      {/* Stadium photo background */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'url(https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/EB4D/production/_127873206_gettyimages-1245307567.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 30%',
+          opacity: 0.08,
+        }}
+        aria-hidden="true"
+      />
       {/* Glows */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(34,197,94,0.14) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 10% 100%, rgba(245,200,66,0.08) 0%, transparent 60%)',
+            'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(34,197,94,0.16) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 10% 100%, rgba(245,200,66,0.10) 0%, transparent 60%), linear-gradient(to bottom, rgba(6,10,6,0.5) 0%, transparent 40%, rgba(6,10,6,0.7) 100%)',
         }}
         aria-hidden="true"
       />
       {/* Grid */}
       <div
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        className="absolute inset-0 opacity-[0.025] pointer-events-none"
         style={{
           backgroundImage: 'linear-gradient(#22C55E 1px, transparent 1px), linear-gradient(90deg, #22C55E 1px, transparent 1px)',
           backgroundSize: '60px 60px',
