@@ -198,7 +198,7 @@ export default function ChatSemrushSection({ hideHero = false }: { hideHero?: bo
                   <p className="font-semibold text-[#F0EDE6] text-sm">Free to submit. Worldwide.</p>
                   <p className="text-[#728A72] text-sm mt-1 leading-relaxed">
                     No submission fee, no membership. Selected artists sign a fair distribution deal with{' '}
-                    <span className="font-medium text-[#22C55E]">transparent royalty splits</span>. Deadline: March 31, 2026.
+                    <span className="font-medium text-[#22C55E]">transparent royalty splits</span>. Submission deadline: <span className="text-[#F5C842] font-medium">July 10, 2026</span>.
                   </p>
                 </div>
               </div>

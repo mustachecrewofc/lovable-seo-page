@@ -32,7 +32,7 @@ export default function SquadMindsetReveal() {
           <div className="max-w-5xl flex-1 flex flex-col">
             {/* Label */}
             <div className="mb-4 text-xs font-bold uppercase tracking-[2px] text-[#14532d]/70">
-              O Squad
+              The Squad
             </div>
 
             <h2

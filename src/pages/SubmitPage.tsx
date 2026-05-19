@@ -158,7 +158,7 @@ export default function SubmitPage() {
             Free to submit. We review within 7 days. €299 only upon acceptance — no cost if not selected.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
-            {['Free to submit', 'All genres', 'Reply in 7 days', 'Deadline Aug 15, 2026'].map(t => (
+            {['Free to submit', 'All genres', 'Reply in 7 days', 'Submit by July 10, 2026'].map(t => (
               <span key={t} className="text-xs font-medium px-3 py-1.5 rounded-full bg-[#0C140C] border border-[#182B18] text-[#728A72]">{t}</span>
             ))}
           </div>

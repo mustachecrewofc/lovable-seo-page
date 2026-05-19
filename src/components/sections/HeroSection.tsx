@@ -54,7 +54,7 @@
             Your track. The biggest stage in the world. Let's go.
           </p>
           <p className="mt-4 max-w-[520px] text-sm text-[#728A72]">
-            ✓ Free to submit&nbsp;&nbsp;•&nbsp;&nbsp;✓ €299 upon acceptance&nbsp;&nbsp;•&nbsp;&nbsp;✓ Deadline: August 15, 2026
+            ✓ Free to submit&nbsp;&nbsp;•&nbsp;&nbsp;✓ €299 upon acceptance&nbsp;&nbsp;•&nbsp;&nbsp;✓ Submit by: July 10, 2026
           </p>
           <a
             href="/submit"
@@ -63,7 +63,7 @@
             Submit Your Track — Free →
           </a>
           <p className="mt-4 max-w-[520px] text-sm text-[#728A72]">
-            📅 Submissions open now&nbsp;&nbsp;•&nbsp;&nbsp;Lineup locks <span className="text-[#22C55E] font-semibold">August 15, 2026</span>
+            📅 Submissions open now&nbsp;&nbsp;•&nbsp;&nbsp;Submit by <span className="text-[#22C55E] font-semibold">July 10</span>&nbsp;&nbsp;•&nbsp;&nbsp;Releases <span className="text-[#F5C842] font-semibold">July 17, 2026</span>
           </p>
         </div>
       </section>

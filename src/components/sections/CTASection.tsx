@@ -58,7 +58,7 @@ export default function CTASection() {
             />
           </div>
           <p className="mt-2 text-xs text-[#728A72] text-center">
-            {TOTAL_SPOTS} spots max · Deadline August 15, 2026
+            {TOTAL_SPOTS} spots max · Submit by July 10 · Releases July 17, 2026
           </p>
         </div>
 

@@ -92,7 +92,7 @@ export default function WorldCupWindowSection() {
 
         {/* Label */}
         <div className={`mb-4 text-xs font-bold uppercase tracking-[2px] text-[#728A72] transition-all duration-500 ${inView ? 'opacity-100' : 'opacity-0'}`}>
-          A janela
+          The window
         </div>
 
         {/* Heading */}

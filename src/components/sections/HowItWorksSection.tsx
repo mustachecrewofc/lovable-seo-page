@@ -61,7 +61,7 @@ export default function HowItWorksSection() {
     >
       {/* Header */}
       <div className="mb-3 text-xs font-bold uppercase tracking-[2px] text-[#728A72]">
-        O processo
+        The process
       </div>
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14 md:mb-20">
         <h2
