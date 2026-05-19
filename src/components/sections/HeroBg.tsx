@@ -19,7 +19,7 @@
           style={{
             fontSize: 'clamp(80px, 16vw, 220px)',
             fontWeight: 900,
-            color: '#C9A227',
+            color: '#22C55E',
             lineHeight: 1,
             letterSpacing: '-0.04em',
             margin: 0,
@@ -63,7 +63,7 @@
         >
           <p
             style={{
-              color: '#22C55E',
+              color: '#F0EDE6',
               fontWeight: 800,
               fontSize: 'clamp(40px, 8vw, 110px)',
               lineHeight: 1.05,
