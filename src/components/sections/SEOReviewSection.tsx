@@ -3,10 +3,12 @@ import { PortfolioGallery } from '../ui/portfolio-gallery';
 import proofOverall from '@/assets/proof-overall.jpg';
 import proofProgressive from '@/assets/proof-progressive.jpg';
 import proofPeaktime from '@/assets/proof-peaktime.jpg';
-import proofHouse from '@/assets/xmas-house-7.png';
+import proofHouse from '@/assets/proof-house.jpg';
 import proofTechhouse from '@/assets/proof-techhouse.jpg';
-import proofDubstep from '@/assets/xmas-dubstep-2.png';
+import proofDubstep from '@/assets/proof-dubstep.jpg';
 import proofElectronica from '@/assets/proof-electronica.jpg';
+import xmasDubstep2 from '@/assets/xmas-dubstep-2.png';
+import xmasHouse7 from '@/assets/xmas-house-7.png';
 import carnivalOverall from '@/assets/carnival-overall.jpg';
 import carnivalElectronica from '@/assets/carnival-electronica.jpg';
 import carnivalProgressive from '@/assets/carnival-progressive.jpg';
@@ -129,6 +131,49 @@ export default function SEOReviewSection() {
           </div>
         </div>
 
+      </div>
+
+      {/* Real Beatport screenshots — highlighted proof */}
+      <div className={`mt-12 md:mt-16 transition-all duration-700 delay-250 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+        <p className="text-xs font-bold uppercase tracking-[2px] text-[#728A72] mb-4">Live screenshots — Beatport Top 10</p>
+        <div className="grid grid-cols-2 gap-4 max-w-[560px]">
+          {/* Dubstep #2 */}
+          <div className="relative rounded-2xl overflow-hidden border border-[#22C55E]/30 bg-[#0C140C] shadow-[0_8px_32px_-8px_rgba(34,197,94,0.25)] group">
+            <img
+              src={xmasDubstep2}
+              alt="Mustache Gang Xmas #2 Dubstep — Beatport Top 10"
+              className="w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              style={{ maxHeight: '320px' }}
+            />
+            <div className="absolute top-3 left-3">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#22C55E] text-[#060A06] text-xs font-black tracking-wide shadow-lg">
+                #2 Dubstep
+              </span>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 px-3 py-2.5 bg-gradient-to-t from-[#060A06] to-transparent">
+              <p className="text-[#F0EDE6] text-xs font-semibold leading-tight">Mustache Gang Xmas 2025</p>
+              <p className="text-[#728A72] text-[10px] mt-0.5">Beatport Dubstep Releases</p>
+            </div>
+          </div>
+          {/* House #7 */}
+          <div className="relative rounded-2xl overflow-hidden border border-[#F5C842]/30 bg-[#0C140C] shadow-[0_8px_32px_-8px_rgba(245,200,66,0.20)] group">
+            <img
+              src={xmasHouse7}
+              alt="Mustache Gang Xmas #7 House — Beatport Top 10"
+              className="w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              style={{ maxHeight: '320px' }}
+            />
+            <div className="absolute top-3 left-3">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#F5C842] text-[#060A06] text-xs font-black tracking-wide shadow-lg">
+                #7 House
+              </span>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 px-3 py-2.5 bg-gradient-to-t from-[#060A06] to-transparent">
+              <p className="text-[#F0EDE6] text-xs font-semibold leading-tight">Mustache Gang Xmas 2025</p>
+              <p className="text-[#728A72] text-[10px] mt-0.5">Beatport House Releases</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className={`mt-16 md:mt-24 transition-all duration-700 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
