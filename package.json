@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.106.0",
     "@tanstack/react-router": "^1.170.4",
     "framer-motion": "^12.38.0",
     "react": "^19.2.5",

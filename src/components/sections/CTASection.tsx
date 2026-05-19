@@ -66,7 +66,7 @@ export default function CTASection() {
           className={`mt-8 flex flex-col sm:flex-row items-center gap-4 transition-all duration-700 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
         >
           <a
-            href="#submit"
+            href="/submit"
             className="h-[52px] flex items-center px-8 rounded-full bg-[#F5C842] text-[#060612] text-base font-bold hover:bg-[#FFD75A] transition-colors"
           >
             Submit Your Track — Free →

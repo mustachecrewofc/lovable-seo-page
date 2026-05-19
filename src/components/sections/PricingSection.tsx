@@ -96,7 +96,7 @@ export default function PricingSection() {
               </p>
             </div>
             <a
-              href="#submit"
+              href="/submit"
               className="h-[52px] flex items-center justify-center px-7 rounded-full bg-[#F5C842] text-[#060612] text-base font-bold hover:bg-[#FFD75A] transition-colors whitespace-nowrap self-start md:self-end"
             >
               Submit Free →

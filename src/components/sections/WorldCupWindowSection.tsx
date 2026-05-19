@@ -133,7 +133,7 @@ export default function WorldCupWindowSection() {
             </p>
           </div>
           <a
-            href="#submit"
+            href="/submit"
             className="flex-shrink-0 h-[44px] flex items-center px-5 rounded-full bg-[#F5C842] text-[#060612] text-sm font-bold hover:bg-[#FFD75A] transition-colors"
           >
             Submit Free →
