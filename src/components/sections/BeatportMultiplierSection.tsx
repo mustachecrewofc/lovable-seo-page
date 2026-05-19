@@ -103,7 +103,7 @@ export default function BeatportMultiplierSection() {
             }}
           >
             <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#22C55E' }}>
-              VA World Cup 2026
+              Mustache Gang World Cup 2026
             </div>
             <div style={{ fontSize: 'clamp(48px, 7vw, 80px)', fontWeight: 900, color: '#22C55E', lineHeight: 1, letterSpacing: '-3px' }}>
               30

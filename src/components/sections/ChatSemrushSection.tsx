@@ -17,7 +17,7 @@ const messages: Msg[] = [
     author: 'Mustache Crew',
     role: 'A&R · admin',
     isCrew: true,
-    content: "Squad, it's official 🚨 VA World Cup 2026 drops June 12. 30 artists, one coordinated push. Pre-save links go live tomorrow at 11AM CET. Are we ready? 🔥",
+    content: "Squad, it's official 🚨 Mustache Gang World Cup 2026 drops July 17 — 2 days before the Final. 30 artists, one coordinated push. Pre-save links go live tomorrow at 11AM CET. Are we ready? 🔥",
     delay: 600,
   },
   {
@@ -150,8 +150,8 @@ export default function ChatSemrushSection({ hideHero = false }: { hideHero?: bo
                 <img src={mustacheIcon} alt="" className="w-7 h-7 object-contain" />
               </div>
               <div className="flex-1 text-left">
-                <p className="font-bold text-[#F0EDE6] text-sm">VA World Cup 2026 — Squad</p>
-                <p className="text-xs text-[#728A72]">30 artists · 1 drop · coordinated push</p>
+                <p className="font-bold text-[#F0EDE6] text-sm">Mustache Gang World Cup 2026 — Squad</p>
+                <p className="text-xs text-[#728A72]">30 artists · July 17 drop · coordinated push</p>
               </div>
               <span className="text-xs text-[#728A72] bg-[#060A06] border border-[#182B18] px-2 py-1 rounded-full">Telegram</span>
             </div>

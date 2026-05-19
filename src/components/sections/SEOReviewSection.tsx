@@ -42,14 +42,14 @@ const carnivalImages = [
 ];
 
 const issues = [
-  { label: 'Mustache Gang Xmas — #38 Beatport Overall Top 100 Releases', status: 'ok', badge: 'Charted' },
-  { label: 'Brazilian Carnival — #1 Electronica / Downtempo Releases', status: 'ok', badge: '#1' },
-  { label: 'Brazilian Carnival — #1 140 / Deep Dubstep / Grime Releases', status: 'ok', badge: '#1' },
-  { label: 'Mustache Gang Xmas — #2 Beatport Dubstep Releases', status: 'ok' },
-  { label: 'Brazilian Carnival — #2 Bass House · #2 Dance · #2 Electro', status: 'ok' },
-  { label: '3 VA campaigns successfully coordinated', status: 'ok', badge: '3×' },
-  { label: '29+ artists across coordinated squad pushes', status: 'ok' },
-  { label: 'SoundCloud repost network ≈ 2 million followers', status: 'ok', badge: 'Verified' },
+  { label: 'Mustache Gang Xmas — #38 Beatport Overall Top 100 Releases', status: 'ok', badge: '#38 Overall' },
+  { label: 'Mustache Gang Brazilian Carnival — #58 Beatport Overall Top 100 Releases', status: 'ok', badge: '#58 Overall' },
+  { label: 'Brazilian Carnival — #1 Electronica · #1 Deep Dubstep · #2 Bass House', status: 'ok', badge: '#1 Genres' },
+  { label: 'Mustache Gang Xmas — #2 Dubstep · #4 Peaktime · #7 House · #9 Tech House', status: 'ok', badge: 'Multi-chart' },
+  { label: 'Chart positions held for 10+ days across all VA campaigns', status: 'ok', badge: '10+ days' },
+  { label: 'Artists from past VAs booked for shows after their chart run', status: 'ok', badge: 'Bookings' },
+  { label: '29+ artists coordinated across squad pushes — 0 late deliveries', status: 'ok' },
+  { label: 'SoundCloud repost network ≈ 2 million followers · EDMArmy 300k+', status: 'ok', badge: 'Verified' },
 ];
 
 function StatusIcon() {

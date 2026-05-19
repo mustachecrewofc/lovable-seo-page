@@ -44,7 +44,7 @@ export default function SEOPage() {
         {/* Beat 8 — A Comunidade: Squad in action (Telegram chat) */}
         <ChatSemrushSection hideHero />
 
-        {/* Beat 9 — A Janela: June 2026. 5 billion people watching. */}
+        {/* Beat 9 — A Janela: July 17, 2026. 5 billion people watching. */}
         <WorldCupWindowSection />
 
         {/* Beat 10 — O Processo: 4 steps */}

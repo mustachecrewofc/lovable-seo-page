@@ -12,7 +12,7 @@ const footerColumns = [
   {
     title: 'Current VA',
     links: [
-      { label: 'VA World Cup 2026', href: '#' },
+      { label: 'Mustache Gang World Cup 2026', href: '#' },
       { label: 'Submit', href: '#submit' },
       { label: 'FAQ', href: '#faq' },
     ],

@@ -7,7 +7,7 @@ const fomoPoints = [
   },
   {
     title: 'The algorithm loves a moment.',
-    desc: 'Beatport surfaces music tied to cultural peaks. A June 2026 release during the World Cup opening weeks positions your track inside a global conversation — that\'s editorial gravity you can\'t buy.',
+    desc: 'Beatport surfaces music tied to cultural peaks. A July 17 release — 2 days before the World Cup Final — positions your track inside the biggest week of global attention. That\'s editorial gravity you can\'t buy.',
   },
   {
     title: 'We\'re Brazilian. We know football.',
@@ -15,7 +15,7 @@ const fomoPoints = [
   },
   {
     title: 'This window only exists once.',
-    desc: 'The World Cup is every four years. This VA campaign is happening once. 30 spots. After August 15, the lineup locks. There is no "next round."',
+    desc: 'The World Cup is every four years. July 17, 2026 happens once. Mustache Gang World Cup 2026 drops 2 days before the Final. 30 spots. After August 15, the lineup locks. There is no "next round."',
   },
 ];
 
@@ -57,7 +57,7 @@ export default function WorldCupWindowSection() {
           className={`font-black text-[#F0EDE6] leading-[1.0] -tracking-[2.5px] transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
           style={{ fontSize: 'clamp(42px, 6.5vw, 88px)' }}
         >
-          June 2026.<br/><span className="text-[#22C55E]">5 billion people</span><br/>watching.
+          July 17, 2026.<br/><span className="text-[#22C55E]">5 billion people</span><br/>watching.
         </h2>
 
         <div className={`mt-6 max-w-[600px] transition-all duration-700 delay-100 ${inView ? 'opacity-100' : 'opacity-0'}`}>
@@ -97,7 +97,7 @@ export default function WorldCupWindowSection() {
               </p>
               <p className="mt-2 text-sm text-[#728A72] leading-relaxed">
                 Football is culture. Music is culture. In Brazil, they're the same thing.
-                VA World Cup 2026 isn't a marketing campaign — it's a statement.
+                Mustache Gang World Cup 2026 isn't a marketing campaign — it's a statement.
                 Submit your track and be part of it.
               </p>
             </div>
