@@ -12,7 +12,7 @@ const pushItems = [
     statLabel: 'artists emailed',
     label: 'Email marketing',
     description:
-      'The album is sent directly to 2,000+ artists who have already released with Mustache Crew — guaranteed exposure inside the electronic music community.',
+      'The album is sent directly to 2,000+ contacts — a key industry network built over 8 years in the electronic music scene. Real people. Real reach.',
     color: '#F5C842',
   },
   {
