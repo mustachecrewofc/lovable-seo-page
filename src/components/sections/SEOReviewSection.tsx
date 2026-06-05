@@ -9,6 +9,11 @@ import proofDubstep from '@/assets/proof-dubstep.jpg';
 import proofElectronica from '@/assets/proof-electronica.jpg';
 import xmasDubstep2 from '@/assets/xmas-dubstep-2.png';
 import xmasHouse7 from '@/assets/xmas-house-7.png';
+import euroFunky4 from '@/assets/euro-funky-4.jpg';
+import euroDubstep3 from '@/assets/euro-dubstep-3.jpg';
+import euroAfrohouse8 from '@/assets/euro-afrohouse-8.jpg';
+import euroProgressive15 from '@/assets/euro-progressive-15.jpg';
+import euroDeephouse20 from '@/assets/euro-deephouse-20.jpg';
 import carnivalOverall from '@/assets/carnival-overall.jpg';
 import carnivalElectronica from '@/assets/carnival-electronica.jpg';
 import carnivalProgressive from '@/assets/carnival-progressive.jpg';
@@ -19,6 +24,14 @@ import carnivalPeaktime from '@/assets/carnival-peaktime.jpg';
 import carnivalElectro from '@/assets/carnival-electro.jpg';
 import carnivalBassHouse from '@/assets/carnival-bass-house.jpg';
 import carnivalDeepDubstep from '@/assets/carnival-deepdubstep.jpg';
+
+const euroImages = [
+  { src: euroDubstep3,      alt: 'Mustache Gang Euro Tour — #3 Dubstep Releases' },
+  { src: euroFunky4,        alt: 'Mustache Gang Euro Tour — #4 Funky / Groove / Jackin\' House Releases' },
+  { src: euroAfrohouse8,    alt: 'Mustache Gang Euro Tour — #8 Afro House Releases' },
+  { src: euroProgressive15, alt: 'Mustache Gang Euro Tour — #15 Progressive House Releases' },
+  { src: euroDeephouse20,   alt: 'Mustache Gang Euro Tour — #20 Deep House Releases' },
+];
 
 const xmasImages = [
   { src: proofOverall, alt: 'Mustache Gang Xmas — #38 Beatport Overall Top 100' },
@@ -133,7 +146,19 @@ export default function SEOReviewSection() {
 
       </div>
 
+      {/* Euro Tour gallery */}
       <div className={`mt-16 md:mt-24 transition-all duration-700 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+        <div className="flex items-center gap-3 mb-2 md:mb-4">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3B82F6]/15 border border-[#3B82F6]/40 text-[#3B82F6] text-xs font-bold uppercase tracking-wider">
+            🌍 Mustache Gang Euro Tour
+          </span>
+          <span className="text-[#728A72] text-xs hidden sm:inline">5 Beatport chart placements</span>
+        </div>
+        <PortfolioGallery images={euroImages} spacing="-space-x-20 md:-space-x-24" />
+      </div>
+
+      {/* Xmas gallery */}
+      <div className={`mt-12 md:mt-20 transition-all duration-700 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
         <div className="flex items-center gap-3 mb-2 md:mb-4">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#22C55E]/15 border border-[#22C55E]/40 text-[#FF8A7A] text-xs font-bold uppercase tracking-wider">
             🎅 Mustache Gang Xmas 2025
