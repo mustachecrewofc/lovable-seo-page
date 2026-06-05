@@ -223,10 +223,10 @@ export default function IntroductionSection() {
           </div>
         </div>
 
-        {/* Bridge to Proof */}
+        {/* Bridge to Solo vs VA */}
         <div style={anim(720, 8)} className="mt-10 flex flex-col items-center gap-2">
           <p className="text-sm text-[#728A72] text-center">
-            Don't take our word for it.
+            See exactly what changes when you stop releasing alone.
           </p>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#728A72" strokeWidth="2" strokeLinecap="round" className="opacity-50">
             <polyline points="6 9 12 15 18 9"/>

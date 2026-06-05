@@ -18,11 +18,11 @@ export default function SEOPage() {
         {/* 1 — Hook */}
         <HeroSection />
 
-        {/* 2 — Desire: solo vs VA contrast */}
-        <SquadMindsetReveal />
-
-        {/* 3 — Understanding: what this community is */}
+        {/* 2 — Understanding: what this community is */}
         <div id="mission"><IntroductionSection /></div>
+
+        {/* 3 — Desire: solo vs VA contrast */}
+        <SquadMindsetReveal />
 
         {/* 4 — Proof: three campaigns, real screenshots */}
         <SEOReviewSection />

@@ -1,6 +1,6 @@
 ﻿export default function HeroSection() {
   return (
-    <div className="relative bg-[#060A06] overflow-hidden">
+    <div className="relative bg-[#060A06] overflow-hidden min-h-screen">
       {/* YouTube background video */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
         <iframe
@@ -10,8 +10,13 @@
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full"
           style={{ border: 0, opacity: 0.25 }}
         />
-        {/* Dark overlay for legibility */}
+        {/* Dark overlay */}
         <div className="absolute inset-0 bg-[#060A06]/55" />
+        {/* Bottom fade — hides next section bleed */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+          style={{ background: 'linear-gradient(to bottom, transparent, #060A06)' }}
+        />
       </div>
 
       {/* Subtle grid pattern */}
@@ -24,7 +29,7 @@
         }}
       />
 
-      <section className="mx-auto max-w-[1440px] px-4 md:px-8 lg:px-[32px] grid grid-rows-[1fr_auto] lg:grid-rows-[1fr_auto_1fr] relative z-10 min-h-[680px] lg:min-h-[760px]">
+      <section className="mx-auto max-w-[1440px] px-4 md:px-8 lg:px-[32px] grid grid-rows-[1fr_auto] lg:grid-rows-[1fr_auto_1fr] relative z-10 min-h-screen">
         <div className="hidden lg:block" />
 
         {/* Main content */}
