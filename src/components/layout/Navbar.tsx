@@ -2,10 +2,10 @@
 import logoWhite from '@/assets/mustache-crew-white.png';
 
 const navLinks = [
-  { label: 'The Strategy', href: '#strategy' },
-  { label: '360° Promo', href: '#promo' },
+  { label: 'The Mission', href: '#mission' },
+  { label: 'The Journey', href: '#journey' },
   { label: 'Proof', href: '#proof' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Community', href: '#community' },
 ];
 
 export default function Navbar() {

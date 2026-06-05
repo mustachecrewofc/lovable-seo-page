@@ -18,21 +18,21 @@ export default function SEOPage() {
         <HeroSection />
 
         {/* 2 — Mission: community intro, goal, why together */}
-        <IntroductionSection />
+        <div id="mission"><IntroductionSection /></div>
 
         {/* 3 — Journey: 6-step orbital from demo to chart */}
-        <JourneySection />
+        <div id="journey"><JourneySection /></div>
 
         {/* 4 — The mechanism: community is the strategy */}
         <SquadMindsetReveal />
 
-        {/* 4 — Proof: previous chart tops */}
+        {/* 5 — Proof: previous chart tops */}
         <SEOReviewSection />
 
-        {/* 5 — Community: Telegram + same mindset artists */}
-        <ChatSemrushSection />
+        {/* 6 — Community: Telegram + same mindset artists */}
+        <div id="community"><ChatSemrushSection /></div>
 
-        {/* 6 — Extra push: EDM Army + SoundCloud + Email */}
+        {/* 7 — Extra push: EDM Army + SoundCloud + Email */}
         <ExtraPushSection />
 
         {/* 7 — Submit demo CTA */}
