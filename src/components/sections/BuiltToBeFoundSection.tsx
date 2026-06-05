@@ -9,7 +9,7 @@ const stats = [
   {
     number: '30×',
     label: 'chart multiplier',
-    detail: 'every album purchase counts as 30 individual chart votes',
+    detail: 'every album purchase pushes all 30 tracks up the chart simultaneously',
   },
   {
     number: '3',

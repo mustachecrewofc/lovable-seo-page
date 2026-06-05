@@ -59,8 +59,8 @@ export default function IntroductionSection() {
       accent: '#22C55E',
       accentRgb: '34,197,94',
       icon: <IconChart />,
-      title: 'One purchase. Thirty chart votes.',
-      body: 'When anyone buys the VA album, all 30 tracks get pushed up the chart simultaneously. That is not a trick — that is how Beatport works. We use it intentionally, every time.',
+      title: 'One purchase. Thirty tracks pushed.',
+      body: 'When anyone buys the VA album, Beatport counts that sale for all 30 tracks at once. One purchase moves all 30 up the chart simultaneously. That is how it works — and we use it intentionally, every time.',
     },
     {
       num: '03',
@@ -68,7 +68,7 @@ export default function IntroductionSection() {
       accentRgb: '34,197,94',
       icon: <IconNetwork />,
       title: 'Your audience works for everyone.',
-      body: 'Your fans buy the album and cast 30 votes — for you and the other 29 artists. Their fans do the same for you. Alone, you get 1 push. Together, you get a coordinated flood.',
+      body: 'Your fans buy the album and push all 30 tracks at once — yours and the other 29. Their fans do the same. Alone, 1 purchase moves 1 track. Together, 1 purchase moves 30.',
     },
     {
       num: '04',

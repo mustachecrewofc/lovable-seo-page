@@ -40,7 +40,7 @@ export default function BeatportMultiplierSection() {
           className={`font-black text-[#F0EDE6] leading-[1.0] -tracking-[2.5px] transition-all duration-700 delay-75 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
           style={{ fontSize: 'clamp(42px, 6.5vw, 88px)' }}
         >
-          1 album purchase.<br/><span className="text-[#22C55E]">30 chart votes.</span>
+          1 album purchase.<br/><span className="text-[#22C55E]">30 tracks pushed.</span>
         </h2>
 
         <p className={`mt-6 max-w-[600px] text-[#C4C2B8] text-base md:text-lg leading-relaxed transition-all duration-700 delay-150 ${inView ? 'opacity-100' : 'opacity-0'}`}>

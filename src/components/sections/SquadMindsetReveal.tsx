@@ -86,7 +86,7 @@ export default function SquadMindsetReveal() {
               and commits to the same launch. That coordination — that community — is what turns
               a release into a chart run. And on Beatport, every album sale pushes{' '}
               <span className="font-semibold text-[#060A06]/85">all 30 tracks simultaneously</span>.
-              One purchase. Thirty chart votes. That's the math of a squad.
+              One purchase. Thirty tracks pushed. That's the math of a squad.
             </p>
           </div>
 
@@ -185,7 +185,7 @@ export default function SquadMindsetReveal() {
               1
             </div>
             <div className="text-sm leading-relaxed" style={{ color: 'rgba(240,237,230,0.38)' }}>
-              chart vote per purchase.<br />One drop. Lost in the ocean.
+              track pushed per purchase.<br />One drop. Lost in the ocean.
             </div>
             <div className="mt-auto pt-4 flex gap-1.5 flex-wrap">
               <div
@@ -253,7 +253,7 @@ export default function SquadMindsetReveal() {
               30
             </div>
             <div className="text-sm leading-relaxed text-[#F0EDE6]">
-              chart votes per purchase.<br />Thirty voices. One coordinated flood.
+              tracks pushed per purchase.<br />Thirty tracks. One coordinated climb.
             </div>
             {/* Animated dot grid */}
             <div className="mt-auto pt-4 flex gap-[5px] flex-wrap">
