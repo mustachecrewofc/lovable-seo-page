@@ -109,7 +109,7 @@ export default function SquadMindsetReveal() {
                   className="font-black text-[10px] uppercase tracking-[2.5px] mb-3"
                   style={{ color: 'rgba(240,237,230,0.55)' }}
                 >
-                  What actually happens to most artists
+                  What usually happens when you release solo
                 </p>
                 <div className="flex flex-col gap-2">
                   {[
