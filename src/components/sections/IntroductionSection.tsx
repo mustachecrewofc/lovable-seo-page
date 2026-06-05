@@ -136,39 +136,10 @@ export default function IntroductionSection() {
           And on July 17, the chart gets flooded.
         </p>
 
-        {/* World Cup timing callout */}
-        <div
-          style={anim(320)}
-          className="mt-8 rounded-2xl overflow-hidden max-w-[660px]"
-        >
-          <div
-            className="flex items-start gap-4 px-5 py-4"
-            style={{
-              background: 'rgba(245,200,66,0.06)',
-              border: '1px solid rgba(245,200,66,0.20)',
-              borderLeft: '3px solid rgba(245,200,66,0.70)',
-              borderRadius: '14px',
-            }}
-          >
-            <span className="text-lg flex-shrink-0 mt-0.5">⚽</span>
-            <div>
-              <p className="font-black text-[#F5C842] text-xs uppercase tracking-[2px] mb-1">
-                Why July 17?
-              </p>
-              <p className="text-[#F0EDE6]/65 text-sm leading-relaxed">
-                The FIFA World Cup Final 2026 is July 19. Two days before the most-watched
-                sporting event on the planet, 30 tracks drop with a title everyone will recognise.
-                Global attention is at its peak. Press, playlists, and new listeners are actively
-                looking for new music. That window is the strategy.
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* 4 pillars — 2x2 grid */}
         <div
-          style={anim(420)}
-          className="mt-10 md:mt-14 grid grid-cols-1 md:grid-cols-2 gap-4"
+          style={anim(360)}
+          className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-4"
         >
           {pillars.map((p, i) => (
             <div
