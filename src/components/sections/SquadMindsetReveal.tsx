@@ -13,9 +13,9 @@ export default function SquadMindsetReveal() {
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      className="relative overflow-hidden py-28 md:py-40"
+      className="relative overflow-hidden py-24 md:py-36"
     >
-      {/* Multi-layer background */}
+      {/* Background */}
       <div
         className="absolute inset-0"
         style={{
@@ -24,7 +24,6 @@ export default function SquadMindsetReveal() {
         }}
         aria-hidden="true"
       />
-      {/* Noise grain for depth */}
       <div
         className="absolute inset-0 opacity-[0.07] pointer-events-none mix-blend-overlay"
         style={{
@@ -33,7 +32,6 @@ export default function SquadMindsetReveal() {
         }}
         aria-hidden="true"
       />
-      {/* Bottom fade to dark */}
       <div
         className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
         style={{ background: 'linear-gradient(to bottom, transparent, #060A06)' }}
@@ -42,119 +40,38 @@ export default function SquadMindsetReveal() {
 
       <div className="relative z-10 container">
 
-        {/* Label — slides in from left */}
+        {/* Label */}
         <div
           style={{
             opacity: inView ? 1 : 0,
             transform: inView ? 'translateX(0)' : 'translateX(-16px)',
             transition: 'opacity 0.5s ease, transform 0.5s ease',
-            transitionDelay: '0ms',
           }}
           className="mb-6 flex items-center gap-3"
         >
           <div className="h-px w-6 bg-[#14532d]" />
           <span className="text-[10px] font-black uppercase tracking-[3px] text-[#14532d]">
-            How the community works
+            Solo vs VA
           </span>
         </div>
 
-        {/* Heading */}
+        {/* Headline */}
         <h2
-          style={{ ...anim(80, 28), fontSize: 'clamp(46px, 7vw, 100px)' }}
-          className="font-black text-[#060A06] leading-[0.92] -tracking-[3px]"
+          style={{ ...anim(80, 28), fontSize: 'clamp(40px, 6vw, 86px)' }}
+          className="font-black text-[#060A06] leading-[0.92] -tracking-[3px] max-w-[700px]"
         >
-          The community<br />
-          <span style={{ color: '#F0EDE6', textShadow: '0 2px 48px rgba(6,10,6,0.2)' }}>
-            is the strategy.
-          </span>
+          See the difference<br />
+          <span style={{ color: '#F0EDE6' }}>one decision makes.</span>
         </h2>
-
-        {/* Text + Community card — side by side */}
-        <div
-          style={{ ...anim(200) }}
-          className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start"
-        >
-          {/* Left: community explanation */}
-          <div className="space-y-4">
-            <p className="text-[#060A06]/80 text-base md:text-lg leading-relaxed">
-              When 30 artists with the same mindset release on the same day, something different happens.
-              It's not just about numbers — it's about collective energy, shared accountability,
-              and a squad that actually shows up and pushes on launch day. Together.
-            </p>
-            <p className="text-[#060A06]/60 text-base leading-relaxed">
-              Every artist here chose the same goal, went through the same process,
-              and commits to the same launch. That coordination — that community — is what turns
-              a release into a chart run. And on Beatport, every album sale pushes{' '}
-              <span className="font-semibold text-[#060A06]/85">all 30 tracks simultaneously</span>.
-              One purchase. Thirty tracks pushed. That's the math of a squad.
-            </p>
-          </div>
-
-          {/* Right: community mindset card */}
-          <div
-            className="rounded-2xl overflow-hidden"
-            style={{
-              background: 'rgba(6,10,6,0.55)',
-              border: '1px solid rgba(240,237,230,0.18)',
-              backdropFilter: 'blur(14px)',
-              boxShadow: '0 4px 24px rgba(6,10,6,0.25)',
-            }}
-          >
-            <div className="flex">
-              <div
-                className="w-1 flex-shrink-0 rounded-l-2xl"
-                style={{ background: 'rgba(34,197,94,0.50)' }}
-              />
-              <div className="px-5 py-5">
-                <p
-                  className="font-black text-[10px] uppercase tracking-[2.5px] mb-3"
-                  style={{ color: 'rgba(34,197,94,0.80)' }}
-                >
-                  What the squad looks like
-                </p>
-                <div className="flex flex-col gap-2">
-                  {[
-                    'Artists from different genres and countries.',
-                    'Everyone committed to the same launch date.',
-                    'Each one activating their own audience.',
-                    'One album. All 30 tracks climbing together.',
-                  ].map((line, i) => (
-                    <div key={i} className="flex items-start gap-2.5">
-                      <span
-                        className="mt-[6px] w-1.5 h-1.5 rounded-full flex-shrink-0"
-                        style={{ background: 'rgba(34,197,94,0.60)' }}
-                      />
-                      <p
-                        className="text-sm leading-relaxed"
-                        style={{ color: 'rgba(240,237,230,0.70)' }}
-                      >
-                        {line}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                <p
-                  className="mt-4 text-xs font-bold border-t pt-3"
-                  style={{
-                    color: 'rgba(34,197,94,0.55)',
-                    borderColor: 'rgba(240,237,230,0.10)',
-                  }}
-                >
-                  Not luck. Not solo. Coordination.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Comparison cards */}
         <div
-          style={{ ...anim(360) }}
-          className="mt-8 grid grid-cols-1 md:grid-cols-[1fr_64px_1fr] items-stretch gap-3 md:gap-0"
+          style={{ ...anim(220) }}
+          className="mt-10 grid grid-cols-1 md:grid-cols-[1fr_64px_1fr] items-stretch gap-3 md:gap-0"
         >
           {/* Solo card */}
           <div
-            className="group rounded-[22px] flex flex-col gap-4 cursor-default"
+            className="rounded-[22px] flex flex-col gap-4 cursor-default"
             style={{
               background: 'rgba(6,10,6,0.52)',
               border: '1px solid rgba(240,237,230,0.10)',
@@ -178,20 +95,35 @@ export default function SquadMindsetReveal() {
             <div className="text-[10px] font-black uppercase tracking-[2.5px]" style={{ color: 'rgba(240,237,230,0.30)' }}>
               Solo release
             </div>
+
             <div
               className="font-black leading-none"
               style={{ fontSize: 'clamp(72px, 9vw, 108px)', color: 'rgba(240,237,230,0.18)', letterSpacing: '-5px' }}
             >
               1
             </div>
+
             <div className="text-sm leading-relaxed" style={{ color: 'rgba(240,237,230,0.38)' }}>
               track pushed per purchase.<br />One drop. Lost in the ocean.
             </div>
+
+            {/* What you deal with solo */}
+            <div className="mt-2 flex flex-col gap-2">
+              {[
+                'Only your own audience sees it',
+                'Chart impact dies within days',
+                'Thousands in ads to replicate any traction',
+                'No network. No second wave.',
+              ].map((line, i) => (
+                <div key={i} className="flex items-start gap-2">
+                  <span className="mt-[6px] w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: 'rgba(240,237,230,0.18)' }} />
+                  <p className="text-xs leading-relaxed" style={{ color: 'rgba(240,237,230,0.30)' }}>{line}</p>
+                </div>
+              ))}
+            </div>
+
             <div className="mt-auto pt-4 flex gap-1.5 flex-wrap">
-              <div
-                className="w-[18px] h-[18px] rounded-[3px]"
-                style={{ background: 'rgba(240,237,230,0.14)' }}
-              />
+              <div className="w-[18px] h-[18px] rounded-[3px]" style={{ background: 'rgba(240,237,230,0.14)' }} />
             </div>
           </div>
 
@@ -218,7 +150,7 @@ export default function SquadMindsetReveal() {
 
           {/* VA card */}
           <div
-            className="group rounded-[22px] flex flex-col gap-4 cursor-default"
+            className="rounded-[22px] flex flex-col gap-4 cursor-default"
             style={{
               background: 'rgba(6,10,6,0.68)',
               border: '1.5px solid #22C55E',
@@ -241,6 +173,7 @@ export default function SquadMindsetReveal() {
             <div className="text-[10px] font-black uppercase tracking-[2.5px] text-[#22C55E]">
               Mustache Gang World Cup 2026
             </div>
+
             <div
               className="font-black leading-none"
               style={{
@@ -252,9 +185,26 @@ export default function SquadMindsetReveal() {
             >
               30
             </div>
+
             <div className="text-sm leading-relaxed text-[#F0EDE6]">
               tracks pushed per purchase.<br />Thirty tracks. One coordinated climb.
             </div>
+
+            {/* What you get with the VA */}
+            <div className="mt-2 flex flex-col gap-2">
+              {[
+                '30 audiences activated on launch day',
+                'Chart momentum compounds across the squad',
+                'Organic second wave as the album peaks',
+                'Network that stays long after the charts',
+              ].map((line, i) => (
+                <div key={i} className="flex items-start gap-2">
+                  <span className="mt-[6px] w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: 'rgba(34,197,94,0.60)' }} />
+                  <p className="text-xs leading-relaxed" style={{ color: 'rgba(240,237,230,0.65)' }}>{line}</p>
+                </div>
+              ))}
+            </div>
+
             {/* Animated dot grid */}
             <div className="mt-auto pt-4 flex gap-[5px] flex-wrap">
               {Array.from({ length: 30 }).map((_, i) => (
@@ -272,30 +222,6 @@ export default function SquadMindsetReveal() {
                   }}
                 />
               ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Insight callout — gold left border accent */}
-        <div
-          style={{ ...anim(700, 16) }}
-          className="mt-6 rounded-2xl border border-[#060A06]/20 bg-[#060A06]/48 backdrop-blur-sm overflow-hidden"
-        >
-          <div className="flex">
-            <div className="w-1 bg-[#F5C842] rounded-l-full flex-shrink-0" />
-            <div className="flex items-start gap-4 px-6 py-5">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F5C842" strokeWidth="2.2" className="mt-0.5 flex-shrink-0">
-                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-              </svg>
-              <div>
-                <p className="font-bold text-[#F0EDE6] text-sm">The community multiplies everything</p>
-                <p className="text-[#F0EDE6]/55 text-sm mt-1 leading-relaxed">
-                  30 artists. Each brings their own audience. Every fan who buys the album
-                  pushes all 30 tracks up the chart — without knowing it. That's the power of a committed squad.
-                  A chart position that would cost thousands in ads to replicate solo.{' '}
-                  <span className="text-[#22C55E] font-medium">We've done it three times. The screenshots are on this page.</span>
-                </p>
-              </div>
             </div>
           </div>
         </div>
