@@ -69,44 +69,49 @@ export default function SquadMindsetReveal() {
           </span>
         </h2>
 
-        <div style={{ ...anim(200), maxWidth: '580px' }} className="mt-8 space-y-3">
-          <p className="text-[#060A06]/80 text-base md:text-lg leading-relaxed">
-            Most artists never figure this out: on Beatport, every VA album sale pushes
-            all 30 tracks up the chart — simultaneously. One purchase. Thirty chart credits.
-            The algorithm doesn't distinguish. That's not a loophole. That's how it works.
-          </p>
-          <p className="text-[#060A06]/60 text-base leading-relaxed">
-            And when the album peaks, Beatport starts surfacing individual tracks to new listeners.
-            Artists in previous Mustache Gang VAs landed{' '}
-            <span className="font-semibold text-[#060A06]/85">Top 10 in their genre</span>{' '}
-            weeks after launch — with zero additional spend. You don't just get a chart run. You get a second one.
-          </p>
-        </div>
+        {/* Text + Pain card — side by side */}
+        <div
+          style={{ ...anim(200) }}
+          className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start"
+        >
+          {/* Left: explanation paragraphs */}
+          <div className="space-y-4">
+            <p className="text-[#060A06]/80 text-base md:text-lg leading-relaxed">
+              Most artists never figure this out: on Beatport, every VA album sale pushes
+              all 30 tracks up the chart — simultaneously. One purchase. Thirty chart credits.
+              The algorithm doesn't distinguish. That's not a loophole. That's how it works.
+            </p>
+            <p className="text-[#060A06]/60 text-base leading-relaxed">
+              And when the album peaks, Beatport starts surfacing individual tracks to new listeners.
+              Artists in previous Mustache Gang VAs landed{' '}
+              <span className="font-semibold text-[#060A06]/85">Top 10 in their genre</span>{' '}
+              weeks after launch — with zero additional spend. You don't just get a chart run. You get a second one.
+            </p>
+          </div>
 
-        {/* Pain context card — what actually happens to most artists */}
-        <div style={{ ...anim(290, 16), maxWidth: '580px' }} className="mt-10">
+          {/* Right: pain context card */}
           <div
             className="rounded-2xl overflow-hidden"
             style={{
-              background: 'rgba(6,10,6,0.38)',
-              border: '1px solid rgba(240,237,230,0.10)',
-              backdropFilter: 'blur(10px)',
+              background: 'rgba(6,10,6,0.55)',
+              border: '1px solid rgba(240,237,230,0.18)',
+              backdropFilter: 'blur(14px)',
+              boxShadow: '0 4px 24px rgba(6,10,6,0.25)',
             }}
           >
             <div className="flex">
-              {/* Left accent — muted to signal "the bad path" */}
               <div
-                className="w-1 flex-shrink-0"
-                style={{ background: 'rgba(240,237,230,0.18)' }}
+                className="w-1 flex-shrink-0 rounded-l-2xl"
+                style={{ background: 'rgba(240,237,230,0.30)' }}
               />
-              <div className="px-5 py-4">
+              <div className="px-5 py-5">
                 <p
-                  className="font-bold text-[10px] uppercase tracking-[2.5px] mb-3"
-                  style={{ color: 'rgba(240,237,230,0.30)' }}
+                  className="font-black text-[10px] uppercase tracking-[2.5px] mb-3"
+                  style={{ color: 'rgba(240,237,230,0.55)' }}
                 >
                   What actually happens to most artists
                 </p>
-                <div className="flex flex-col gap-1.5">
+                <div className="flex flex-col gap-2">
                   {[
                     'You spend months on the track.',
                     'You master it. You release it. You post.',
@@ -115,12 +120,12 @@ export default function SquadMindsetReveal() {
                   ].map((line, i) => (
                     <div key={i} className="flex items-start gap-2.5">
                       <span
-                        className="mt-[5px] w-1 h-1 rounded-full flex-shrink-0"
-                        style={{ background: 'rgba(240,237,230,0.25)' }}
+                        className="mt-[6px] w-1.5 h-1.5 rounded-full flex-shrink-0"
+                        style={{ background: 'rgba(240,237,230,0.40)' }}
                       />
                       <p
                         className="text-sm leading-relaxed"
-                        style={{ color: 'rgba(240,237,230,0.38)' }}
+                        style={{ color: 'rgba(240,237,230,0.70)' }}
                       >
                         {line}
                       </p>
@@ -128,8 +133,11 @@ export default function SquadMindsetReveal() {
                   ))}
                 </div>
                 <p
-                  className="mt-3 text-xs font-semibold"
-                  style={{ color: 'rgba(240,237,230,0.22)' }}
+                  className="mt-4 text-xs font-bold border-t pt-3"
+                  style={{
+                    color: 'rgba(240,237,230,0.45)',
+                    borderColor: 'rgba(240,237,230,0.10)',
+                  }}
                 >
                   Not a talent problem. A numbers problem.
                 </p>
