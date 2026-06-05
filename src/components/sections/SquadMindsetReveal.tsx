@@ -21,7 +21,7 @@ export default function SquadMindsetReveal() {
       <div className="relative z-10 container">
         {/* Label */}
         <div className={`mb-4 text-xs font-bold uppercase tracking-[2px] text-[#14532d]/70 transition-all duration-500 ${inView ? 'opacity-100' : 'opacity-0'}`}>
-          The secret weapon
+          The Beatport trick most artists never learn
         </div>
 
         {/* Heading */}
@@ -33,15 +33,15 @@ export default function SquadMindsetReveal() {
         </h2>
 
         <p className={`mt-6 max-w-[600px] text-[#060A06]/80 text-base md:text-lg leading-relaxed transition-all duration-700 delay-100 ${inView ? 'opacity-100' : 'opacity-0'}`}>
-          On Beatport, when someone buys a VA compilation, every single track
-          gets a chart credit — simultaneously. That's the mechanism.
-          That's why a coordinated VA push hits 30× harder than a solo release.
+          Most artists never figure this out: on Beatport, every VA album sale pushes
+          all 30 tracks up the chart — simultaneously. One purchase. Thirty chart credits.
+          The algorithm doesn't distinguish. That's not a loophole. That's how it works.
         </p>
         <p className={`mt-3 max-w-[600px] text-[#060A06]/70 text-base leading-relaxed transition-all duration-700 delay-150 ${inView ? 'opacity-100' : 'opacity-0'}`}>
-          And there's more: when the album climbs the chart, every track inside gains
-          visibility on the platform — opening the door to an{' '}
-          <span className="font-semibold text-[#060A06]">individual chart position</span> for your release.
-          On launch day, you already start with 30 individual purchases. Your individual top is closer than you think.
+          And when the album peaks, Beatport starts surfacing individual tracks to new listeners.
+          Artists in previous Mustache Gang VAs landed{' '}
+          <span className="font-semibold text-[#060A06]">Top 10 in their genre</span>{' '}
+          weeks after launch — with zero additional spend. You don't just get a chart run. You get a second one.
         </p>
 
         {/* Comparison cards */}
@@ -66,7 +66,7 @@ export default function SquadMindsetReveal() {
               1
             </div>
             <div style={{ fontSize: '15px', color: 'rgba(240,237,230,0.45)', lineHeight: 1.5 }}>
-              chart credit per purchase.<br />One voice. Easy to ignore.
+              chart vote per purchase.<br />One drop. Lost in the ocean.
             </div>
             <div style={{ marginTop: 'auto', display: 'flex', gap: '6px', flexWrap: 'wrap', paddingTop: '8px' }}>
               <div style={{ width: '20px', height: '20px', borderRadius: '4px', background: 'rgba(240,237,230,0.2)' }} />
@@ -100,7 +100,7 @@ export default function SquadMindsetReveal() {
               30
             </div>
             <div style={{ fontSize: '15px', color: '#F0EDE6', lineHeight: 1.5 }}>
-              chart credits per purchase.<br />Thirty voices — all at once.
+              chart votes per purchase.<br />Thirty voices. One coordinated flood.
             </div>
             <div style={{ marginTop: 'auto', display: 'flex', gap: '6px', flexWrap: 'wrap', paddingTop: '8px' }}>
               {Array.from({ length: 30 }).map((_, i) => (
@@ -117,11 +117,12 @@ export default function SquadMindsetReveal() {
               <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
             </svg>
             <div>
-              <p className="font-semibold text-[#F0EDE6] text-sm">Why this matters for you</p>
+              <p className="font-semibold text-[#F0EDE6] text-sm">The math nobody teaches you</p>
               <p className="text-[#F0EDE6]/65 text-sm mt-1 leading-relaxed">
-                Every fan, every DJ, every person who buys the VA — they're voting for your track 30 times without knowing it.
-                That's collective velocity. That's why VA campaigns consistently outperform solo releases on Beatport.{' '}
-                <span className="text-[#22C55E] font-medium">We've done this three times. The charts don't lie.</span>
+                30 artists. Each brings their own audience. Every single fan who buys the album
+                casts 30 votes — without knowing it. That's not just momentum.
+                That's a chart position that would cost thousands in ads to replicate on your own.{' '}
+                <span className="text-[#22C55E] font-medium">We've done it three times. The screenshots are on this page.</span>
               </p>
             </div>
           </div>

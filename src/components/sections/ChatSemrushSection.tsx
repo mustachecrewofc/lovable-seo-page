@@ -120,21 +120,25 @@ export default function ChatSemrushSection({ hideHero = false }: { hideHero?: bo
       <div ref={ref as unknown as React.RefObject<HTMLDivElement>} className="relative z-10">
         {!hideHero && (
         <div className="container pt-20 md:pt-28 pb-16 text-center">
+          <div className={`mb-5 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#22C55E]/30 bg-[#22C55E]/10 text-[#22C55E] text-xs font-bold uppercase tracking-[1.5px] transition-all duration-500 ${inView ? 'opacity-100' : 'opacity-0'}`}>
+            The inner circle
+          </div>
           <h2
             className={`font-black text-[#F0EDE6] leading-tight -tracking-[2px] transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
             style={{ fontSize: 'clamp(36px, 5.5vw, 72px)' }}
           >
-            Artists with the same<br /><span className="text-[#22C55E]">mindset as yours.</span>
+            You've been releasing alone.<br /><span className="text-[#22C55E]">Not anymore.</span>
           </h2>
           <p className={`mt-4 text-[#F0EDE6]/85 text-lg max-w-[560px] mx-auto leading-relaxed transition-all duration-700 delay-100 ${inView ? 'opacity-100' : 'opacity-0'}`}>
-            Our Telegram group is where campaigns are activated — and where you meet
-            producers and DJs who are just as serious about growing as you are.
+            This Telegram group is where 30 artists from across the world coordinate
+            the biggest push of their careers. Campaign strategy, launch day activation,
+            real-time updates — and a network that will still be in your contacts long after the charts.
           </p>
           <div className={`mt-8 flex items-center justify-center gap-3 transition-all duration-700 delay-200 ${inView ? 'opacity-100' : 'opacity-0'}`}>
             <img src={logoWhite} alt="Mustache Crew" className="h-14 w-auto invert" />
           </div>
           <p className={`mt-3 text-[#F0EDE6]/70 text-sm max-w-[480px] mx-auto transition-all duration-700 delay-300 ${inView ? 'opacity-100' : 'opacity-0'}`}>
-            Independent label born from a global crew of producers and DJs. We push underground sounds with worldwide distribution and a tight-knit community.
+            Mustache Crew has run three VA chart campaigns since 2018. Every time, the group chat was the engine. This edition is no different.
           </p>
         </div>
         )}
@@ -195,11 +199,12 @@ export default function ChatSemrushSection({ hideHero = false }: { hideHero?: bo
               <div className="flex items-start gap-3">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5C842" strokeWidth="2" className="mt-0.5 flex-shrink-0"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                 <div>
-                  <p className="font-semibold text-[#F0EDE6] text-sm">Open to producers worldwide.</p>
+                  <p className="font-semibold text-[#F0EDE6] text-sm">The conversation is already happening.</p>
                   <p className="text-[#728A72] text-sm mt-1 leading-relaxed">
-                    All genres. All countries. The only requirement is the same mindset:{' '}
-                    <span className="font-medium text-[#22C55E]">grow together</span>.
-                    Submission deadline: <span className="text-[#F5C842] font-medium">July 10, 2026</span>.
+                    The only question is whether your name is in it.
+                    All genres, all countries —{' '}
+                    <span className="font-medium text-[#22C55E]">30 spots, no exceptions</span>.
+                    Deadline to apply: <span className="text-[#F5C842] font-medium">July 10, 2026</span>.
                   </p>
                 </div>
               </div>
