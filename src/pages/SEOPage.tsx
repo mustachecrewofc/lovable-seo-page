@@ -1,7 +1,6 @@
 import Navbar from '../components/layout/Navbar';
 import HeroSection from '../components/sections/HeroSection';
 import HeroBg from '../components/sections/HeroBg';
-import ReleasingAloneSection from '../components/sections/ReleasingAloneSection';
 import SquadMindsetReveal from '../components/sections/SquadMindsetReveal';
 import SEOReviewSection from '../components/sections/SEOReviewSection';
 import ChatSemrushSection from '../components/sections/ChatSemrushSection';
@@ -20,10 +19,7 @@ export default function SEOPage() {
         {/* 2 — Visual transition */}
         <HeroBg />
 
-        {/* 3 — The pain: releasing alone doesn't work */}
-        <ReleasingAloneSection />
-
-        {/* 4 — The mechanism: 1 purchase = 30 votes + the trick */}
+        {/* 3 — The mechanism: 1 purchase = 30 votes + the trick */}
         <SquadMindsetReveal />
 
         {/* 4 — Proof: previous chart tops */}
