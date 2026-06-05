@@ -36,11 +36,11 @@ export default function SEOPage() {
         {/* 7 — Extra push: EDM Army + SoundCloud + Email */}
         <ExtraPushSection />
 
-        {/* 8 — FAQ */}
-        <FAQSection />
-
-        {/* 9 — Submit demo CTA */}
+        {/* 8 — Submit demo CTA */}
         <CTASection />
+
+        {/* 9 — FAQ (last) */}
+        <FAQSection />
       </main>
     </div>
   );
