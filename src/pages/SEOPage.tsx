@@ -4,7 +4,6 @@ import SquadMindsetReveal from '../components/sections/SquadMindsetReveal';
 import IntroductionSection from '../components/sections/IntroductionSection';
 import SEOReviewSection from '../components/sections/SEOReviewSection';
 import ChatSemrushSection from '../components/sections/ChatSemrushSection';
-import JourneySection from '../components/sections/JourneySection';
 import ExtraPushSection from '../components/sections/ExtraPushSection';
 import CTASection from '../components/sections/CTASection';
 import FAQSection from '../components/sections/FAQSection';
@@ -29,9 +28,6 @@ export default function SEOPage() {
 
         {/* 5 — Inside: the community in action */}
         <div id="community"><ChatSemrushSection /></div>
-
-        {/* 6 — Process: how to get in */}
-        <div id="journey"><JourneySection /></div>
 
         {/* 7 — Value stack: beyond Beatport */}
         <ExtraPushSection />
