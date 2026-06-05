@@ -146,19 +146,8 @@ export default function SEOReviewSection() {
 
       </div>
 
-      {/* Euro Tour gallery */}
-      <div className={`mt-16 md:mt-24 transition-all duration-700 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-        <div className="flex items-center gap-3 mb-2 md:mb-4">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3B82F6]/15 border border-[#3B82F6]/40 text-[#3B82F6] text-xs font-bold uppercase tracking-wider">
-            🌍 Mustache Gang Euro Tour
-          </span>
-          <span className="text-[#728A72] text-xs hidden sm:inline">5 Beatport chart placements</span>
-        </div>
-        <PortfolioGallery images={euroImages} spacing="-space-x-20 md:-space-x-24" />
-      </div>
-
       {/* Xmas gallery */}
-      <div className={`mt-12 md:mt-20 transition-all duration-700 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+      <div className={`mt-16 md:mt-24 transition-all duration-700 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
         <div className="flex items-center gap-3 mb-2 md:mb-4">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#22C55E]/15 border border-[#22C55E]/40 text-[#FF8A7A] text-xs font-bold uppercase tracking-wider">
             🎅 Mustache Gang Xmas 2025
@@ -168,6 +157,7 @@ export default function SEOReviewSection() {
         <PortfolioGallery images={xmasImages} spacing="-space-x-24 md:-space-x-28" />
       </div>
 
+      {/* Brazilian Carnival gallery */}
       <div className={`mt-12 md:mt-20 transition-all duration-700 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
         <div className="flex items-center gap-3 mb-2 md:mb-4">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5C842]/15 border border-[#F5C842]/40 text-[#22C55E] text-xs font-bold uppercase tracking-wider">
@@ -181,6 +171,17 @@ export default function SEOReviewSection() {
           cardSize={200}
           spacing="-space-x-10 md:-space-x-12"
         />
+      </div>
+
+      {/* Euro Tour gallery — last */}
+      <div className={`mt-12 md:mt-20 transition-all duration-700 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+        <div className="flex items-center gap-3 mb-2 md:mb-4">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#3B82F6]/15 border border-[#3B82F6]/40 text-[#3B82F6] text-xs font-bold uppercase tracking-wider">
+            🌍 Mustache Gang Euro Tour
+          </span>
+          <span className="text-[#728A72] text-xs hidden sm:inline">9 Beatport chart placements</span>
+        </div>
+        <PortfolioGallery images={euroImages} spacing="-space-x-20 md:-space-x-24" />
       </div>
 
       {/* Inline CTA after proof */}
