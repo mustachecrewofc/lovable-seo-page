@@ -98,49 +98,18 @@ export default function JourneySection() {
       <div className="relative z-10">
         {/* Header */}
         <div className="container">
-          <div
+          <p
+            className="text-[#F0EDE6]/55 text-base md:text-lg leading-relaxed max-w-[520px]"
             style={{
               opacity: inView ? 1 : 0,
-              transform: inView ? 'translateX(0)' : 'translateX(-16px)',
-              transition: 'opacity 0.5s ease, transform 0.5s ease',
-              transitionDelay: '0ms',
-            }}
-            className="mb-5 flex items-center gap-3"
-          >
-            <div className="h-px w-6 bg-[#F5C842]" />
-            <span className="text-[10px] font-black uppercase tracking-[3px] text-[#F5C842]">
-              From demo to chart
-            </span>
-          </div>
-
-          <div
-            style={{
-              opacity: inView ? 1 : 0,
-              transform: inView ? 'translateY(0)' : 'translateY(24px)',
+              transform: inView ? 'translateY(0)' : 'translateY(16px)',
               transition: 'opacity 0.7s ease, transform 0.7s ease',
               transitionDelay: '80ms',
             }}
           >
-            <h2
-              className="font-black text-[#F0EDE6] leading-[0.92] -tracking-[2.5px] max-w-[720px]"
-              style={{ fontSize: 'clamp(36px, 5.5vw, 72px)' }}
-            >
-              Six steps.<br />
-              <span className="text-[#F5C842]">One coordinated launch.</span>
-            </h2>
-            <p
-              className="mt-5 text-[#F0EDE6]/55 text-base md:text-lg leading-relaxed max-w-[520px]"
-              style={{
-                opacity: inView ? 1 : 0,
-                transform: inView ? 'translateY(0)' : 'translateY(16px)',
-                transition: 'opacity 0.7s ease, transform 0.7s ease',
-                transitionDelay: '200ms',
-              }}
-            >
-              Click each node to explore the journey.
-              Every step is connected — that's the point.
-            </p>
-          </div>
+            Click each node to explore the journey.
+            Every step is connected — that's the point.
+          </p>
         </div>
 
         {/* Orbital timeline — full width */}
