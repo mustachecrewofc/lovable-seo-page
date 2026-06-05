@@ -116,7 +116,7 @@ export default function SquadMindsetReveal() {
                     'You spend months on the track.',
                     'You master it. You release it. You post.',
                     '300 streams the first week. Then 40. Then nothing.',
-                    'The algorithm never surfaces it again.',
+                    'Your track disappears into the noise.',
                   ].map((line, i) => (
                     <div key={i} className="flex items-start gap-2.5">
                       <span
