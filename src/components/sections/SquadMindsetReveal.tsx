@@ -54,7 +54,7 @@ export default function SquadMindsetReveal() {
         >
           <div className="h-px w-6 bg-[#14532d]" />
           <span className="text-[10px] font-black uppercase tracking-[3px] text-[#14532d]">
-            The Beatport trick most artists never learn
+            How the community works
           </span>
         </div>
 
@@ -63,33 +63,34 @@ export default function SquadMindsetReveal() {
           style={{ ...anim(80, 28), fontSize: 'clamp(46px, 7vw, 100px)' }}
           className="font-black text-[#060A06] leading-[0.92] -tracking-[3px]"
         >
-          1 album purchase.<br />
+          The community<br />
           <span style={{ color: '#F0EDE6', textShadow: '0 2px 48px rgba(6,10,6,0.2)' }}>
-            30 chart votes.
+            is the strategy.
           </span>
         </h2>
 
-        {/* Text + Pain card — side by side */}
+        {/* Text + Community card — side by side */}
         <div
           style={{ ...anim(200) }}
           className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start"
         >
-          {/* Left: explanation paragraphs */}
+          {/* Left: community explanation */}
           <div className="space-y-4">
             <p className="text-[#060A06]/80 text-base md:text-lg leading-relaxed">
-              Most artists never figure this out: on Beatport, every VA album sale pushes
-              all 30 tracks up the chart — simultaneously. One purchase. Thirty chart credits.
-              The algorithm doesn't distinguish. That's not a loophole. That's how it works.
+              When 30 artists with the same mindset release on the same day, something different happens.
+              It's not just about numbers — it's about collective energy, shared accountability,
+              and a squad that actually shows up and pushes on launch day. Together.
             </p>
             <p className="text-[#060A06]/60 text-base leading-relaxed">
-              And when the album peaks, Beatport starts surfacing individual tracks to new listeners.
-              Artists in previous Mustache Gang VAs landed{' '}
-              <span className="font-semibold text-[#060A06]/85">Top 10 in their genre</span>{' '}
-              weeks after launch — with zero additional spend. You don't just get a chart run. You get a second one.
+              Every artist here chose the same goal, went through the same process,
+              and commits to the same launch. That coordination — that community — is what turns
+              a release into a chart run. And on Beatport, every album sale pushes{' '}
+              <span className="font-semibold text-[#060A06]/85">all 30 tracks simultaneously</span>.
+              One purchase. Thirty chart votes. That's the math of a squad.
             </p>
           </div>
 
-          {/* Right: pain context card */}
+          {/* Right: community mindset card */}
           <div
             className="rounded-2xl overflow-hidden"
             style={{
@@ -102,26 +103,26 @@ export default function SquadMindsetReveal() {
             <div className="flex">
               <div
                 className="w-1 flex-shrink-0 rounded-l-2xl"
-                style={{ background: 'rgba(240,237,230,0.30)' }}
+                style={{ background: 'rgba(34,197,94,0.50)' }}
               />
               <div className="px-5 py-5">
                 <p
                   className="font-black text-[10px] uppercase tracking-[2.5px] mb-3"
-                  style={{ color: 'rgba(240,237,230,0.55)' }}
+                  style={{ color: 'rgba(34,197,94,0.80)' }}
                 >
-                  What usually happens when you release solo
+                  What the squad looks like
                 </p>
                 <div className="flex flex-col gap-2">
                   {[
-                    'You spend months on the track.',
-                    'You master it. You release it. You post.',
-                    '300 streams the first week. Then 40. Then nothing.',
-                    'Your track disappears into the noise.',
+                    'Artists from different genres and countries.',
+                    'Everyone committed to the same launch date.',
+                    'Each one activating their own audience.',
+                    'One album. All 30 tracks climbing together.',
                   ].map((line, i) => (
                     <div key={i} className="flex items-start gap-2.5">
                       <span
                         className="mt-[6px] w-1.5 h-1.5 rounded-full flex-shrink-0"
-                        style={{ background: 'rgba(240,237,230,0.40)' }}
+                        style={{ background: 'rgba(34,197,94,0.60)' }}
                       />
                       <p
                         className="text-sm leading-relaxed"
@@ -135,11 +136,11 @@ export default function SquadMindsetReveal() {
                 <p
                   className="mt-4 text-xs font-bold border-t pt-3"
                   style={{
-                    color: 'rgba(240,237,230,0.45)',
+                    color: 'rgba(34,197,94,0.55)',
                     borderColor: 'rgba(240,237,230,0.10)',
                   }}
                 >
-                  Not a talent problem. A numbers problem.
+                  Not luck. Not solo. Coordination.
                 </p>
               </div>
             </div>
@@ -287,11 +288,11 @@ export default function SquadMindsetReveal() {
                 <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
               </svg>
               <div>
-                <p className="font-bold text-[#F0EDE6] text-sm">The math nobody teaches you</p>
+                <p className="font-bold text-[#F0EDE6] text-sm">The community multiplies everything</p>
                 <p className="text-[#F0EDE6]/55 text-sm mt-1 leading-relaxed">
-                  30 artists. Each brings their own audience. Every single fan who buys the album
-                  casts 30 votes — without knowing it. That's not just momentum.
-                  That's a chart position that would cost thousands in ads to replicate on your own.{' '}
+                  30 artists. Each brings their own audience. Every fan who buys the album
+                  pushes all 30 tracks up the chart — without knowing it. That's the power of a committed squad.
+                  A chart position that would cost thousands in ads to replicate solo.{' '}
                   <span className="text-[#22C55E] font-medium">We've done it three times. The screenshots are on this page.</span>
                 </p>
               </div>

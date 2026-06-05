@@ -36,18 +36,17 @@
           </div>
 
           <h1 className="self-center text-center font-black text-[#F0EDE6] text-5xl leading-[54px] tracking-tight md:text-[96px] md:leading-[100px] md:-tracking-[2.5px] lg:pb-12 lg:text-[140px] lg:leading-[130px] lg:-tracking-[5px] [text-wrap:balance]">
-            YOUR NAME.<br className="hidden lg:block" />
-            BEATPORT<br className="hidden lg:block" />
-            <span className="text-[#22C55E]">CHARTS.</span>
+            MUSTACHE GANG<br className="hidden lg:block" />
+            <span className="text-[#22C55E]">WORLD CUP VA</span>
           </h1>
         </div>
 
         {/* Subtitle + CTA */}
         <div className="pt-8 pb-6 flex flex-col items-start justify-end md:pt-8 md:pb-[55px]">
           <p className="max-w-[520px] -tracking-[0.16px] text-[#C4C2B8] text-base md:text-lg leading-relaxed">
-            30 artists. One VA album. On July 17, everyone buys together —
-            and every single track climbs Beatport simultaneously.
-            This is how independent artists chart. Not luck. Coordination.
+            30 artists. One mission: Beatport Top 100.
+            A community built around coordination, consistency,
+            and the mindset to make every release count.
           </p>
           <a
             href="/submit"

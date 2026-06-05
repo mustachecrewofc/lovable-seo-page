@@ -1,5 +1,40 @@
 import { useInView } from '../../hooks/useInView';
 
+const IconCommunity = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#F5C842"/>
+    <circle cx="9" cy="7" r="4" stroke="#F5C842"/>
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="#F5C842"/>
+    <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="#F5C842"/>
+  </svg>
+);
+
+const IconChart = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" stroke="#22C55E"/>
+    <polyline points="17 6 23 6 23 12" stroke="#22C55E"/>
+  </svg>
+);
+
+const IconNetwork = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="5" r="2" stroke="#22C55E"/>
+    <circle cx="5" cy="19" r="2" stroke="#22C55E"/>
+    <circle cx="19" cy="19" r="2" stroke="#22C55E"/>
+    <path d="M12 7v4M10 17l-3.5-4M14 17l3.5-4" stroke="#22C55E"/>
+  </svg>
+);
+
+const IconTrophy = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M6 9H4a2 2 0 0 1-2-2V5h4" stroke="#F5C842"/>
+    <path d="M18 9h2a2 2 0 0 0 2-2V5h-4" stroke="#F5C842"/>
+    <path d="M6 2h12v7a6 6 0 0 1-12 0V2z" stroke="#F5C842"/>
+    <path d="M12 15v4" stroke="#F5C842"/>
+    <path d="M8 21h8" stroke="#F5C842"/>
+  </svg>
+);
+
 export default function IntroductionSection() {
   const { ref, inView } = useInView({ threshold: 0.08 });
 
@@ -15,20 +50,23 @@ export default function IntroductionSection() {
       num: '01',
       accent: '#F5C842',
       accentRgb: '245,200,66',
+      icon: <IconCommunity />,
       title: 'A community, not just a compilation',
-      body: 'Everyone here is committed — same goal, same launch day, same energy. This isn\'t just a track submission. It\'s a squad built around accountability and the mindset to make things happen.',
+      body: 'Everyone who joins this VA is committed. Same goal, same launch day, same energy. This is not just a track submission — it is a squad built around accountability and the mindset to make things happen.',
     },
     {
       num: '02',
       accent: '#22C55E',
       accentRgb: '34,197,94',
+      icon: <IconChart />,
       title: 'One purchase. Thirty chart votes.',
-      body: 'When anyone buys the VA album, all 30 tracks get pushed up the chart simultaneously. That\'s not a trick — that\'s how Beatport works. We use it intentionally, every time.',
+      body: 'When anyone buys the VA album, all 30 tracks get pushed up the chart simultaneously. That is not a trick — that is how Beatport works. We use it intentionally, every time.',
     },
     {
       num: '03',
       accent: '#22C55E',
       accentRgb: '34,197,94',
+      icon: <IconNetwork />,
       title: 'Your audience works for everyone.',
       body: 'Your fans buy the album and cast 30 votes — for you and the other 29 artists. Their fans do the same for you. Alone, you get 1 push. Together, you get a coordinated flood.',
     },
@@ -36,8 +74,9 @@ export default function IntroductionSection() {
       num: '04',
       accent: '#F5C842',
       accentRgb: '245,200,66',
-      title: 'We\'ve done this. Three times.',
-      body: '#38 Beatport Overall. #1 Electronica. #1 Deep Dubstep. #2 Bass House. Each campaign sharpens the playbook. We know exactly what it takes — and we\'re doing it again.',
+      icon: <IconTrophy />,
+      title: "We've done this. Three times.",
+      body: '#38 Beatport Overall. #1 Electronica. #1 Deep Dubstep. #2 Bass House. Each campaign sharpens the playbook. We know exactly what it takes — and we are doing it again.',
     },
   ];
 
@@ -89,8 +128,8 @@ export default function IntroductionSection() {
           style={anim(220)}
           className="mt-8 text-[#F0EDE6]/65 text-base md:text-xl leading-relaxed max-w-[660px]"
         >
-          Mustache Gang World Cup isn't a random compilation.
-          It's a{' '}
+          Mustache Gang World Cup is not a random compilation.
+          It is a{' '}
           <span className="text-[#F0EDE6]/90 font-semibold">coordinated community of artists</span>{' '}
           who all want the same thing — and who know that the only way to get there is together.
           You bring your audience. Everyone does the same.
@@ -129,11 +168,23 @@ export default function IntroductionSection() {
                   style={{ background: p.accent, opacity: 0.55 }}
                 />
                 <div className="px-6 py-6">
-                  <div
-                    className="font-black text-[11px] mb-3 uppercase tracking-[2px]"
-                    style={{ color: p.accent, opacity: 0.65 }}
-                  >
-                    {p.num}
+                  {/* Icon + number row */}
+                  <div className="flex items-center gap-2 mb-3">
+                    <div
+                      className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                      style={{
+                        background: `rgba(${p.accentRgb},0.10)`,
+                        border: `1px solid rgba(${p.accentRgb},0.20)`,
+                      }}
+                    >
+                      {p.icon}
+                    </div>
+                    <span
+                      className="font-black text-[11px] uppercase tracking-[2px]"
+                      style={{ color: p.accent, opacity: 0.55 }}
+                    >
+                      {p.num}
+                    </span>
                   </div>
                   <p className="font-bold text-[#F0EDE6] text-sm md:text-[15px] mb-2 leading-snug">
                     {p.title}
@@ -146,18 +197,14 @@ export default function IntroductionSection() {
         </div>
 
         {/* Bottom manifesto callout */}
-        <div
-          style={anim(560, 16)}
-          className="mt-10 rounded-2xl text-center px-8 py-7"
-          onMouseEnter={() => {}}
-          onMouseLeave={() => {}}
-        >
+        <div style={anim(560, 16)} className="mt-10">
           <div
             style={{
               background: 'rgba(240,237,230,0.02)',
               border: '1px solid rgba(240,237,230,0.07)',
               borderRadius: '16px',
               padding: '28px 32px',
+              textAlign: 'center',
             }}
           >
             <p
