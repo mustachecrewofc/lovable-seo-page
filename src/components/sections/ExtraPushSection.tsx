@@ -1,6 +1,46 @@
 import { useInView } from '../../hooks/useInView';
 import soundcloudLogo from '../../assets/soundcloud-logo.png';
 import edmarmyLogo from '../../assets/edmarmy-logo.png';
+import soundcloudSongstats from '../../assets/soundcloud-songstats.png';
+import edmarmyXmas from '../../assets/edmarmy-press-xmas.png';
+import edmarmyCarnival from '../../assets/edmarmy-press-carnival.png';
+import edmarmyEuroTour from '../../assets/edmarmy-press-eurotour.png';
+
+/** Fanned stack of overlapping screenshots — lifts to a neat row on hover */
+function PressStack({ images, accent }: { images: { src: string; alt: string }[]; accent: string }) {
+  const positions = [
+    'left-0 top-3 rotate-[-6deg] z-10 hover:!-translate-y-2 hover:!rotate-0',
+    'left-[88px] top-0 rotate-[2deg] z-20 hover:!-translate-y-2 hover:!rotate-0',
+    'left-[176px] top-4 rotate-[7deg] z-10 hover:!-translate-y-2 hover:!rotate-0',
+  ];
+
+  return (
+    <div className="relative h-[132px] mt-1">
+      {images.map((img, i) => (
+        <img
+          key={i}
+          src={img.src}
+          alt={img.alt}
+          loading="lazy"
+          className={`absolute w-[108px] rounded-lg border shadow-2xl object-cover transition-all duration-300 ease-out hover:!z-30 hover:!scale-105 ${positions[i]}`}
+          style={{ borderColor: `${accent}40`, boxShadow: `0 12px 30px -10px ${accent}30` }}
+        />
+      ))}
+    </div>
+  );
+}
+
+/** Single browser-style screenshot frame */
+function ScreenshotFrame({ src, alt, accent }: { src: string; alt: string; accent: string }) {
+  return (
+    <div
+      className="mt-1 overflow-hidden rounded-lg border"
+      style={{ borderColor: `${accent}40`, boxShadow: `0 12px 30px -10px ${accent}30` }}
+    >
+      <img src={src} alt={alt} loading="lazy" className="w-full h-auto object-cover" />
+    </div>
+  );
+}
 
 const pushItems = [
   {
@@ -27,6 +67,7 @@ const pushItems = [
     description:
       'Your track is reposted individually on SoundCloud to a network of over 1 million followers — additional visibility running parallel to the Beatport push.',
     color: '#FF5500',
+    media: { type: 'single' as const, images: [{ src: soundcloudSongstats, alt: 'Mustache Crew Records SoundCloud analytics — 1.87M streams, 24.8K followers' }] },
   },
   {
     logo: (
@@ -39,6 +80,14 @@ const pushItems = [
       'A dedicated article published on EDM Army — one of the biggest EDM portals — promoting the album and putting your name in front of a global dance music audience.',
     color: '#FF1B8D',
     statHref: 'https://edmarmy.com/',
+    media: {
+      type: 'stack' as const,
+      images: [
+        { src: edmarmyXmas, alt: 'EDM Army article — Mustache Crew Turns Christmas Into a Global Rave' },
+        { src: edmarmyCarnival, alt: 'EDM Army article — Mustache Crew Brazilian Carnival Turns Beatport Into a Global Rave Statement' },
+        { src: edmarmyEuroTour, alt: 'EDM Army article — Mustache Crew Takes the Underground Global With Mustache Gang Euro Tour' },
+      ],
+    },
   },
 ];
 
@@ -143,6 +192,13 @@ export default function ExtraPushSection() {
                   {item.label}
                 </p>
                 <p className="text-[#728A72] text-sm leading-relaxed">{item.description}</p>
+
+                {item.media?.type === 'stack' && (
+                  <PressStack images={item.media.images} accent={item.color} />
+                )}
+                {item.media?.type === 'single' && (
+                  <ScreenshotFrame src={item.media.images[0].src} alt={item.media.images[0].alt} accent={item.color} />
+                )}
               </div>
             </div>
           ))}
