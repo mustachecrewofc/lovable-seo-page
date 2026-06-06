@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useInView } from '../../hooks/useInView';
 import soundcloudLogo from '../../assets/soundcloud-logo.png';
 import edmarmyLogo from '../../assets/edmarmy-logo.png';
@@ -6,8 +8,8 @@ import edmarmyXmas from '../../assets/edmarmy-press-xmas.png';
 import edmarmyCarnival from '../../assets/edmarmy-press-carnival.png';
 import edmarmyEuroTour from '../../assets/edmarmy-press-eurotour.png';
 
-/** Fanned stack of overlapping screenshots — lifts to a neat row on hover */
-function PressStack({ images, accent }: { images: { src: string; alt: string }[]; accent: string }) {
+/** Fanned stack of overlapping screenshots — lifts to a neat row on hover, click to open */
+function PressStack({ images, accent, onOpen }: { images: { src: string; alt: string }[]; accent: string; onOpen: (index: number) => void }) {
   const positions = [
     'left-0 top-3 rotate-[-6deg] z-10 hover:!-translate-y-2 hover:!rotate-0',
     'left-[88px] top-0 rotate-[2deg] z-20 hover:!-translate-y-2 hover:!rotate-0',
@@ -17,28 +19,154 @@ function PressStack({ images, accent }: { images: { src: string; alt: string }[]
   return (
     <div className="relative h-[132px] mt-1">
       {images.map((img, i) => (
-        <img
+        <button
           key={i}
-          src={img.src}
-          alt={img.alt}
-          loading="lazy"
-          className={`absolute w-[108px] rounded-lg border shadow-2xl object-cover transition-all duration-300 ease-out hover:!z-30 hover:!scale-105 ${positions[i]}`}
+          type="button"
+          onClick={() => onOpen(i)}
+          aria-label={`Open larger view: ${img.alt}`}
+          className={`absolute w-[108px] cursor-pointer rounded-lg border shadow-2xl transition-all duration-300 ease-out hover:!z-30 hover:!scale-105 focus:outline-none focus-visible:ring-2 ${positions[i]}`}
           style={{ borderColor: `${accent}40`, boxShadow: `0 12px 30px -10px ${accent}30` }}
-        />
+        >
+          <img src={img.src} alt={img.alt} loading="lazy" className="w-full h-full rounded-[7px] object-cover" />
+        </button>
       ))}
     </div>
   );
 }
 
 /** Single browser-style screenshot frame */
-function ScreenshotFrame({ src, alt, accent }: { src: string; alt: string; accent: string }) {
+function ScreenshotFrame({ src, alt, accent, onOpen }: { src: string; alt: string; accent: string; onOpen: () => void }) {
   return (
-    <div
-      className="mt-1 overflow-hidden rounded-lg border"
+    <button
+      type="button"
+      onClick={onOpen}
+      aria-label={`Open larger view: ${alt}`}
+      className="mt-1 block w-full overflow-hidden rounded-lg border cursor-pointer transition-transform duration-300 hover:scale-[1.02] focus:outline-none focus-visible:ring-2"
       style={{ borderColor: `${accent}40`, boxShadow: `0 12px 30px -10px ${accent}30` }}
     >
       <img src={src} alt={alt} loading="lazy" className="w-full h-auto object-cover" />
-    </div>
+    </button>
+  );
+}
+
+type LightboxImage = { src: string; alt: string };
+
+/** Premium, Apple/iOS-style fullscreen image viewer with frosted-glass chrome */
+function Lightbox({
+  images,
+  index,
+  onClose,
+  onNavigate,
+}: {
+  images: LightboxImage[];
+  index: number;
+  onClose: () => void;
+  onNavigate: (next: number) => void;
+}) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowRight' && images.length > 1) onNavigate((index + 1) % images.length);
+      if (e.key === 'ArrowLeft' && images.length > 1) onNavigate((index - 1 + images.length) % images.length);
+    };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [index, images.length, onClose, onNavigate]);
+
+  const current = images[index];
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-10 md:p-12"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={current.alt}
+    >
+      {/* Frosted backdrop */}
+      <div className="absolute inset-0 bg-[#04060A]/80 backdrop-blur-2xl" />
+
+      {/* Close button */}
+      <button
+        type="button"
+        onClick={(e) => { e.stopPropagation(); onClose(); }}
+        aria-label="Close"
+        className="absolute top-5 right-5 md:top-8 md:right-8 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur-md transition-colors duration-200 hover:bg-white/20 cursor-pointer"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+
+      {/* Prev / Next */}
+      {images.length > 1 && (
+        <>
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); onNavigate((index - 1 + images.length) % images.length); }}
+            aria-label="Previous image"
+            className="absolute left-3 md:left-8 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur-md transition-colors duration-200 hover:bg-white/20 cursor-pointer"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); onNavigate((index + 1) % images.length); }}
+            aria-label="Next image"
+            className="absolute right-3 md:right-8 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur-md transition-colors duration-200 hover:bg-white/20 cursor-pointer"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </>
+      )}
+
+      {/* Image card */}
+      <div className="relative z-[1] flex max-h-full max-w-full flex-col items-center" onClick={(e) => e.stopPropagation()}>
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={current.src}
+            src={current.src}
+            alt={current.alt}
+            initial={{ opacity: 0, scale: 0.96, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.97 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="max-h-[78vh] w-auto max-w-full rounded-2xl border border-white/10 object-contain shadow-[0_30px_90px_-20px_rgba(0,0,0,0.7)]"
+          />
+        </AnimatePresence>
+
+        <p className="mt-5 max-w-[560px] text-center text-sm text-white/60 leading-relaxed">
+          {current.alt}
+        </p>
+
+        {images.length > 1 && (
+          <div className="mt-4 flex items-center gap-1.5">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={(e) => { e.stopPropagation(); onNavigate(i); }}
+                aria-label={`Go to image ${i + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${i === index ? 'w-6 bg-white/80' : 'w-1.5 bg-white/25 hover:bg-white/40'}`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </motion.div>
   );
 }
 
@@ -93,6 +221,7 @@ const pushItems = [
 
 export default function ExtraPushSection() {
   const { ref, inView } = useInView({ threshold: 0.1 });
+  const [lightbox, setLightbox] = useState<{ images: LightboxImage[]; index: number } | null>(null);
 
   return (
     <section
@@ -194,10 +323,19 @@ export default function ExtraPushSection() {
                 <p className="text-[#728A72] text-sm leading-relaxed">{item.description}</p>
 
                 {item.media?.type === 'stack' && (
-                  <PressStack images={item.media.images} accent={item.color} />
+                  <PressStack
+                    images={item.media.images}
+                    accent={item.color}
+                    onOpen={(idx) => setLightbox({ images: item.media!.images, index: idx })}
+                  />
                 )}
                 {item.media?.type === 'single' && (
-                  <ScreenshotFrame src={item.media.images[0].src} alt={item.media.images[0].alt} accent={item.color} />
+                  <ScreenshotFrame
+                    src={item.media.images[0].src}
+                    alt={item.media.images[0].alt}
+                    accent={item.color}
+                    onOpen={() => setLightbox({ images: item.media!.images, index: 0 })}
+                  />
                 )}
               </div>
             </div>
@@ -216,6 +354,17 @@ export default function ExtraPushSection() {
           </svg>
         </div>
       </div>
+
+      <AnimatePresence>
+        {lightbox && (
+          <Lightbox
+            images={lightbox.images}
+            index={lightbox.index}
+            onClose={() => setLightbox(null)}
+            onNavigate={(next) => setLightbox((prev) => (prev ? { ...prev, index: next } : prev))}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }
