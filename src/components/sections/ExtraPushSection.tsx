@@ -1,4 +1,6 @@
 import { useInView } from '../../hooks/useInView';
+import soundcloudLogo from '../../assets/soundcloud-logo.png';
+import edmarmyLogo from '../../assets/edmarmy-logo.png';
 
 const pushItems = [
   {
@@ -17,22 +19,8 @@ const pushItems = [
   },
   {
     logo: (
-      <div className="flex items-center gap-2.5">
-        <svg width="34" height="34" viewBox="0 0 256 159" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="flex-shrink-0">
-          <g fill="#FF5500">
-            <rect x="0" y="83" width="6" height="40" rx="2"/>
-            <rect x="11" y="71" width="6" height="64" rx="2"/>
-            <rect x="22" y="91" width="6" height="32" rx="2"/>
-            <rect x="33" y="60" width="6" height="80" rx="2"/>
-            <rect x="44" y="76" width="6" height="56" rx="2"/>
-            <rect x="55" y="48" width="6" height="92" rx="2"/>
-            <rect x="66" y="64" width="6" height="68" rx="2"/>
-          </g>
-          <path d="M84 56c-2.2 0-4 1.8-4 4v60c0 2.2 1.8 4 4 4h130c23.2 0 42-18.8 42-42 0-21.5-16.1-39.2-37-41.7-3.6-19.6-20.7-34.3-41.3-34.3-15 0-28.3 7.8-35.9 19.6-3.4-1.7-7.2-2.6-11.2-2.6-13.3 0-24.3 10-25.9 22.9-2.7 1.4-4.7 4.1-4.7 7.3v2.8z" fill="#FF5500"/>
-        </svg>
-        <span className="font-bold tracking-tight text-[#F0EDE6] leading-none" style={{ fontSize: '20px' }}>
-          Sound<span style={{ color: '#FF5500' }}>Cloud</span>
-        </span>
+      <div className="inline-flex items-center bg-white rounded-lg px-3 py-2 shadow-sm">
+        <img src={soundcloudLogo} alt="SoundCloud" className="h-5 w-auto object-contain" />
       </div>
     ),
     stat: '+1M',
@@ -44,10 +32,7 @@ const pushItems = [
   },
   {
     logo: (
-      <span className="font-black tracking-tight leading-none select-none" style={{ fontSize: '26px' }}>
-        <span className="text-[#F0EDE6]">EDM</span>
-        <span className="italic text-[#FF1B8D]" style={{ fontFamily: 'Georgia, serif' }}>army</span>
-      </span>
+      <img src={edmarmyLogo} alt="EDM Army" className="h-8 w-auto object-contain object-left" />
     ),
     stat: 'edmarmy.com',
     statLabel: 'press coverage',
