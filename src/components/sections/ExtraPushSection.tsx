@@ -17,12 +17,17 @@ const pushItems = [
   },
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15V6"/>
-        <path d="M18.5 18a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
-        <path d="M12 12H3"/>
-        <path d="M16 6H3"/>
-        <path d="M12 18H3"/>
+      <svg width="30" height="30" viewBox="0 0 256 159" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g fill="#FF5500">
+          <rect x="0" y="83" width="6" height="40" rx="2"/>
+          <rect x="11" y="71" width="6" height="64" rx="2"/>
+          <rect x="22" y="91" width="6" height="32" rx="2"/>
+          <rect x="33" y="60" width="6" height="80" rx="2"/>
+          <rect x="44" y="76" width="6" height="56" rx="2"/>
+          <rect x="55" y="48" width="6" height="92" rx="2"/>
+          <rect x="66" y="64" width="6" height="68" rx="2"/>
+        </g>
+        <path d="M84 56c-2.2 0-4 1.8-4 4v60c0 2.2 1.8 4 4 4h130c23.2 0 42-18.8 42-42 0-21.5-16.1-39.2-37-41.7-3.6-19.6-20.7-34.3-41.3-34.3-15 0-28.3 7.8-35.9 19.6-3.4-1.7-7.2-2.6-11.2-2.6-13.3 0-24.3 10-25.9 22.9-2.7 1.4-4.7 4.1-4.7 7.3v2.8z" fill="#FF5500"/>
       </svg>
     ),
     stat: '+1M',
@@ -30,25 +35,21 @@ const pushItems = [
     label: 'SoundCloud repost',
     description:
       'Your track is reposted individually on SoundCloud to a network of over 1 million followers — additional visibility running parallel to the Beatport push.',
-    color: '#22C55E',
+    color: '#FF5500',
   },
   {
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F0EDE6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v4"/>
-        <path d="M2 12h10"/>
-        <path d="m9 9 3 3-3 3"/>
-        <path d="M14 8h5"/>
-        <path d="M14 12h5"/>
-        <path d="M14 16h5"/>
-      </svg>
+      <span className="font-black tracking-tight leading-none select-none" style={{ fontSize: '15px' }}>
+        <span className="text-[#F0EDE6]">EDM</span>
+        <span className="italic text-[#FF1B8D]" style={{ fontFamily: 'Georgia, serif' }}>army</span>
+      </span>
     ),
     stat: 'edmarmy.com',
     statLabel: 'press coverage',
     label: 'Press article',
     description:
       'A dedicated article published on EDM Army — one of the biggest EDM portals — promoting the album and putting your name in front of a global dance music audience.',
-    color: '#F0EDE6',
+    color: '#FF1B8D',
   },
 ];
 
