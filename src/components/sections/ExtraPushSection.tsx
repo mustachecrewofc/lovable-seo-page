@@ -49,7 +49,7 @@ function ScreenshotFrame({ src, alt, accent, onOpen }: { src: string; alt: strin
   );
 }
 
-type LightboxImage = { src: string; alt: string };
+type LightboxImage = { src: string; alt: string; href?: string };
 
 /** Premium, Apple/iOS-style fullscreen image viewer with frosted-glass chrome */
 function Lightbox({
@@ -152,6 +152,21 @@ function Lightbox({
           {current.alt}
         </p>
 
+        {current.href && (
+          <a
+            href={current.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="mt-4 inline-flex items-center gap-2 rounded-full border border-[#FF1B8D]/40 bg-[#FF1B8D]/10 px-5 py-2.5 text-sm font-medium text-[#FF1B8D] transition-all duration-200 hover:border-[#FF1B8D]/70 hover:bg-[#FF1B8D]/20 hover:text-white"
+          >
+            Read full article
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </a>
+        )}
+
         {images.length > 1 && (
           <div className="mt-4 flex items-center gap-1.5">
             {images.map((_, i) => (
@@ -211,9 +226,9 @@ const pushItems = [
     media: {
       type: 'stack' as const,
       images: [
-        { src: edmarmyXmas, alt: 'EDM Army article — Mustache Crew Turns Christmas Into a Global Rave' },
-        { src: edmarmyCarnival, alt: 'EDM Army article — Mustache Crew Brazilian Carnival Turns Beatport Into a Global Rave Statement' },
-        { src: edmarmyEuroTour, alt: 'EDM Army article — Mustache Crew Takes the Underground Global With Mustache Gang Euro Tour' },
+        { src: edmarmyXmas, alt: 'EDM Army article — Mustache Crew Turns Christmas Into a Global Rave', href: 'https://edmarmy.com/news/mustache-crew-turns-christmas-into-a-global-rave-with-mustache-gang-xmas-2025' },
+        { src: edmarmyCarnival, alt: 'EDM Army article — Mustache Crew Brazilian Carnival Turns Beatport Into a Global Rave Statement', href: 'https://edmarmy.com/news/mustache-gang-brazilian-carnival-turns-beatport-into-a-global-rave-statement' },
+        { src: edmarmyEuroTour, alt: 'EDM Army article — Mustache Crew Takes the Underground Global With Mustache Gang Euro Tour', href: 'https://edmarmy.com/news/mustache-crew-takes-the-underground-global-with-mustache-gang-euro-tour' },
       ],
     },
   },
