@@ -52,7 +52,7 @@ export default function IntroductionSection() {
       accentRgb: '245,200,66',
       icon: <IconCommunity />,
       title: 'A community, not just a compilation',
-      body: 'Everyone who joins this VA is committed. Same goal, same launch day, same energy. This is not just a track submission — it is a squad built around accountability and the mindset to make things happen.',
+      body: 'Every artist who joins this VA is committed. Same goal, same launch day, same energy. This is not just a track submission — it is a squad built around accountability and the mindset to make things happen.',
     },
     {
       num: '02',
@@ -60,15 +60,15 @@ export default function IntroductionSection() {
       accentRgb: '34,197,94',
       icon: <IconChart />,
       title: 'One purchase. Thirty tracks pushed.',
-      body: 'When anyone buys the VA album, Beatport counts that sale for all 30 tracks at once. One purchase moves all 30 up the chart simultaneously. That is how it works — and we use it intentionally, every time.',
+      body: 'On Beatport, buying a VA album counts as a sale for every track inside it — all at once. One purchase moves all 30 tracks up the chart simultaneously. That is the mechanic. That is why a coordinated VA hits harder than anything a solo release can do.',
     },
     {
       num: '03',
       accent: '#22C55E',
       accentRgb: '34,197,94',
       icon: <IconNetwork />,
-      title: 'You launch with 30 sales. Before reaching a single fan.',
-      body: 'On day one, all 30 artists in the VA buy the album — your track gets 30 unique chart credits instantly. Then you activate your audience. They add to those 30. The whole thing compounds from there.',
+      title: 'Day one: 30 sales on your track. 900 on the album.',
+      body: 'All 30 co-artists buy the album on launch day — your track gets 30 unique chart credits before you reach a single fan. The album starts with 900 unique sales (30 artists × 30 each). Then everyone activates their audience on top of that. The chart never sees it coming.',
     },
     {
       num: '04',
