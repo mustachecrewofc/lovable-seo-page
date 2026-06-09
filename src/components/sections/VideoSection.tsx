@@ -1,7 +1,7 @@
 // 🎬 Replace YOUTUBE_VIDEO_ID below with the actual YouTube video ID when ready.
 // Example: if the URL is https://www.youtube.com/watch?v=dQw4w9WgXcQ
 // then the ID is: dQw4w9WgXcQ
-const YOUTUBE_VIDEO_ID = 'PLACEHOLDER';
+const YOUTUBE_VIDEO_ID = 'rh2MzkDRtLY';
 
 export default function VideoSection() {
   const hasVideo = YOUTUBE_VIDEO_ID !== 'PLACEHOLDER';
