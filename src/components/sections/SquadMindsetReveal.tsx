@@ -157,7 +157,7 @@ export default function SquadMindsetReveal() {
             onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(0)'; el.style.boxShadow = '0 0 64px rgba(245,200,66,0.15), inset 0 1px 0 rgba(245,200,66,0.10)'; }}
           >
             <div className="text-[10px] font-black uppercase tracking-[2.5px]" style={{ color: '#F5C842' }}>
-              The album — collective push
+              The album — chart credits
             </div>
 
             <div
@@ -168,15 +168,15 @@ export default function SquadMindsetReveal() {
             </div>
 
             <div className="text-sm leading-relaxed text-[#F0EDE6]">
-              unique album sales when every artist<br />activates their audience.
+              track-level chart credits from<br />30 album sales on day one.
             </div>
 
             <div className="mt-1 flex flex-col gap-2">
               {[
-                '30 artists × 30 fans each = 900 album sales',
-                'Every sale credits all 30 tracks simultaneously',
-                'The chart gets hit from 30 directions at once',
-                'Momentum that no solo release can replicate',
+                'The VA is one product — 30 tracks by 30 artists',
+                'Every album sale credits all 30 tracks at once',
+                '30 co-artists × 30 tracks = 900 chart credits',
+                'And that is before a single fan buys in',
               ].map((line, i) => (
                 <div key={i} className="flex items-start gap-2">
                   <span className="mt-[6px] w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: 'rgba(245,200,66,0.60)' }} />

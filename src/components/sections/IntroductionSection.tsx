@@ -60,7 +60,7 @@ export default function IntroductionSection() {
       accentRgb: '34,197,94',
       icon: <IconChart />,
       title: 'One purchase. Thirty tracks pushed.',
-      body: 'On Beatport, buying a VA album counts as a sale for every track inside it — all at once. One purchase moves all 30 tracks up the chart simultaneously. That is the mechanic. That is why a coordinated VA hits harder than anything a solo release can do.',
+      body: 'One album purchase moves all 30 tracks up the chart simultaneously. That is the mechanic. That is why a coordinated VA hits harder than anything a solo release can do.',
     },
     {
       num: '03',
@@ -68,7 +68,7 @@ export default function IntroductionSection() {
       accentRgb: '34,197,94',
       icon: <IconNetwork />,
       title: 'Day one: 30 sales on your track. 900 on the album.',
-      body: 'All 30 co-artists buy the album on launch day — your track gets 30 unique chart credits before you reach a single fan. The album starts with 900 unique sales (30 artists × 30 each). Then everyone activates their audience on top of that. The chart never sees it coming.',
+      body: 'All 30 co-artists buy the album on launch day — your track gets 30 sales before you reach a single fan. The album starts with 900 unique sales (30 artists × 30 each).',
     },
     {
       num: '04',
