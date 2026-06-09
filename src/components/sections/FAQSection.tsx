@@ -23,6 +23,10 @@ const faqs = [
     a: 'Yes. Every artist is expected to activate their own audience on July 17 — stories, reels, email list, bio link, whatever your channels are. The coordinated push only works when everyone shows up. That commitment is part of being in the squad.',
   },
   {
+    q: 'Does my audience need to buy the full album on Beatport?',
+    a: 'Yes — and this is the key. For the chart strategy to work, people need to buy the full VA album on Beatport, not just your individual track. Every album purchase counts as a sale for all 30 tracks at once. That is what creates the chart momentum. Make sure you direct your fans specifically to the album link on Beatport, not just your track page.',
+  },
+  {
     q: 'When is the submission deadline?',
     a: 'Demos must be submitted by July 10, 2026. The VA releases July 17 — two days before the FIFA World Cup Final.',
   },
