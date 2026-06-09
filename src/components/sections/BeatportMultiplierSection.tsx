@@ -49,10 +49,10 @@ export default function BeatportMultiplierSection() {
           That's the multiplier. That's why a coordinated VA push hits 30× harder than a solo release.
         </p>
 
-        {/* Visual multiplier */}
-        <div className={`mt-14 flex flex-col md:flex-row items-center md:items-stretch gap-6 md:gap-0 transition-all duration-700 delay-200 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+        {/* Visual: each artist's part + the collective */}
+        <div className={`mt-14 flex flex-col md:flex-row items-stretch gap-5 transition-all duration-700 delay-200 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
 
-          {/* Block A — Solo */}
+          {/* Block A — Your track */}
           <div
             style={{
               background: '#0C140C',
@@ -66,29 +66,30 @@ export default function BeatportMultiplierSection() {
             }}
           >
             <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#728A72' }}>
-              Solo release
+              Your track — day one
             </div>
-            <div style={{ fontSize: 'clamp(48px, 7vw, 80px)', fontWeight: 900, color: '#728A72', lineHeight: 1, letterSpacing: '-3px' }}>
-              1
+            <div style={{ fontSize: 'clamp(48px, 7vw, 80px)', fontWeight: 900, color: '#22C55E', lineHeight: 1, letterSpacing: '-3px' }}>
+              30
             </div>
-            <div style={{ fontSize: '15px', color: '#728A72', lineHeight: 1.5 }}>
-              chart credit per purchase.<br/>One voice. Easy to ignore.
+            <div style={{ fontSize: '15px', color: '#F0EDE6', lineHeight: 1.6 }}>
+              unique sales credited to your track<br/>before you reach a single fan.
             </div>
-            <div style={{ marginTop: 'auto', display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-              {Array.from({ length: 1 }).map((_, i) => (
-                <div key={i} style={{ width: '20px', height: '20px', borderRadius: '4px', background: '#728A72', opacity: 0.5 }} />
+            <p style={{ fontSize: '13px', color: '#728A72', lineHeight: 1.5 }}>
+              All 30 co-artists buy the album on launch day. Each purchase credits your track. You start with momentum — not from zero.
+            </p>
+            <div style={{ marginTop: 'auto', display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
+              {Array.from({ length: 30 }).map((_, i) => (
+                <div key={i} style={{ width: '18px', height: '18px', borderRadius: '4px', background: '#22C55E', opacity: 0.55 + (i % 4) * 0.1 }} />
               ))}
             </div>
           </div>
 
-          {/* Arrow */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 20px', minWidth: '60px' }}>
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style={{ transform: 'rotate(90deg)' }} className="md:[transform:rotate(0deg)]">
-              <path d="M5 12h14M12 5l7 7-7 7" stroke="#F5C842" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+          {/* Plus connector */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 4px', minWidth: '48px' }}>
+            <span style={{ fontSize: '32px', fontWeight: 900, color: '#F5C842', lineHeight: 1 }}>+</span>
           </div>
 
-          {/* Block B — VA */}
+          {/* Block B — The album */}
           <div
             style={{
               background: 'linear-gradient(135deg, #0F2A0F 0%, #0C140C 100%)',
@@ -103,17 +104,20 @@ export default function BeatportMultiplierSection() {
             }}
           >
             <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#22C55E' }}>
-              Mustache Gang World Cup 2026
+              The album — collective push
             </div>
-            <div style={{ fontSize: 'clamp(48px, 7vw, 80px)', fontWeight: 900, color: '#22C55E', lineHeight: 1, letterSpacing: '-3px' }}>
-              30
+            <div style={{ fontSize: 'clamp(48px, 7vw, 80px)', fontWeight: 900, color: '#F5C842', lineHeight: 1, letterSpacing: '-3px' }}>
+              900
             </div>
-            <div style={{ fontSize: '15px', color: '#F0EDE6', lineHeight: 1.5 }}>
-              chart credits per purchase.<br/>Thirty voices — all at once.
+            <div style={{ fontSize: '15px', color: '#F0EDE6', lineHeight: 1.6 }}>
+              unique album sales when every artist<br/>activates their audience.
             </div>
-            <div style={{ marginTop: 'auto', display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+            <p style={{ fontSize: '13px', color: '#728A72', lineHeight: 1.5 }}>
+              30 artists × 30 fans each = 900 sales for the album. One coordinated climb. The chart doesn't know what hit it.
+            </p>
+            <div style={{ marginTop: 'auto', display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
               {Array.from({ length: 30 }).map((_, i) => (
-                <div key={i} style={{ width: '20px', height: '20px', borderRadius: '4px', background: '#22C55E', opacity: 0.7 + (i % 3) * 0.1 }} />
+                <div key={i} style={{ width: '18px', height: '18px', borderRadius: '4px', background: '#F5C842', opacity: 0.6 + (i % 3) * 0.13 }} />
               ))}
             </div>
           </div>

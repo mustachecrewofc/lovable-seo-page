@@ -1,5 +1,6 @@
 import Navbar from '../components/layout/Navbar';
 import HeroSection from '../components/sections/HeroSection';
+import VideoSection from '../components/sections/VideoSection';
 import SquadMindsetReveal from '../components/sections/SquadMindsetReveal';
 import IntroductionSection from '../components/sections/IntroductionSection';
 import SEOReviewSection from '../components/sections/SEOReviewSection';
@@ -16,6 +17,9 @@ export default function SEOPage() {
       <main id="main-content">
         {/* 1 — Hook */}
         <HeroSection />
+
+        {/* 1b — Video breakdown */}
+        <VideoSection />
 
         {/* 2 — Understanding: what this community is */}
         <div id="mission"><IntroductionSection /></div>

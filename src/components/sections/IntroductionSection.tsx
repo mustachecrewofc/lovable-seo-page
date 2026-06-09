@@ -67,8 +67,8 @@ export default function IntroductionSection() {
       accent: '#22C55E',
       accentRgb: '34,197,94',
       icon: <IconNetwork />,
-      title: 'Your audience works for everyone.',
-      body: 'Your fans buy the album and push all 30 tracks at once — yours and the other 29. Their fans do the same. Alone, 1 purchase moves 1 track. Together, 1 purchase moves 30.',
+      title: 'You launch with 30 sales. Before reaching a single fan.',
+      body: 'On day one, all 30 artists in the VA buy the album — your track gets 30 unique chart credits instantly. Then you activate your audience. They add to those 30. The whole thing compounds from there.',
     },
     {
       num: '04',
