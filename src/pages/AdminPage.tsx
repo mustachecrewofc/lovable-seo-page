@@ -313,12 +313,14 @@ function PaymentModal({ sub, onClose, onUpdate }: {
 // ─── Main Admin Panel ─────────────────────────────────────────────────────────
 
 type Tab = 'pipeline' | 'payments';
+type PipelineView = 'list' | 'kanban';
 
 export default function AdminPage() {
   const [session, setSession] = useState<boolean | null>(null);
   const [subs, setSubs] = useState<Submission[]>([]);
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState<Tab>('pipeline');
+  const [pipelineView, setPipelineView] = useState<PipelineView>('kanban');
   const [statusFilter, setStatusFilter] = useState<SubmissionStatus | 'all'>('all');
   const [selectedSub, setSelectedSub] = useState<Submission | null>(null);
   const [paymentSub, setPaymentSub] = useState<Submission | null>(null);
@@ -449,16 +451,28 @@ export default function AdminPage() {
         {/* ─── PIPELINE TAB ─── */}
         {tab === 'pipeline' && (
           <>
-            {/* Status filter chips */}
-            <div className="flex flex-wrap gap-2 mb-5">
-              <Chip active={statusFilter === 'all'} onClick={() => setStatusFilter('all')}>
-                All <Count n={subs.length} />
-              </Chip>
-              {(Object.keys(STATUS_META) as SubmissionStatus[]).map(s => (
-                <Chip key={s} active={statusFilter === s} onClick={() => setStatusFilter(s)} color={STATUS_META[s].color}>
-                  {STATUS_META[s].label.split(' ')[0]} <Count n={subs.filter(x => x.status === s).length} />
+            {/* Status filter chips + view toggle */}
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
+              <div className="flex flex-wrap gap-2">
+                <Chip active={statusFilter === 'all'} onClick={() => setStatusFilter('all')}>
+                  All <Count n={subs.length} />
                 </Chip>
-              ))}
+                {(Object.keys(STATUS_META) as SubmissionStatus[]).map(s => (
+                  <Chip key={s} active={statusFilter === s} onClick={() => setStatusFilter(s)} color={STATUS_META[s].color}>
+                    {STATUS_META[s].label.split(' ')[0]} <Count n={subs.filter(x => x.status === s).length} />
+                  </Chip>
+                ))}
+              </div>
+              <div className="flex gap-1 bg-[#0C140C] border border-[#182B18] rounded-lg p-1">
+                {(['kanban', 'list'] as PipelineView[]).map(v => (
+                  <button key={v} onClick={() => setPipelineView(v)}
+                    className={`px-3 py-1.5 rounded-md text-xs font-semibold capitalize transition-all ${
+                      pipelineView === v ? 'bg-[#182B18] text-[#F0EDE6]' : 'text-[#728A72] hover:text-[#F0EDE6]'
+                    }`}>
+                    {v === 'kanban' ? '▦ Kanban' : '☰ List'}
+                  </button>
+                ))}
+              </div>
             </div>
 
             {loading ? (
@@ -470,6 +484,62 @@ export default function AdminPage() {
               <div className="text-center py-16 text-[#728A72]">
                 <p className="text-4xl mb-3">📭</p>
                 <p className="font-semibold">No submissions yet.</p>
+              </div>
+            ) : pipelineView === 'kanban' ? (
+              <div className="flex gap-4 overflow-x-auto pb-2">
+                {(Object.keys(STATUS_META) as SubmissionStatus[]).map(col => {
+                  const colSubs = filtered.filter(s => s.status === col);
+                  const meta = STATUS_META[col];
+                  return (
+                    <div key={col} className="flex-shrink-0 w-[280px] flex flex-col">
+                      <div className="flex items-center gap-2 mb-3 px-1">
+                        <span className="w-2 h-2 rounded-full" style={{ background: meta.color }} />
+                        <p className="text-xs font-bold uppercase tracking-[1px] text-[#F0EDE6]">{meta.label}</p>
+                        <Count n={colSubs.length} />
+                      </div>
+                      <div className="flex flex-col gap-2 min-h-[60px]">
+                        {colSubs.length === 0 ? (
+                          <div className="border border-dashed border-[#182B18] rounded-xl py-6 text-center text-xs text-[#728A72]">Empty</div>
+                        ) : colSubs.map(sub => (
+                          <div key={sub.id}
+                            className="bg-[#0C140C] border border-[#182B18] rounded-xl p-3 cursor-pointer hover:border-[#728A72] transition-colors"
+                            onClick={() => setSelectedSub(sub)}
+                          >
+                            <p className="font-semibold text-sm text-[#F0EDE6] truncate">{sub.artist_name}</p>
+                            <p className="text-xs text-[#728A72] truncate mb-2">{sub.track_name}</p>
+
+                            {sub.status === 'approved' && (
+                              <span className="inline-block mb-2 text-[10px] font-semibold px-2 py-0.5 rounded-full" style={{ color: PAYMENT_META[sub.payment_status].color, background: `${PAYMENT_META[sub.payment_status].color}15` }}>
+                                {PAYMENT_META[sub.payment_status].label}
+                              </span>
+                            )}
+
+                            <div className="flex flex-wrap gap-1.5" onClick={e => e.stopPropagation()}>
+                              {sub.status !== 'approved' && (
+                                <button onClick={() => changeStatus(sub, 'approved')}
+                                  className="h-7 px-2.5 rounded-lg bg-[#22C55E]/15 text-[#22C55E] text-xs font-semibold hover:bg-[#22C55E]/25 transition-colors">
+                                  Approve ✓
+                                </button>
+                              )}
+                              {sub.status === 'approved' && sub.payment_status === 'not_charged' && (
+                                <button onClick={() => changePaymentStatus(sub, 'first_contact')}
+                                  className="h-7 px-2.5 rounded-lg bg-[#F5C842]/15 text-[#F5C842] text-xs font-semibold hover:bg-[#F5C842]/25 transition-colors">
+                                  First contact sent
+                                </button>
+                              )}
+                              {sub.status !== 'rejected' && (
+                                <button onClick={() => changeStatus(sub, 'rejected')}
+                                  className="h-7 px-2.5 rounded-lg border border-red-500/20 text-red-400/60 text-xs hover:text-red-400 hover:border-red-500/50 transition-colors">
+                                  Reject
+                                </button>
+                              )}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             ) : (
               <div className="bg-[#0C140C] border border-[#182B18] rounded-2xl overflow-hidden">
