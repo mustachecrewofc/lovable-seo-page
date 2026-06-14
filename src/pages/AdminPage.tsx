@@ -360,6 +360,13 @@ export default function AdminPage() {
     if (data) updateLocal(data as Submission);
   }
 
+  async function approveAndMarkFirstContact(sub: Submission) {
+    const update: Partial<Submission> = { status: 'approved', payment_status: 'first_contact' };
+    if (!sub.payment_requested_at) update.payment_requested_at = new Date().toISOString();
+    const { data } = await supabase.from('submissions').update(update).eq('id', sub.id).select().single();
+    if (data) updateLocal(data as Submission);
+  }
+
   async function deleteSub(sub: Submission) {
     await supabase.from('submissions').delete().eq('id', sub.id);
     setSubs(prev => prev.filter(s => s.id !== sub.id));
@@ -383,12 +390,12 @@ export default function AdminPage() {
   const filtered = statusFilter === 'all' ? subs : subs.filter(s => s.status === statusFilter);
 
   // Payment metrics
-  const pmNot = subs.filter(s => s.payment_status === 'not_charged').length;
-  const pmFirstContact = subs.filter(s => s.payment_status === 'first_contact').length;
-  const pmRecall = subs.filter(s => s.payment_status === 'recall').length;
-  const pmDeclined = subs.filter(s => s.payment_status === 'declined').length;
-  const pmPaid = subs.filter(s => s.payment_status === 'paid').length;
   const approvedSubs = subs.filter(s => s.status === 'approved');
+  const pmNot = approvedSubs.filter(s => s.payment_status === 'not_charged').length;
+  const pmFirstContact = approvedSubs.filter(s => s.payment_status === 'first_contact').length;
+  const pmRecall = approvedSubs.filter(s => s.payment_status === 'recall').length;
+  const pmDeclined = approvedSubs.filter(s => s.payment_status === 'declined').length;
+  const pmPaid = approvedSubs.filter(s => s.payment_status === 'paid').length;
 
   return (
     <div className="min-h-screen bg-[#060A06] text-[#F0EDE6]">
@@ -526,11 +533,15 @@ export default function AdminPage() {
                               className="h-7 px-2.5 flex items-center rounded-lg border border-[#182B18] text-[#728A72] text-xs hover:text-[#F0EDE6] transition-colors">
                               Details
                             </button>
-                            {sub.status === 'approved' && sub.payment_status === 'not_charged' && (
-                              <button onClick={() => changePaymentStatus(sub, 'first_contact')}
-                                className="h-7 px-2.5 flex items-center rounded-lg bg-[#F5C842]/15 text-[#F5C842] text-xs font-semibold hover:bg-[#F5C842]/25 transition-colors">
-                                1st Contact Sent
+                            {sub.payment_status === 'not_charged' ? (
+                              <button onClick={() => approveAndMarkFirstContact(sub)}
+                                className="h-7 px-2.5 flex items-center rounded-lg bg-[#F5C842]/15 text-[#F5C842] text-xs font-semibold hover:bg-[#F5C842]/25 transition-colors whitespace-nowrap">
+                                Approve + 1st Contact
                               </button>
+                            ) : (
+                              <span className="h-7 px-2.5 flex items-center rounded-lg border border-[#182B18] text-[#728A72] text-xs whitespace-nowrap">
+                                {PAYMENT_META[sub.payment_status].label}
+                              </span>
                             )}
                             <button onClick={() => setDeleteConfirm(sub)}
                               className="h-7 px-2.5 flex items-center rounded-lg border border-red-500/20 text-red-400/60 text-xs hover:text-red-400 hover:border-red-500/50 transition-colors">
