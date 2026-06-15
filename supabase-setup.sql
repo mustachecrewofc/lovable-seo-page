@@ -40,6 +40,9 @@ create table public.submissions (
   next_action_at timestamptz,
   next_action_note text,
 
+  -- Decline reason
+  decline_reason text,
+
   created_at timestamptz default now(),
   updated_at timestamptz default now()
 );

@@ -251,6 +251,7 @@ function PaymentModal({ sub, onClose, onUpdate }: {
   const [amount, setAmount] = useState(String(sub.payment_amount || '299'));
   const [nextActionAt, setNextActionAt] = useState(sub.next_action_at ? sub.next_action_at.slice(0, 10) : '');
   const [nextActionNote, setNextActionNote] = useState(sub.next_action_note || '');
+  const [declineReason, setDeclineReason] = useState(sub.decline_reason || '');
   const [saving, setSaving] = useState(false);
 
   async function save() {
@@ -262,6 +263,7 @@ function PaymentModal({ sub, onClose, onUpdate }: {
       payment_amount: parseFloat(amount) || null,
       next_action_at: nextActionAt ? new Date(nextActionAt).toISOString() : null,
       next_action_note: nextActionNote || null,
+      decline_reason: declineReason || null,
     }).eq('id', sub.id).select().single();
     setSaving(false);
     if (error) { console.error(error); alert(`Failed to save: ${error.message}`); return; }
@@ -313,6 +315,13 @@ function PaymentModal({ sub, onClose, onUpdate }: {
               <input className={inputCls} placeholder="e.g. Call again, send reminder" value={nextActionNote} onChange={e => setNextActionNote(e.target.value)} />
             </div>
           </div>
+          {sub.payment_status === 'declined' && (
+            <div>
+              <label className="text-xs font-bold uppercase tracking-[1px] text-red-400 mb-1.5 block">Why did they decline?</label>
+              <textarea className={`${inputCls} resize-none`} rows={2} placeholder="e.g. Too expensive, bad timing, no budget..."
+                value={declineReason} onChange={e => setDeclineReason(e.target.value)} />
+            </div>
+          )}
           <div className="flex items-center gap-3 pt-2">
             <button onClick={save} disabled={saving}
               className="h-10 px-5 rounded-full bg-[#F5C842] text-[#060612] text-sm font-bold hover:bg-[#FFD75A] disabled:opacity-60 transition-colors">
@@ -685,6 +694,10 @@ export default function AdminPage() {
                               <p className="text-xs font-mono text-[#F0EDE6] mb-2">€{sub.payment_amount}</p>
                             ) : null}
 
+                            {sub.payment_status === 'declined' && sub.decline_reason && (
+                              <p className="text-xs text-red-400/70 italic mb-2">"{sub.decline_reason}"</p>
+                            )}
+
                             <div className="flex flex-wrap gap-1.5 mb-2">
                               {sub.payment_requested_at && !['paid', 'declined'].includes(sub.payment_status) && (() => {
                                 const d = daysAgo(sub.payment_requested_at);
@@ -713,7 +726,11 @@ export default function AdminPage() {
                             <div onClick={e => e.stopPropagation()}>
                               <select
                                 value={sub.payment_status}
-                                onChange={e => changePaymentStatus(sub, e.target.value as PaymentStatus)}
+                                onChange={async e => {
+                                  const newStatus = e.target.value as PaymentStatus;
+                                  await changePaymentStatus(sub, newStatus);
+                                  if (newStatus === 'declined') setPaymentSub({ ...sub, payment_status: newStatus });
+                                }}
                                 className="w-full bg-[#060A06] border border-[#182B18] rounded-lg px-2 py-1.5 text-xs font-semibold focus:outline-none focus:border-[#22C55E] cursor-pointer"
                                 style={{ color: PAYMENT_META[sub.payment_status].color }}
                               >

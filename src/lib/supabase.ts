@@ -42,6 +42,7 @@ export interface Submission {
   payment_amount?: number;
   next_action_at?: string;
   next_action_note?: string;
+  decline_reason?: string;
   created_at: string;
   updated_at: string;
 }
