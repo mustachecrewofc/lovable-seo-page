@@ -36,6 +36,10 @@ create table public.submissions (
   payment_notes text,
   payment_amount numeric,
 
+  -- Follow-up scheduling
+  next_action_at timestamptz,
+  next_action_note text,
+
   created_at timestamptz default now(),
   updated_at timestamptz default now()
 );

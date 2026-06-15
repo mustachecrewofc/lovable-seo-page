@@ -86,6 +86,16 @@ function StatusBadge({ status }: { status: SubmissionStatus }) {
 
 const inputCls = 'w-full bg-[#060A06] border border-[#182B18] rounded-xl px-3 py-2.5 text-sm text-[#F0EDE6] placeholder:text-[#728A72] focus:outline-none focus:border-[#22C55E] transition-colors';
 
+function daysAgo(iso: string): number {
+  return Math.floor((Date.now() - new Date(iso).getTime()) / 86400000);
+}
+
+function startOfToday(): number {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  return d.getTime();
+}
+
 // ─── Submission detail modal ──────────────────────────────────────────────────
 
 function SubmissionModal({ sub, onClose, onUpdate, onDelete }: {
@@ -239,17 +249,22 @@ function PaymentModal({ sub, onClose, onUpdate }: {
   const [link, setLink] = useState(sub.payment_link || '');
   const [notes, setNotes] = useState(sub.payment_notes || '');
   const [amount, setAmount] = useState(String(sub.payment_amount || '299'));
+  const [nextActionAt, setNextActionAt] = useState(sub.next_action_at ? sub.next_action_at.slice(0, 10) : '');
+  const [nextActionNote, setNextActionNote] = useState(sub.next_action_note || '');
   const [saving, setSaving] = useState(false);
 
   async function save() {
     setSaving(true);
-    const { data } = await supabase.from('submissions').update({
+    const { data, error } = await supabase.from('submissions').update({
       payment_method: method || null,
       payment_link: link || null,
       payment_notes: notes || null,
       payment_amount: parseFloat(amount) || null,
+      next_action_at: nextActionAt ? new Date(nextActionAt).toISOString() : null,
+      next_action_note: nextActionNote || null,
     }).eq('id', sub.id).select().single();
     setSaving(false);
+    if (error) { console.error(error); alert(`Failed to save: ${error.message}`); return; }
     if (data) onUpdate(data as Submission);
   }
 
@@ -288,6 +303,16 @@ function PaymentModal({ sub, onClose, onUpdate }: {
             <label className="text-xs font-bold uppercase tracking-[1px] text-[#728A72] mb-1.5 block">Notes</label>
             <textarea className={`${inputCls} resize-none`} rows={2} value={notes} onChange={e => setNotes(e.target.value)} />
           </div>
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="text-xs font-bold uppercase tracking-[1px] text-[#728A72] mb-1.5 block">Next action date</label>
+              <input className={inputCls} type="date" value={nextActionAt} onChange={e => setNextActionAt(e.target.value)} />
+            </div>
+            <div>
+              <label className="text-xs font-bold uppercase tracking-[1px] text-[#728A72] mb-1.5 block">Next action note</label>
+              <input className={inputCls} placeholder="e.g. Call again, send reminder" value={nextActionNote} onChange={e => setNextActionNote(e.target.value)} />
+            </div>
+          </div>
           <div className="flex items-center gap-3 pt-2">
             <button onClick={save} disabled={saving}
               className="h-10 px-5 rounded-full bg-[#F5C842] text-[#060612] text-sm font-bold hover:bg-[#FFD75A] disabled:opacity-60 transition-colors">
@@ -301,7 +326,12 @@ function PaymentModal({ sub, onClose, onUpdate }: {
           <div className="bg-[#060A06] rounded-xl px-4 py-3 space-y-1.5 text-xs">
             <p className="text-[#728A72]">Email: <span className="text-[#F0EDE6]">{sub.email}</span></p>
             <p className="text-[#728A72]">Track: <span className="text-[#F0EDE6]">{sub.track_name}</span></p>
-            {sub.payment_requested_at && <p className="text-[#728A72]">First contact sent: <span className="text-[#F0EDE6]">{new Date(sub.payment_requested_at).toLocaleString()}</span></p>}
+            {sub.payment_requested_at && (
+              <p className="text-[#728A72]">
+                First contact sent: <span className="text-[#F0EDE6]">{new Date(sub.payment_requested_at).toLocaleString()}</span>
+                {' '}<span className="text-[#728A72]">({daysAgo(sub.payment_requested_at)}d ago)</span>
+              </p>
+            )}
             {sub.payment_paid_at && <p className="text-[#728A72]">Paid: <span className="text-[#22C55E]">{new Date(sub.payment_paid_at).toLocaleString()}</span></p>}
           </div>
         </div>
@@ -407,6 +437,9 @@ export default function AdminPage() {
   const pmRecall = approvedSubs.filter(s => s.payment_status === 'recall').length;
   const pmDeclined = approvedSubs.filter(s => s.payment_status === 'declined').length;
   const pmPaid = approvedSubs.filter(s => s.payment_status === 'paid').length;
+  const dueToday = approvedSubs
+    .filter(s => s.next_action_at && new Date(s.next_action_at).getTime() <= Date.now())
+    .sort((a, b) => new Date(a.next_action_at!).getTime() - new Date(b.next_action_at!).getTime());
 
   return (
     <div className="min-h-screen bg-[#060A06] text-[#F0EDE6]">
@@ -589,6 +622,37 @@ export default function AdminPage() {
               ))}
             </div>
 
+            {/* Today's follow-ups */}
+            {dueToday.length > 0 && (
+              <div className="mb-6 bg-[#0C140C] border border-[#F5C842]/30 rounded-2xl p-4">
+                <p className="text-xs font-bold uppercase tracking-[1px] text-[#F5C842] mb-3">
+                  📋 Follow-ups due ({dueToday.length})
+                </p>
+                <div className="flex flex-col gap-2">
+                  {dueToday.map(sub => {
+                    const overdue = new Date(sub.next_action_at!).getTime() < startOfToday();
+                    return (
+                      <div key={sub.id}
+                        className="flex items-center justify-between gap-3 bg-[#060A06] rounded-xl px-3 py-2 cursor-pointer hover:border-[#728A72] border border-[#182B18] transition-colors"
+                        onClick={() => setPaymentSub(sub)}
+                      >
+                        <div className="flex items-center gap-2 min-w-0">
+                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full flex-shrink-0 ${overdue ? 'bg-red-500/15 text-red-400' : 'bg-[#F5C842]/15 text-[#F5C842]'}`}>
+                            {overdue ? 'Overdue' : 'Today'}
+                          </span>
+                          <p className="font-semibold text-sm text-[#F0EDE6] truncate">{sub.artist_name}</p>
+                          <p className="text-xs text-[#728A72] truncate">{sub.next_action_note}</p>
+                        </div>
+                        <span className="text-xs flex-shrink-0" style={{ color: PAYMENT_META[sub.payment_status].color }}>
+                          {PAYMENT_META[sub.payment_status].label}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
             {approvedSubs.length === 0 ? (
               <div className="text-center py-16 text-[#728A72]">
                 <p className="text-4xl mb-3">💳</p>
@@ -620,6 +684,31 @@ export default function AdminPage() {
                             {sub.payment_amount ? (
                               <p className="text-xs font-mono text-[#F0EDE6] mb-2">€{sub.payment_amount}</p>
                             ) : null}
+
+                            <div className="flex flex-wrap gap-1.5 mb-2">
+                              {sub.payment_requested_at && !['paid', 'declined'].includes(sub.payment_status) && (() => {
+                                const d = daysAgo(sub.payment_requested_at);
+                                const stale = d >= 3;
+                                return (
+                                  <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${stale ? 'bg-red-500/15 text-red-400' : 'bg-[#182B18] text-[#728A72]'}`}>
+                                    {d === 0 ? 'Contacted today' : `${d}d since contact`}
+                                  </span>
+                                );
+                              })()}
+                              {sub.next_action_at && (() => {
+                                const due = new Date(sub.next_action_at).getTime();
+                                const today = startOfToday();
+                                const overdue = due < today;
+                                const isToday = due === today;
+                                return (
+                                  <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                                    overdue ? 'bg-red-500/15 text-red-400' : isToday ? 'bg-[#F5C842]/15 text-[#F5C842]' : 'bg-[#182B18] text-[#728A72]'
+                                  }`}>
+                                    {overdue ? '⚠ ' : ''}{new Date(sub.next_action_at).toLocaleDateString('en-GB')}{sub.next_action_note ? `: ${sub.next_action_note}` : ''}
+                                  </span>
+                                );
+                              })()}
+                            </div>
 
                             <div onClick={e => e.stopPropagation()}>
                               <select

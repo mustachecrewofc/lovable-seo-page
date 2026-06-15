@@ -40,6 +40,8 @@ export interface Submission {
   payment_link?: string;
   payment_notes?: string;
   payment_amount?: number;
+  next_action_at?: string;
+  next_action_note?: string;
   created_at: string;
   updated_at: string;
 }
