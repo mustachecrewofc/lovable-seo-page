@@ -96,6 +96,65 @@ function startOfToday(): number {
   return d.getTime();
 }
 
+// ─── Saved reply templates ─────────────────────────────────────────────────────
+
+const MESSAGE_TEMPLATES: { key: string; label: string; build: (sub: Submission) => string }[] = [
+  {
+    key: 'first_contact',
+    label: 'First Contact / Approval',
+    build: () => `Hi Artist,
+
+We really enjoyed your track and feel it would be a great fit for our upcoming VA compilation.
+Like many producers, I'm sure one of your goals is to eventually reach the Beatport Top 100, so I wanted to quickly recap how this project works in case you'd like to move forward. This release is a coordinated effort. Everyone involved needs to do their part to maximize the results for the entire compilation.
+
+Here's how it works:
+We'll release your track as part of the VA on Beatport, while also distributing it as an individual release to Spotify and other streaming platforms. This means you'll still be able to pitch your track directly through Spotify for Artists as usual. On release day, every participating artist is required to purchase the full album, which contains 30 tracks.
+
+During release week, we'll create a Telegram group where all artists can communicate, receive updates, exchange information, and network with each other. We'll provide all promotional artwork and assets needed for the campaign.
+
+The compilation will also receive coverage through EDM Army, including an article on EDMArmy.com.
+On release day, we'll send an email campaign to more than 2,000 artists from our existing network who have previously released with us.
+Your individual track will also be reposted across our SoundCloud network, reaching over 1 million followers.
+
+When everyone executes the plan correctly, the compilation is projected to generate around 900 sales on day one. That's typically enough to place the release inside the Top 10 of several Beatport genres, creating visibility that can lead to additional organic sales and discovery.
+
+The hardest part on Beatport isn't making great music, it's getting noticed. There are thousands of incredible tracks released every week, but very few get the opportunity to appear in front of buyers and DJs at scale.
+
+The participation fee for this campaign is $150 USD, payable via PayPal.
+
+At the moment, 12 spots have already been filled. Availability is intentionally limited because, to be honest, I've never really seen another label organize this type of coordinated campaign. It's a unique opportunity for artists who want visibility, not just another release sitting in a catalog.
+
+Do you think this makes sense for you?
+
+We'd love to have you involved and move forward with your release if you're interested.
+
+Looking forward to hearing your thoughts.`,
+  },
+  {
+    key: 'recall',
+    label: 'Recall',
+    build: () => `Hi Artist,
+
+Hope you're doing well!
+
+I need your confirmation regarding your participation in the VA World Cup, as we're already closing the final spots.
+
+To secure your participation and continue with the next steps, please complete the registration here:
+
+https://labelsyst3m.com/f/9p9cmrvi
+
+Please make sure to select VA World Cup during the registration.
+
+Let me know once it's done!
+
+Best,`,
+  },
+];
+
+async function copyToClipboard(text: string) {
+  await navigator.clipboard.writeText(text);
+}
+
 // ─── Submission detail modal ──────────────────────────────────────────────────
 
 function SubmissionModal({ sub, onClose, onUpdate, onDelete }: {
@@ -253,6 +312,13 @@ function PaymentModal({ sub, onClose, onUpdate }: {
   const [nextActionNote, setNextActionNote] = useState(sub.next_action_note || '');
   const [declineReason, setDeclineReason] = useState(sub.decline_reason || '');
   const [saving, setSaving] = useState(false);
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
+
+  async function handleCopy(key: string, text: string) {
+    await copyToClipboard(text);
+    setCopiedKey(key);
+    setTimeout(() => setCopiedKey(null), 1500);
+  }
 
   async function save() {
     setSaving(true);
@@ -286,6 +352,21 @@ function PaymentModal({ sub, onClose, onUpdate }: {
             <span className="text-xs font-semibold px-2.5 py-1 rounded-full" style={{ color: PAYMENT_META[sub.payment_status].color, background: `${PAYMENT_META[sub.payment_status].color}15` }}>
               {PAYMENT_META[sub.payment_status].label}
             </span>
+          </div>
+          <div>
+            <label className="text-xs font-bold uppercase tracking-[1px] text-[#728A72] mb-1.5 block">Saved replies</label>
+            <div className="flex flex-wrap gap-2">
+              {MESSAGE_TEMPLATES.map(t => (
+                <button key={t.key} type="button" onClick={() => handleCopy(t.key, t.build(sub))}
+                  className={`h-9 px-3.5 rounded-full border text-xs font-semibold transition-colors cursor-pointer ${
+                    copiedKey === t.key
+                      ? 'bg-[#22C55E]/15 border-[#22C55E] text-[#22C55E]'
+                      : 'border-[#182B18] text-[#728A72] hover:text-[#F0EDE6] hover:border-[#728A72]'
+                  }`}>
+                  {copiedKey === t.key ? 'Copied ✓' : `Copy ${t.label}`}
+                </button>
+              ))}
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
