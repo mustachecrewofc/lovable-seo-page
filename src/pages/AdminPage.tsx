@@ -864,8 +864,10 @@ export default function AdminPage() {
                             )}
 
                             <div className="flex flex-wrap gap-1.5 mb-2">
-                              {sub.payment_status === 'recall' && sub.last_recall_at && (() => {
-                                const d = daysAgo(sub.last_recall_at);
+                              {sub.payment_status === 'recall' && (() => {
+                                const dateRef = sub.last_recall_at || sub.payment_requested_at;
+                                if (!dateRef) return null;
+                                const d = daysAgo(dateRef);
                                 const count = sub.recall_count || 1;
                                 const stale = d >= 3;
                                 return (
