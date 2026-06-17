@@ -573,6 +573,15 @@ export default function AdminPage() {
     if (data) updateLocal(data as Submission);
   }
 
+  async function setRecallCount(sub: Submission, count: number) {
+    const { data, error } = await supabase.from('submissions').update({
+      recall_count: count,
+      last_recall_at: new Date().toISOString(),
+    }).eq('id', sub.id).select().single();
+    if (error) { console.error(error); alert(`Failed to update recall: ${error.message}`); return; }
+    if (data) updateLocal(data as Submission);
+  }
+
   async function approveAndMarkFirstContact(sub: Submission) {
     const update: Partial<Submission> = { status: 'approved', payment_status: 'first_contact' };
     if (!sub.payment_requested_at) update.payment_requested_at = new Date().toISOString();
@@ -900,7 +909,7 @@ export default function AdminPage() {
                               })()}
                             </div>
 
-                            <div onClick={e => e.stopPropagation()}>
+                            <div onClick={e => e.stopPropagation()} className="flex flex-col gap-1.5">
                               <select
                                 value={sub.payment_status}
                                 onChange={async e => {
@@ -917,6 +926,21 @@ export default function AdminPage() {
                                   </option>
                                 ))}
                               </select>
+                              {sub.payment_status === 'recall' && (
+                                <div className="flex gap-1">
+                                  {[1, 2, 3, 4, 5].map(n => (
+                                    <button key={n} type="button"
+                                      onClick={() => setRecallCount(sub, n)}
+                                      className={`flex-1 h-6 rounded text-[10px] font-bold transition-colors cursor-pointer ${
+                                        (sub.recall_count || 1) === n
+                                          ? 'bg-[#3B82F6]/25 border border-[#3B82F6] text-[#3B82F6]'
+                                          : 'bg-[#060A06] border border-[#182B18] text-[#728A72] hover:border-[#3B82F6] hover:text-[#3B82F6]'
+                                      }`}>
+                                      #{n}
+                                    </button>
+                                  ))}
+                                </div>
+                              )}
                             </div>
                           </div>
                         ))}
